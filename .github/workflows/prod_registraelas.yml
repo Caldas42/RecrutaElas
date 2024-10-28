@@ -30,7 +30,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          npm ci
           cd ..
 
       - name: Run local server
