@@ -20,7 +20,7 @@ https://github.com/user-attachments/assets/992868c6-1de6-4111-9749-83ff5b0e3f30
 
 Nenhum problema ou bug durante o processo.
 
-## Link do Sistema
+## [Link do Sistema](https://registraelas.azurewebsites.net)
 
 ## Screencast do Uso do Sistema
 
