@@ -103,3 +103,21 @@ tr:nth-child(odd) {
     color: white;
     text-align: center;
 }
+#lapis {
+    color: red !important;
+}
+.delete-btn {
+    background-color: #e74c3c; /* Vermelho */
+    color: white; /* Texto branco */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 15px; /* Espaçamento interno */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    font-size: 16px; /* Aumenta o tamanho da fonte */
+    transition: background-color 0.3s, transform 0.2s; /* Efeitos de transição */
+}
+
+.delete-btn:hover {
+    background-color: #c0392b; /* Vermelho mais escuro ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o botão ao passar o mouse */
+}

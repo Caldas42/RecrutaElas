@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: 'Afacad', sans-serif; /* Fonte definida */
+    background-color: rgb(197, 197, 219); /* Cor de fundo da página */
+}
+
+#cadastro-estilo {
+    color: white;
+    text-align: center;
+}
+
+header input {
+    padding: 5px;
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+}
+
+header .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+header .user-info span:first-child {
+    font-weight: bold;
+}
+
+nav {
+    background-color: #000000; /* Cor de fundo da barra de navegação */
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #FFF; /* Cor do texto dos links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #7bdb89; /* Cor do texto ao passar o mouse */
+}
+
+.container {
+    max-width: 800px; /* Largura máxima do conteúdo */
+    margin: 20px auto; /* Margens automáticas para centralização */
+    padding: 20px; /* Preenchimento interno */
+    background-color: rgb(10, 29, 46); /* Cor de fundo da área do formulário */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para o efeito de elevação */
+}
+
+table {
+    width: 100%; /* Largura total da tabela */
+    border-collapse: collapse; /* Remove o espaço entre as bordas das células */
+    margin-top: 20px; /* Espaçamento acima da tabela */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Borda das células */
+    padding: 12px; /* Espaçamento interno das células */
+    text-align: center; /* Alinhamento do texto ao centro */
+}
+
+th {
+    background-color: rgb(146, 50, 50); /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto do cabeçalho */
+}
+
+tr:nth-child(even) {
+    background-color: #bac3eb; /* Cor de fundo para linhas pares */
+}
+
+tr:nth-child(odd) {
+    background-color: #8ba2c2; /* Cor de fundo para linhas ímpares */
+}
+
+label {
+    color: rgb(0, 0, 0); /* Cor do texto do label */
+    display: block; /* Exibe o label como bloco para ocupar toda a largura da célula */
+    font-weight: bold;
+    font-size: 120%;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 80%; /* Largura dos inputs ajustada */
+    padding: 10px; /* Preenchimento interno */
+    border: 1px solid #ddd; /* Borda do input */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 20px; /* Espaçamento abaixo de cada input */
+    background-color: rgb(255, 255, 255); /* Cor de fundo dos inputs */
+    display: block; /* Exibe o input como bloco */
+    margin-left: auto; /* Margem esquerda automática para centralização */
+    margin-right: auto; /* Margem direita automática para centralização */
+}
+
+input[type="submit"] {
+    padding: 10px; /* Preenchimento interno do botão */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: rgb(146, 50, 50); /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto do botão */
+    cursor: pointer; /* Altera o cursor ao passar sobre o botão */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+input[type="submit"]:hover {
+    background-color: #7bdb89; /* Cor do botão ao passar o mouse */
+}
+
+.botaoForm {
+    text-align: center; /* Centraliza o botão */
+    margin-top: 20px; /* Espaçamento acima do botão */
+}
+
+@font-face {
+    font-family: 'Afacad';
+    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
+}

@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .models import cadastros
 
@@ -41,3 +41,29 @@ class VisualizarCadastroView(View):
         ctx = {'cadastro':cadastros.objects.filter(id=id).first()}
 
         return render (request, 'visualizar_cadastro.html', ctx)
+    
+class DeletarCadastroView(View):
+    def post(self, request, id):
+        Cadastro = get_object_or_404(cadastros, id=id)
+        Cadastro.delete()
+        return redirect('aplicacao:home')
+    
+class EditarCadastroView(View):
+    def get(self, request, id):
+        cadastro_obj = get_object_or_404(cadastros, id=id)
+        return render(request, 'editar.html', {'cadastro': cadastro_obj})
+
+    def post(self, request, id):
+        cadastro_obj = get_object_or_404(cadastros, id=id)
+        cadastro_obj.nome = request.POST.get('formNome')
+        cadastro_obj.idade = request.POST.get('formIdade')
+        cadastro_obj.cpf = request.POST.get('formCpf')
+        cadastro_obj.celular = request.POST.get('formCelular')
+        cadastro_obj.cep = request.POST.get('formCep')
+        cadastro_obj.cidade = request.POST.get('formCidade')
+        cadastro_obj.bairro = request.POST.get('formBairro')
+        cadastro_obj.rua = request.POST.get('formRua')
+        cadastro_obj.numero = request.POST.get('formNumero')
+        cadastro_obj.complemento = request.POST.get('formComplemento')
+        cadastro_obj.save()
+        return redirect('aplicacao:visualizar_cadastros', id=cadastro_obj.id)
