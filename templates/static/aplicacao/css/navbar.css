@@ -1,9 +1,10 @@
 .headerNavbar{
     background-color: rgb(32, 68, 99);
-    text-align: center;
     color: rgb(203, 209, 241);
     padding: 2%;
     font-family: Afacad;
+    align-items: center;
+    text-align: center;
 }
 
 .headerNavbar a {
@@ -14,8 +15,10 @@
 #listaURLS{
     display: flex;
     flex-direction: row;
-    align-items: center;
     margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 * {
