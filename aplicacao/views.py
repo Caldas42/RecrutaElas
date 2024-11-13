@@ -67,3 +67,7 @@ class EditarCadastroView(View):
         cadastro_obj.complemento = request.POST.get('formComplemento')
         cadastro_obj.save()
         return redirect('aplicacao:visualizar_cadastros', id=cadastro_obj.id)
+
+class GerenciarSkillsView(View):
+    def get(self, request, id):
+        return render(request, 'gerenciar_skills.html')
