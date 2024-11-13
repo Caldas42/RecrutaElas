@@ -20,6 +20,7 @@ class CadastrarView(View):
     def post(self, request):
 
         if request.method == "POST":
+
             nome = request.POST.get('formNome')
             idade = request.POST.get('formIdade')
             cpf = request.POST.get('formCpf')
@@ -31,7 +32,11 @@ class CadastrarView(View):
             numero = request.POST.get('formNumero')
             complemento = request.POST.get('formComplemento')
 
-            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento)
+            skillCostura = request.POST.get('nameSkillCostura') == 'on'
+            skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
+            skillPintura = request.POST.get('nameSkillPintura') == 'on'
+
+            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura)
 
             cadastro.save()
 
@@ -50,11 +55,14 @@ class DeletarCadastroView(View):
         return redirect('aplicacao:home')
     
 class EditarCadastroView(View):
+
     def get(self, request, id):
+        
         cadastro_obj = get_object_or_404(Cadastros, id=id)
         return render(request, 'editar.html', {'cadastro': cadastro_obj})
 
     def post(self, request, id):
+
         cadastro_obj = get_object_or_404(Cadastros, id=id)
         cadastro_obj.nome = request.POST.get('formNome')
         cadastro_obj.idade = request.POST.get('formIdade')
@@ -66,7 +74,11 @@ class EditarCadastroView(View):
         cadastro_obj.rua = request.POST.get('formRua')
         cadastro_obj.numero = request.POST.get('formNumero')
         cadastro_obj.complemento = request.POST.get('formComplemento')
-        
+
+        cadastro_obj.skillCostura = request.POST.get('nameSkillCostura') == 'on'
+        cadastro_obj.skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
+        cadastro_obj.skillPintura = request.POST.get('nameSkillPintura') == 'on'
+
         cadastro_obj.save()
 
         return redirect('aplicacao:visualizar_cadastros', id=cadastro_obj.id)
@@ -74,3 +86,13 @@ class EditarCadastroView(View):
 class GerenciarSkillsView(View):
     def get(self, request, id):
         return render(request, 'gerenciar_skills.html')
+    
+    def post(self, request, id):
+        skillSelecionada = request.GET('nameSelectBox')
+
+        if skillSelecionada:
+            cadastros_filtrados = Cadastros.objects.filter(**{skillSelecionada: True})
+        else:
+            cadastros_filtrados = Cadastros.objects.all()
+
+        return render(request, 'gerenciar_skills.html', {'cadastrosFiltrados': cadastros_filtrados})

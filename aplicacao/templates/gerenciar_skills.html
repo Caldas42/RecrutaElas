@@ -11,5 +11,28 @@
     {% include 'navbar.html' %}
 
     <h1>Gerenciar Skills</h1>
+
+    <form method="get">
+
+        <label for>Selecione uma habilidade:</label>
+
+        <select name="nameSelectBox" id="selectBox">
+            <option value="">Selecione aqui</option>
+            <option value="valueCostura">Costura</option>
+            <option value="valuePintura">Pintura</option>
+            <option value="valueGerenciamento">Gerenciamento</option>
+        </select>
+
+        <button type="submit">Filtrar</button>
+
+    </form>
+
+    <ul>
+        {% for cadastro in cadastrosFiltrados %}
+            <li>{{cadastro.nome}} - {{cadastro.celular}}</li>
+        {% empty %}
+            <h1>Nenhum cadastro com essa habilidade!</h1>
+        {% endfor %}
+    </ul>
 </body>
 </html>

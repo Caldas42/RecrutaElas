@@ -13,3 +13,7 @@ class Cadastros(models.Model):
     rua = models.CharField(max_length=150, default="Rua não informada")
     numero = models.IntegerField(default=0)
     complemento = models.CharField(max_length=50, default="Complemento não informado")
+
+    skillCostura = models.BooleanField(default=False)
+    skillGerenciamento = models.BooleanField(default=False)
+    skillPintura = models.BooleanField(default=False)
