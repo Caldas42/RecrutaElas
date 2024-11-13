@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class cadastros(models.Model):
+class Cadastros(models.Model):
     nome = models.CharField(max_length=150)
     idade = models.IntegerField(default=0)
     cpf = models.CharField(max_length=14, default="")
