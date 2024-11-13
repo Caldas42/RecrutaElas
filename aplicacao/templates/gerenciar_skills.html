@@ -12,20 +12,23 @@
 
     <h1>Gerenciar Skills</h1>
 
-    <form method="get">
+    <form method="post">
+
+        {% csrf_token %}
 
         <label for>Selecione uma habilidade:</label>
 
         <select name="nameSelectBox" id="selectBox">
-            <option value="">Selecione aqui</option>
-            <option value="valueCostura">Costura</option>
-            <option value="valuePintura">Pintura</option>
-            <option value="valueGerenciamento">Gerenciamento</option>
+            <option value="skillCostura">Costura</option>
+            <option value="skillPintura">Pintura</option>
+            <option value="skillGerenciamento">Gerenciamento</option>
         </select>
 
         <button type="submit">Filtrar</button>
 
     </form>
+
+    <br>
 
     <ul>
         {% for cadastro in cadastrosFiltrados %}

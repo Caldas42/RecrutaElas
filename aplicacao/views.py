@@ -88,7 +88,7 @@ class GerenciarSkillsView(View):
         return render(request, 'gerenciar_skills.html')
     
     def post(self, request):
-        skillSelecionada = request.GET('nameSelectBox')
+        skillSelecionada = request.POST.get('nameSelectBox')
 
         if skillSelecionada:
             cadastros_filtrados = Cadastros.objects.filter(**{skillSelecionada: True})
