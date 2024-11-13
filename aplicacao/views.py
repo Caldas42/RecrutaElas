@@ -57,7 +57,7 @@ class DeletarCadastroView(View):
 class EditarCadastroView(View):
 
     def get(self, request, id):
-        
+
         cadastro_obj = get_object_or_404(Cadastros, id=id)
         return render(request, 'editar.html', {'cadastro': cadastro_obj})
 
@@ -84,10 +84,10 @@ class EditarCadastroView(View):
         return redirect('aplicacao:visualizar_cadastros', id=cadastro_obj.id)
 
 class GerenciarSkillsView(View):
-    def get(self, request, id):
+    def get(self, request):
         return render(request, 'gerenciar_skills.html')
     
-    def post(self, request, id):
+    def post(self, request):
         skillSelecionada = request.GET('nameSelectBox')
 
         if skillSelecionada:
