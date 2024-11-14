@@ -10,7 +10,7 @@
 <body>
     {% include 'navbar.html' %}
 
-    <h1>Gerenciar Skills</h1>
+    <h1 id="tituloSkills">Gerenciar Skills</h1>
 
     <form method="post">
 
@@ -32,7 +32,7 @@
 
     <ul>
         {% for cadastro in cadastrosFiltrados %}
-        
+
             <a href="{% url 'aplicacao:visualizar_cadastros' cadastro.id %}">
                 <div class="cadastro-card">
                     <h2>{{cadastro.nome}}</h2>
@@ -40,8 +40,11 @@
             </a>
 
         {% empty %}
+
             <h1>Nenhum cadastro com essa habilidade!</h1>
+        
         {% endfor %}
+
     </ul>
 </body>
 </html>
