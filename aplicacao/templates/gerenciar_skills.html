@@ -32,7 +32,13 @@
 
     <ul>
         {% for cadastro in cadastrosFiltrados %}
-            <li>{{cadastro.nome}} - {{cadastro.celular}}</li>
+        
+            <a href="{% url 'aplicacao:visualizar_cadastros' cadastro.id %}">
+                <div class="cadastro-card">
+                    <h2>{{cadastro.nome}}</h2>
+                </div>
+            </a>
+
         {% empty %}
             <h1>Nenhum cadastro com essa habilidade!</h1>
         {% endfor %}
