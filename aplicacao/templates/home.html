@@ -14,17 +14,26 @@
 
     <h1 id="tituloCadastros">Cadastros</h1>
 
-    <div class = "lista-de-cadastros">
+    <div class="lista-de-cadastros">
+        <!-- Cartão Novo Cadastro -->
         <a href="{% url 'aplicacao:cadastrar' %}">
             <div class="novo-cadastro-card">
                 <h2>Novo Cadastro</h2>
             </div>
         </a>
 
+        <!-- Cartão Adicionar Comentário -->
+        <a href="{% url 'aplicacao:adicionar_comentario' %}">
+            <div class="adicionar-comentario-card">
+                <h2>Adicionar Comentário</h2>
+            </div>
+        </a>
+
+        <!-- Exibindo os cadastros existentes -->
         {% for cadastros in todos_cadastros %}
         <a href="{% url 'aplicacao:visualizar_cadastros' cadastros.id %}">
             <div class="cadastro-card">
-                <h2>{{cadastros.nome}}</h2>
+                <h2>{{ cadastros.nome }}</h2>
             </div>
         </a>
         {% endfor %}

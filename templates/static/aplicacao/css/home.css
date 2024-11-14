@@ -16,6 +16,7 @@ body {
     gap: 20px;
 }
 
+/* Estilos do cartão de cadastro */
 .cadastro-card {
     color: rgb(32, 68, 99);
     background-color: rgb(197, 197, 219);
@@ -32,11 +33,7 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
+/* Estilos do cartão de novo cadastro */
 .novo-cadastro-card {
     color: rgb(197, 197, 219);
     background-color: rgb(32, 68, 99);
@@ -53,7 +50,27 @@ a {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos para o cartão de adicionar comentário */
+.adicionar-comentario-card {
+    width: 200px;
+    padding: 20px;
+    background-color: rgb(32, 68, 99);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.adicionar-comentario-card:hover {
+    background-color: rgb(32, 68, 99);
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Fonte personalizada */
 @font-face {
-    font-family: 'Afacad' ;
+    font-family: 'Afacad';
     src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
 }
+

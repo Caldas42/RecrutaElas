@@ -63,7 +63,7 @@ nav ul li a:hover {
     max-width: 800px; /* Largura máxima do conteúdo */
     margin: 20px auto; /* Margens automáticas para centralização */
     padding: 20px; /* Preenchimento interno */
-    background-color: rgb(10, 29, 46);
+    background-color: rgb(100, 137, 169);
     border-radius: 15px; /* Bordas arredondadas */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para o efeito de elevação */
 }

@@ -1,6 +1,6 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views import View
-from .models import cadastros
+from .models import cadastros , Comentario
 
 class HomeView(View):
     def get (self, request):
@@ -37,7 +37,39 @@ class CadastrarView(View):
             return redirect('aplicacao:home')
 
 class VisualizarCadastroView(View):
-    def get (self, request, id):
-        ctx = {'cadastro':cadastros.objects.filter(id=id).first()}
+    def get(self, request, id):
+        # Pega o cadastro específico
+        cadastro = get_object_or_404(cadastros, id=id)
 
-        return render (request, 'visualizar_cadastro.html', ctx)
+        # Pega os comentários associados ao cadastro (colaborador)
+        comentarios = Comentario.objects.filter(colaborador=cadastro)
+
+        # Passa o cadastro e os comentários para o template
+        ctx = {
+            'cadastro': cadastro,
+            'comentarios': comentarios,
+        }
+
+        return render(request, 'visualizar_cadastro.html', ctx)
+    
+
+
+def adicionar_comentario(request):
+    if request.method == 'POST':
+        # Pega o nome do colaborador selecionado e o texto do comentário
+        colaborador_nome = request.POST.get('colaborador')
+        texto = request.POST.get('texto')
+
+        # Obtém o colaborador pelo nome
+        colaborador = cadastros.objects.get(nome=colaborador_nome)  # Certifique-se de usar cadastros ou Colaborador
+
+        # Cria o comentário associado ao colaborador
+        comentario = Comentario.objects.create(colaborador=colaborador, texto=texto)
+        comentario.save()
+
+        # Redireciona para a página de visualização de cadastros ou outra página desejada
+        return redirect('aplicacao:home')  # Modifique conforme necessário
+    else:
+        # Exibe os colaboradores disponíveis no formulário para o usuário escolher
+        colaboradores = cadastros.objects.all()  # Corrigido para cadastros
+        return render(request, 'adicionar_comentario.html', {'colaboradores': colaboradores})
