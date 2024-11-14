@@ -30,7 +30,7 @@
 
     <br>
 
-    <ul>
+    <div class="lista-de-cadastros">
         {% for cadastro in cadastrosFiltrados %}
 
             <a href="{% url 'aplicacao:visualizar_cadastros' cadastro.id %}">
@@ -38,13 +38,11 @@
                     <h2>{{cadastro.nome}}</h2>
                 </div>
             </a>
-
+            
         {% empty %}
-
             <h1>Nenhum cadastro com essa habilidade!</h1>
-        
         {% endfor %}
+    </div>
 
-    </ul>
 </body>
 </html>
