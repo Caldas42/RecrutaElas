@@ -1,0 +1,211 @@
+/* Escopo exclusivo da página Gerenciar Pastas */
+.page-gerenciar-pastas {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+    color: #333;
+}
+
+/* Títulos */
+.page-gerenciar-pastas h1, 
+.page-gerenciar-pastas h2 {
+    text-align: center;
+    color: #4a4a8c;
+    margin-bottom: 20px;
+}
+
+.page-gerenciar-pastas h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.page-gerenciar-pastas h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+}
+
+/* Formulário */
+.page-gerenciar-pastas form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.page-gerenciar-pastas form label {
+    font-weight: bold;
+    color: #4a4a8c;
+}
+
+.page-gerenciar-pastas form input,
+.page-gerenciar-pastas form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.page-gerenciar-pastas form select {
+    height: 100px;
+    overflow-y: auto;
+}
+
+.page-gerenciar-pastas .btn-submit {
+    background-color: #4a4a8c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.page-gerenciar-pastas .btn-submit:hover {
+    background-color: #37376d;
+}
+
+/* Lista de pastas criadas */
+.page-gerenciar-pastas .lista-de-pastas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.page-gerenciar-pastas .pasta-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-gerenciar-pastas .pasta-card h3 {
+    color: #4a4a8c;
+    margin-bottom: 10px;
+}
+
+.page-gerenciar-pastas .pasta-card p {
+    color: #666;
+}
+
+.page-gerenciar-pastas .pasta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Escopo exclusivo da página Gerenciar Pastas */
+.page-gerenciar-pastas {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+    color: #333;
+}
+
+/* Títulos */
+.page-gerenciar-pastas h1, 
+.page-gerenciar-pastas h2 {
+    text-align: center;
+    color: #4a4a8c;
+    margin-bottom: 20px;
+}
+
+.page-gerenciar-pastas h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.page-gerenciar-pastas h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+}
+
+/* Formulário */
+.page-gerenciar-pastas form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.page-gerenciar-pastas form label {
+    font-weight: bold;
+    color: #4a4a8c;
+}
+
+.page-gerenciar-pastas form input,
+.page-gerenciar-pastas form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.page-gerenciar-pastas form select {
+    height: 100px;
+    overflow-y: auto;
+}
+
+.page-gerenciar-pastas .btn-submit {
+    background-color: #4a4a8c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.page-gerenciar-pastas .btn-submit:hover {
+    background-color: #37376d;
+}
+
+/* Lista de pastas criadas */
+.page-gerenciar-pastas .lista-de-pastas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.page-gerenciar-pastas .pasta-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-gerenciar-pastas .pasta-card h3 {
+    color: #4a4a8c;
+    margin-bottom: 10px;
+}
+
+.page-gerenciar-pastas .pasta-card p {
+    color: #666;
+}
+
+.page-gerenciar-pastas .pasta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}

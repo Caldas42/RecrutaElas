@@ -9,5 +9,7 @@ urlpatterns = [
     path('visualizar/<int:id>/', views.VisualizarCadastroView.as_view(), name='visualizar_cadastros'),
     path('excluir/<int:id>/', views.DeletarCadastroView.as_view(), name='excluir'),
     path('editar/<int:id>/', views.EditarCadastroView.as_view(), name='editar'),
-    path('gerenciar_skills/', views.GerenciarSkillsView.as_view(), name='gerenciar_skills')
+    path('gerenciar_skills/', views.GerenciarSkillsView.as_view(), name='gerenciar_skills'),
+    path('gerenciar_pastas/', views.GerenciarPastasView.as_view(), name='gerenciar_pastas'),
+
 ]

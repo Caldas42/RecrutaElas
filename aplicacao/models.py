@@ -17,3 +17,10 @@ class Cadastros(models.Model):
     skillCostura = models.BooleanField(default=False)
     skillGerenciamento = models.BooleanField(default=False)
     skillPintura = models.BooleanField(default=False)
+
+class Pasta(models.Model):
+    nome = models.CharField(max_length=100)
+    cadastros = models.ManyToManyField(Cadastros, related_name="pastas")
+
+    def __str__(self):
+        return self.nome

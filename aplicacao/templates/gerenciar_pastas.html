@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Pastas</title>
+    <link rel="stylesheet" href="{% static 'aplicacao/css/gerenciar_pastas.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="page-gerenciar-pastas">
+        <h1>Gerenciar Pastas</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <label for="nomePasta">Nome da Pasta:</label>
+            <input type="text" id="nomePasta" name="nomePasta" required>
+            
+            <label for="cadastros">Adicionar Mulheres:</label>
+            <select id="cadastros" name="cadastros" multiple>
+                {% for cadastro in cadastros %}
+                    <option value="{{ cadastro.id }}">{{ cadastro.nome }}</option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit" class="btn-submit">Criar Pasta</button>
+        </form>
+
+        <h2>Pastas Criadas</h2>
+        <div class="lista-de-pastas">
+            {% for pasta in pastas %}
+                <div class="pasta-card">
+                    <h3>{{ pasta.nome }}</h3>
+                    <p><strong>Mulheres:</strong> 
+                        {% for cadastro in pasta.cadastros.all %}
+                            {{ cadastro.nome }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
