@@ -1,43 +1,75 @@
-/* Card de Criar Pasta */
-.card.criar-pasta {
-    background-color: #f4f4f4;
+.page-criar-pasta {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     padding: 20px;
-    border-radius: 8px;
-    cursor: pointer;
+    color: #333;
+}
+
+.page-criar-pasta h1 {
     text-align: center;
-    margin: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-    width: 250px;
-    text-decoration: none;
-    color: inherit;
+    color: #4a4a8c;
+    margin-bottom: 20px;
+    font-size: 2rem;
 }
 
-.card.criar-pasta:hover {
-    background-color: #e0e0e0;
-}
-
-.page-gerenciar-pastas .pasta-card {
-    background-color: #ffffff;
+.page-criar-pasta form {
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 15px;
-    width: 250px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.page-gerenciar-pastas .pasta-card h3 {
+.page-criar-pasta label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
     color: #4a4a8c;
+}
+
+.page-criar-pasta input[type="text"], 
+.page-criar-pasta button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.page-criar-pasta button {
+    background-color: #4a4a8c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.page-criar-pasta button:hover {
+    background-color: #3b3b7c;
+}
+
+.checkbox-group {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.page-gerenciar-pastas .pasta-card p {
-    color: #666;
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 0;
 }
 
-.page-gerenciar-pastas .pasta-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+.page-criar-pasta button:focus {
+    outline: none;
 }

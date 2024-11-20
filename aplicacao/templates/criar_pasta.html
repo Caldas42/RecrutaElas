@@ -18,11 +18,14 @@
             <input type="text" id="nomePasta" name="nomePasta" required>
 
             <label for="cadastros">Adicionar Mulheres:</label>
-            <select id="cadastros" name="cadastros" multiple>
+            <div class="checkbox-group">
                 {% for cadastro in cadastros %}
-                    <option value="{{ cadastro.id }}">{{ cadastro.nome }}</option>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="mulher_{{ cadastro.id }}" name="cadastros" value="{{ cadastro.id }}">
+                        <label for="mulher_{{ cadastro.id }}">{{ cadastro.nome }}</label>
+                    </div>
                 {% endfor %}
-            </select>
+            </div>
 
             <button type="submit" class="btn-submit">Criar Pasta</button>
         </form>
