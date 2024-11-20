@@ -6,6 +6,10 @@
     color: #333;
 }
 
+.page-gerenciar-pastas a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
 /* Títulos */
 .page-gerenciar-pastas h1, 
 .page-gerenciar-pastas h2 {
@@ -88,11 +92,17 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto; /* Garantir que a altura do card seja ajustada automaticamente */
+    min-height: 150px; /* Definindo uma altura mínima para que o card não fique muito pequeno */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .page-gerenciar-pastas .pasta-card h3 {
     color: #4a4a8c;
     margin-bottom: 10px;
+    word-wrap: break-word; /* Quebra o texto caso seja muito longo */
 }
 
 .page-gerenciar-pastas .pasta-card p {
@@ -208,4 +218,28 @@
 .page-gerenciar-pastas .pasta-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para o botão de deletar */
+.page-gerenciar-pastas .btn-delete {
+    position: relative;
+    padding: 10px 20px;
+    background-color: red; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Arredonda as bordas */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    outline: none; /* Remove o contorno de foco */
+}
+
+/* Efeito de hover no botão */
+.page-gerenciar-pastas .btn-delete:hover {
+    background-color: darkred; /* Altera a cor de fundo ao passar o mouse */
+}
+
+/* Foco no botão */
+.page-gerenciar-pastas .btn-delete:focus {
+    outline: none; /* Remove o contorno de foco */
 }

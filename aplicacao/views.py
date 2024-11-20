@@ -144,3 +144,9 @@ class DetalhesPastaView(View):
             'pasta': pasta,
         }
         return render(request, 'detalhes_pasta.html', ctx)
+    
+class DeletarPastaView(View):
+    def post(self, request, id):
+        pasta = get_object_or_404(Pasta, id=id)
+        pasta.delete()  # Deleta o objeto Pasta
+        return redirect('aplicacao:gerenciar_pastas')
