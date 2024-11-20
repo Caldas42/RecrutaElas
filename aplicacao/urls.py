@@ -11,5 +11,5 @@ urlpatterns = [
     path('editar/<int:id>/', views.EditarCadastroView.as_view(), name='editar'),
     path('gerenciar_skills/', views.GerenciarSkillsView.as_view(), name='gerenciar_skills'),
     path('gerenciar_pastas/', views.GerenciarPastasView.as_view(), name='gerenciar_pastas'),
-
+    path('criar_pasta/', views.CriarPastaView.as_view(), name='criar_pasta'),  # Nova URL para criar pasta
 ]

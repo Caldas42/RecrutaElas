@@ -118,3 +118,20 @@ class GerenciarPastasView(View):
             pasta.save()
 
         return redirect('aplicacao:gerenciar_pastas')
+
+class CriarPastaView(View):
+    def get(self, request):
+        cadastros = Cadastros.objects.all()  # Todos os cadastros disponíveis
+        return render(request, 'criar_pasta.html', {'cadastros': cadastros})
+
+    def post(self, request):
+        nome_pasta = request.POST.get('nomePasta')
+        cadastros_selecionados = request.POST.getlist('cadastros')
+
+        if nome_pasta:
+            pasta = Pasta.objects.create(nome=nome_pasta)
+            if cadastros_selecionados:
+                pasta.cadastros.set(cadastros_selecionados)
+            pasta.save()
+
+        return redirect('aplicacao:gerenciar_pastas')

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Pasta</title>
+    <link rel="stylesheet" href="{% static 'aplicacao/css/criar_pasta.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="page-criar-pasta">
+        <h1>Criar Nova Pasta</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <label for="nomePasta">Nome da Pasta:</label>
+            <input type="text" id="nomePasta" name="nomePasta" required>
+
+            <label for="cadastros">Adicionar Mulheres:</label>
+            <select id="cadastros" name="cadastros" multiple>
+                {% for cadastro in cadastros %}
+                    <option value="{{ cadastro.id }}">{{ cadastro.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" class="btn-submit">Criar Pasta</button>
+        </form>
+    </div>
+</body>
+</html>
