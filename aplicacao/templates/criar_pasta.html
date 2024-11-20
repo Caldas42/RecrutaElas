@@ -21,8 +21,8 @@
             <div class="checkbox-group">
                 {% for cadastro in cadastros %}
                     <div class="checkbox-item">
-                        <input type="checkbox" id="mulher_{{ cadastro.id }}" name="cadastros" value="{{ cadastro.id }}">
                         <label for="mulher_{{ cadastro.id }}">{{ cadastro.nome }}</label>
+                        <input type="checkbox" id="mulher_{{ cadastro.id }}" name="cadastros" value="{{ cadastro.id }}">
                     </div>
                 {% endfor %}
             </div>

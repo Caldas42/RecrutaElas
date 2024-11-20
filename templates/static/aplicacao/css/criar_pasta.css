@@ -63,11 +63,23 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.checkbox-item label {
+    margin-right: 10px;
+    margin-bottom: 0;
 }
 
 .checkbox-item input[type="checkbox"] {
-    margin-right: 10px;
     margin-top: 0;
+}
+
+.checkbox-item select {
+    margin-left: 5px;
+    margin-bottom: 0;
+    max-width: 150px;
+    height: 30px; 
 }
 
 .page-criar-pasta button:focus {
