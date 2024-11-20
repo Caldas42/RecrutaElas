@@ -24,3 +24,8 @@ class Pasta(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Brinquedo(models.Model):
+    nome = models.CharField(max_length= 100)
+    material = models.CharField(max_length=100)
+    quantidade = models.IntegerField(default=0)
