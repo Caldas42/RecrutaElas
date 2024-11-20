@@ -12,7 +12,6 @@
     <div class="page-gerenciar-pastas">
         <h1>Gerenciar Pastas</h1>
 
-        <!-- Card para Criar Pasta -->
         <a href="{% url 'aplicacao:criar_pasta' %}" class="card">
             <h2>Criar Pasta</h2>
         </a>
@@ -21,12 +20,11 @@
         <div class="lista-de-pastas">
             {% for pasta in pastas %}
                 <div class="pasta-card">
-                    <a href="{% url 'aplicacao:detalhes_pasta' pasta.id %}">
+                    <a href="{% url 'aplicacao:detalhes_pasta' pasta.id %}" class="card-link">
                         <h3>{{ pasta.nome }}</h3>
                     </a>
 
-                    <!-- Formulário para deletar pasta -->
-                    <form action="{% url 'aplicacao:deletar_pasta' pasta.id %}" method="post" style="display: inline;">
+                    <form action="{% url 'aplicacao:deletar_pasta' pasta.id %}" method="post" class="form-delete">
                         {% csrf_token %}
                         <button type="submit" class="btn-delete">Deletar</button>
                     </form>
