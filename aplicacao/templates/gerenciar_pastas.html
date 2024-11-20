@@ -20,14 +20,14 @@
         <h2>Pastas Criadas</h2>
         <div class="lista-de-pastas">
             {% for pasta in pastas %}
-                <div class="pasta-card">
+                <a href="{% url 'aplicacao:detalhes_pasta' pasta.id %}" class="pasta-card">
                     <h3>{{ pasta.nome }}</h3>
                     <p><strong>Mulheres:</strong> 
                         {% for cadastro in pasta.cadastros.all %}
                             {{ cadastro.nome }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </p>
-                </div>
+                </a>
             {% endfor %}
         </div>
     </div>

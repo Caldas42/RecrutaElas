@@ -1,0 +1,43 @@
+/* Card de Criar Pasta */
+.card.criar-pasta {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    width: 250px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card.criar-pasta:hover {
+    background-color: #e0e0e0;
+}
+
+.page-gerenciar-pastas .pasta-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-gerenciar-pastas .pasta-card h3 {
+    color: #4a4a8c;
+    margin-bottom: 10px;
+}
+
+.page-gerenciar-pastas .pasta-card p {
+    color: #666;
+}
+
+.page-gerenciar-pastas .pasta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}

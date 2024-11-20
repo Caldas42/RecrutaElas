@@ -135,3 +135,12 @@ class CriarPastaView(View):
             pasta.save()
 
         return redirect('aplicacao:gerenciar_pastas')
+
+class DetalhesPastaView(View):
+    def get(self, request, id):
+        pasta = get_object_or_404(Pasta, id=id)
+        # Passando as mulheres associadas à pasta
+        ctx = {
+            'pasta': pasta,
+        }
+        return render(request, 'detalhes_pasta.html', ctx)
