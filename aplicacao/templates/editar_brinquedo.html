@@ -9,6 +9,37 @@
 </head>
 <body>
     {% include 'navbar.html' %}
+
     <h1>editar brinquedos</h1>
+
+    <div class="container">
+
+        <form action="{% url 'aplicacao:registrar_brinquedo' %}" method="POST">
+
+            {% csrf_token %}
+
+            <label for="textFormBrinquedoNome">Nome:</label></td>
+            <input type="text" id="textFormBrinquedoNome" name="nameFormBrinquedoNome" maxlength="100" value="{{ cadastro.nome }}" required>
+
+            <label for="textFormBrinquedoCategoria">Categoria:</label></td>
+            <input type="text" id="textFormBrinquedoCategoria" name="nameFormBrinquedoCategoria" maxlength="100" value="{{ cadastro.categoria }}" required>
+
+            <label for="textFormBrinquedoMateriais">Materiais:</label></td>
+            <input type="text" id="textFormBrinquedoMateriais" name="nameFormBrinquedoMateriais" maxlength="200" value="{{ cadastro.materiais }}" required>
+
+            <label for="textFormBrinquedoTematica">Tematica:</label></td>
+            <input type="text" id="textFormBrinquedoTematica" name="nameFormBrinquedoTematica" maxlength="100" value="{{ cadastro.tematica }}" required>
+
+            <label for="numberFormBrinquedoQuantidade">Quantidade:</label>
+            <input type="number" id="numberFormBrinquedoQuantidade" name="nameFormBrinquedoQuantidade" value="{{ cadastro.quantidade }}" required>
+            
+            <div class="botaoForm">
+                <input type="submit" value="Enviar" class="button">
+            </div>
+
+        </form>
+
+    </div>
+
 </body>
 </html>

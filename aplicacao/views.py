@@ -198,5 +198,19 @@ class EditarBrinquedoView(View):
 
     def get(self, request, id):
 
-        brinquedo_obj = get_object_or_404(Brinquedo, id=id)
-        return render(request, 'editar_brinquedo.html', {'brinquedo': brinquedo_obj})
+        brinquedo = get_object_or_404(Brinquedo, id=id)
+        return render(request, 'editar_brinquedo.html', {'brinquedo': brinquedo})
+
+    def post(self, request, id):
+
+        brinquedo = get_object_or_404(Brinquedo, id=id)
+        
+        brinquedo.nome = request.POST.get('nameFormBrinquedoNome')
+        brinquedo.categoria = request.POST.get('nameFormBrinquedoCategoria')
+        brinquedo.materiais = request.POST.get('nameFormBrinquedoMateriais')
+        brinquedo.tematica = request.POST.get('nameFormBrinquedoTematica')
+        brinquedo.quantidade = request.POST.get('nameFormBrinquedoQuantidade')
+
+        brinquedo.save()
+
+        return redirect('aplicacao:visualizar_cadastros', id=brinquedo.id)

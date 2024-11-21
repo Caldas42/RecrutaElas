@@ -24,6 +24,17 @@
         <h1 id="materiais-brinquedo">{{ brinquedo.materiais }}</h1>
         <h1 id="tematica-brinquedo">{{ brinquedo.tematica }}</h1>
         <h1 id="quantidade-brinquedo">{{ brinquedo.quantidade }}</h1>
+
+        <div class="actions">
+            <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Deletar Brinquedo</button>
+            </form>
+
+            <a href="{% url 'aplicacao:editar_brinquedo' brinquedo.id %}" class="edit-btn">
+                <i class="fa-solid fa-pencil" id="lapis" style="color: white !important;"></i> Editar Brinquedi
+            </a>
+        </div>
         
     </div>
 </body>
