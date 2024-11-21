@@ -27,15 +27,18 @@
         <h1 id="quantidade-brinquedo">{{ brinquedo.quantidade }}</h1>
 
         <div class="actions">
-            <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="delete-btn">Deletar Brinquedo</button>
-            </form>
+            <a href="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" class="edit-btn">
+                <i class="fa-solid fa-trash" id="lixo" style="color: rgb(0, 0, 0) !important;"></i>Excluir Brinquedo
+            </a>
 
             <a href="{% url 'aplicacao:editar_brinquedo' brinquedo.id %}" class="edit-btn">
                 <i class="fa-solid fa-pencil" id="lapis" style="color: rgb(0, 0, 0) !important;"></i>Editar Brinquedo
             </a>
         </div>
+
+        <button popovertarget="my-popover">Open Popover</button>
+
+        <div popover id="my-popover">Greetings, one and all!</div>
         
     </div>
 </body>
