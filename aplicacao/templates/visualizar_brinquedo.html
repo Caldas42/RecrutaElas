@@ -25,6 +25,8 @@
         <h1 id="materiais-brinquedo">{{ brinquedo.materiais }}</h1>
         <h1 id="tematica-brinquedo">{{ brinquedo.tematica }}</h1>
         <h1 id="quantidade-brinquedo">{{ brinquedo.quantidade }}</h1>
+        
+        <br>
 
         <div class="actions">
             <a href="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" class="edit-btn">
@@ -36,9 +38,16 @@
             </a>
         </div>
 
+        <br>
+
         <button popovertarget="my-popover">Open Popover</button>
 
-        <div popover id="my-popover">Greetings, one and all!</div>
+        <div popover id="my-popover">
+            <form action="{% url 'aplicacao:visualizar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Deletar Brinquedo</button>
+            </form>
+        </div>
         
     </div>
 </body>
