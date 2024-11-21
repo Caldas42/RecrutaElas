@@ -14,24 +14,24 @@
 
     <div class="container">
 
-        <form action="{% url 'aplicacao:registrar_brinquedo' %}" method="POST">
+        <form action="{% url 'aplicacao:editar_brinquedo' brinquedo.id %}" method="POST">
 
             {% csrf_token %}
 
             <label for="textFormBrinquedoNome">Nome:</label></td>
-            <input type="text" id="textFormBrinquedoNome" name="nameFormBrinquedoNome" maxlength="100" value="{{ cadastro.nome }}" required>
+            <input type="text" id="textFormBrinquedoNome" name="nameFormBrinquedoNomeEdit" maxlength="100" value="{{ brinquedo.nome }}" required>
 
             <label for="textFormBrinquedoCategoria">Categoria:</label></td>
-            <input type="text" id="textFormBrinquedoCategoria" name="nameFormBrinquedoCategoria" maxlength="100" value="{{ cadastro.categoria }}" required>
+            <input type="text" id="textFormBrinquedoCategoria" name="nameFormBrinquedoCategoriaEdit" maxlength="100" value="{{ brinquedo.categoria }}" required>
 
             <label for="textFormBrinquedoMateriais">Materiais:</label></td>
-            <input type="text" id="textFormBrinquedoMateriais" name="nameFormBrinquedoMateriais" maxlength="200" value="{{ cadastro.materiais }}" required>
+            <input type="text" id="textFormBrinquedoMateriais" name="nameFormBrinquedoMateriaisEdit" maxlength="200" value="{{ brinquedo.materiais }}" required>
 
             <label for="textFormBrinquedoTematica">Tematica:</label></td>
-            <input type="text" id="textFormBrinquedoTematica" name="nameFormBrinquedoTematica" maxlength="100" value="{{ cadastro.tematica }}" required>
+            <input type="text" id="textFormBrinquedoTematica" name="nameFormBrinquedoTematicaEdit" maxlength="100" value="{{ brinquedo.tematica }}" required>
 
             <label for="numberFormBrinquedoQuantidade">Quantidade:</label>
-            <input type="number" id="numberFormBrinquedoQuantidade" name="nameFormBrinquedoQuantidade" value="{{ cadastro.quantidade }}" required>
+            <input type="number" id="numberFormBrinquedoQuantidade" name="nameFormBrinquedoQuantidadeEdit" value="{{ brinquedo.quantidade }}" required>
             
             <div class="botaoForm">
                 <input type="submit" value="Enviar" class="button">

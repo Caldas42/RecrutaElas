@@ -192,7 +192,7 @@ class DeletarBrinquedoView(View):
     def post(self, request, id):
         brinquedo = get_object_or_404(Brinquedo, id=id)
         brinquedo.delete()
-        return redirect('aplicacao:home')
+        return redirect('aplicacao:home_brinquedos')
     
 class EditarBrinquedoView(View):
 
@@ -205,12 +205,12 @@ class EditarBrinquedoView(View):
 
         brinquedo = get_object_or_404(Brinquedo, id=id)
         
-        brinquedo.nome = request.POST.get('nameFormBrinquedoNome')
-        brinquedo.categoria = request.POST.get('nameFormBrinquedoCategoria')
-        brinquedo.materiais = request.POST.get('nameFormBrinquedoMateriais')
-        brinquedo.tematica = request.POST.get('nameFormBrinquedoTematica')
-        brinquedo.quantidade = request.POST.get('nameFormBrinquedoQuantidade')
+        brinquedo.nome = request.POST.get('nameFormBrinquedoNomeEdit')
+        brinquedo.categoria = request.POST.get('nameFormBrinquedoCategoriaEdit')
+        brinquedo.materiais = request.POST.get('nameFormBrinquedoMateriaisEdit')
+        brinquedo.tematica = request.POST.get('nameFormBrinquedoTematicaEdit')
+        brinquedo.quantidade = request.POST.get('nameFormBrinquedoQuantidadeEdit')
 
         brinquedo.save()
 
-        return redirect('aplicacao:visualizar_cadastros', id=brinquedo.id)
+        return redirect('aplicacao:visualizar_brinquedo', id = brinquedo.id)
