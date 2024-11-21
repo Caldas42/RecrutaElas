@@ -19,8 +19,8 @@ urlpatterns = [
 
     path('registrar_brinquedo/', views.RegistrarBrinquedoView.as_view(), name = 'registrar_brinquedo'),
     path('home_brinquedos/', views.HomeBrinquedosView.as_view(), name = 'home_brinquedos'),
-    path('editar_brinquedo/', views.EditarBrinquedoView.as_view(), name = 'editar_brinquedo'),
-    path('deletar_brinquedo/', views.DeletarBrinquedoView.as_view(), name = 'deletar_brinquedo'),
-    path('visualizar_brinquedo/', views.VisualizarBrinquedoView.as_view(), name = 'visualizar_brinquedo'),
+    path('editar_brinquedo/<int:id>/', views.EditarBrinquedoView.as_view(), name = 'editar_brinquedo'),
+    path('deletar_brinquedo/<int:id>/', views.DeletarBrinquedoView.as_view(), name = 'deletar_brinquedo'),
+    path('visualizar_brinquedo/<int:id>/', views.VisualizarBrinquedoView.as_view(), name = 'visualizar_brinquedo'),
 
 ]

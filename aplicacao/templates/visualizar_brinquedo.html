@@ -9,6 +9,22 @@
 </head>
 <body>
     {% include 'navbar.html' %}
+
     <h1>visualizar brinquedos</h1>
+
+    <br>
+
+    <div class="container">
+
+        <h1 id="nome-brinquedo">{{ brinquedo.nome }}</h1>
+
+        <br>
+
+        <h1 id="categoria-brinquedo">{{ brinquedo.categoria }}</h1>
+        <h1 id="materiais-brinquedo">{{ brinquedo.materiais }}</h1>
+        <h1 id="tematica-brinquedo">{{ brinquedo.tematica }}</h1>
+        <h1 id="quantidade-brinquedo">{{ brinquedo.quantidade }}</h1>
+        
+    </div>
 </body>
 </html>

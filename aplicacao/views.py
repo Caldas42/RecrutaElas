@@ -154,7 +154,7 @@ class HomeBrinquedosView(View):
     def get(self, request):
         
         brinquedo = Brinquedo.objects.all()
-        
+
         ctx = { 'todos_brinquedos': brinquedo, }
 
         return render(request, 'home_brinquedos.html', ctx)
@@ -165,11 +165,11 @@ class RegistrarBrinquedoView(View):
     
     def post(self, request):
 
-        nome = request.POST.get('formBrinquedoNome')
-        categoria = request.POST.get('formBrinquedoCategoria')
-        materiais = request.POST.get('formBrinquedoMateriais')
-        tematica = request.POST.get('formBrinquedoTematicas')
-        quantidade = request.POST.get('formBrinquedoQuantidade')
+        nome = request.POST.get('nameFormBrinquedoNome')
+        categoria = request.POST.get('nameFormBrinquedoCategoria')
+        materiais = request.POST.get('nameFormBrinquedoMateriais')
+        tematica = request.POST.get('nameFormBrinquedoTematica')
+        quantidade = request.POST.get('nameFormBrinquedoQuantidade')
 
         brinquedo = Brinquedo(nome = nome, categoria = categoria, materiais = materiais, tematica = tematica, quantidade = quantidade)
 

@@ -16,7 +16,7 @@
 
         {% for brinquedo in todos_brinquedos %}
 
-        <a href="{% url 'aplicacao:visualizar_brinquedos' brinquedo.id %}">
+        <a href="{% url 'aplicacao:visualizar_brinquedo' brinquedo.id %}">
             <div class="brinquedo-card">
                 <h2>{{brinquedo.nome}}</h2>
             </div>
