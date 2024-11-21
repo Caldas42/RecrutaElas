@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Brinquedos</title>
+    <link rel="stylesheet" href="{% static 'aplicacao/css/home_brinquedos.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <h1>home brinquedos</h1>
+
+    <div class = "lista-de-brinquedos">
+
+        {% for brinquedo in todos_brinquedos %}
+
+        <a href="{% url 'aplicacao:visualizar_brinquedos' brinquedo.id %}">
+            <div class="brinquedo-card">
+                <h2>{{brinquedo.nome}}</h2>
+            </div>
+        </a>
+
+        {% endfor %}
+
+        <a href="{% url 'aplicacao:registrar_brinquedo' %}">
+            <div class="novo-brinquedo-card">
+                <h2>Novo Brinquedo</h2>
+            </div>
+        </a>
+        
+    </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from .models import Cadastros, Pasta
+from .models import Cadastros, Pasta, Brinquedo
 
 
 class HomeView(View):
@@ -75,7 +75,6 @@ class EditarCadastroView(View):
         cadastro_obj.rua = request.POST.get('formRua')
         cadastro_obj.numero = request.POST.get('formNumero')
         cadastro_obj.complemento = request.POST.get('formComplemento')
-
         cadastro_obj.skillCostura = request.POST.get('nameSkillCostura') == 'on'
         cadastro_obj.skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
         cadastro_obj.skillPintura = request.POST.get('nameSkillPintura') == 'on'
@@ -150,3 +149,54 @@ class DeletarPastaView(View):
         pasta = get_object_or_404(Pasta, id=id)
         pasta.delete()  # Deleta o objeto Pasta
         return redirect('aplicacao:gerenciar_pastas')
+
+class HomeBrinquedosView(View):
+    def get(self, request):
+        
+        brinquedo = Brinquedo.objects.all()
+        
+        ctx = { 'todos_brinquedos': brinquedo, }
+
+        return render(request, 'home_brinquedos.html', ctx)
+
+class RegistrarBrinquedoView(View):
+    def get(self, request):
+        return render(request, 'registrar_brinquedo.html')
+    
+    def post(self, request):
+
+        nome = request.POST.get('formBrinquedoNome')
+        categoria = request.POST.get('formBrinquedoCategoria')
+        materiais = request.POST.get('formBrinquedoMateriais')
+        tematica = request.POST.get('formBrinquedoTematicas')
+        quantidade = request.POST.get('formBrinquedoQuantidade')
+
+        brinquedo = Brinquedo(nome = nome, categoria = categoria, materiais = materiais, tematica = tematica, quantidade = quantidade)
+
+        brinquedo.save()
+
+        return redirect('aplicacao:home_brinquedos')
+    
+class VisualizarBrinquedoView(View):
+    def get(self, request, id):
+        ctx = {'brinquedo':Brinquedo.objects.filter(id=id).first()}
+
+        return render (request, 'visualizar_brinquedo.html', ctx)
+    
+class DeletarBrinquedoView(View):
+    def get(self, request, id):
+        ctx = {'brinquedo':Brinquedo.objects.filter(id=id).first()}
+
+        return render(request, 'deletar_brinquedo.html', ctx)
+
+    def post(self, request, id):
+        brinquedo = get_object_or_404(Brinquedo, id=id)
+        brinquedo.delete()
+        return redirect('aplicacao:home')
+    
+class EditarBrinquedoView(View):
+
+    def get(self, request, id):
+
+        brinquedo_obj = get_object_or_404(Brinquedo, id=id)
+        return render(request, 'editar_brinquedo.html', {'brinquedo': brinquedo_obj})

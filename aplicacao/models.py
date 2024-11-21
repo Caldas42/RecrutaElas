@@ -27,5 +27,7 @@ class Pasta(models.Model):
 
 class Brinquedo(models.Model):
     nome = models.CharField(max_length= 100)
-    material = models.CharField(max_length=100)
+    caregoria = models.CharField(max_length= 100)
+    materiais = models.CharField(max_length=200)
+    tematica = models.CharField(max_length=100)
     quantidade = models.IntegerField(default=0)
