@@ -196,6 +196,7 @@ class DeletarBrinquedoView(View):
     def post(self, request, id):
         brinquedo = get_object_or_404(Brinquedo, id=id)
         brinquedo.delete()
+        messages.success(request, 'Brinquedo deletado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
     
 class EditarBrinquedoView(View):
@@ -217,4 +218,5 @@ class EditarBrinquedoView(View):
 
         brinquedo.save()
 
-        return redirect('aplicacao:visualizar_brinquedo', id = brinquedo.id)
+        messages.success(request, 'Brinquedo editado com sucesso!')
+        return redirect('aplicacao:home_brinquedos', id = brinquedo.id)
