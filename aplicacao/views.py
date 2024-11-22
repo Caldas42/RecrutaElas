@@ -215,7 +215,4 @@ class EditarBrinquedoView(View):
 
         brinquedo.save()
 
-        brinquedo.imagem = request.FILES.get('nameFormBrinquedoImagem')
-        print(brinquedo.imagem)
-
         return redirect('aplicacao:visualizar_brinquedo', id = brinquedo.id)

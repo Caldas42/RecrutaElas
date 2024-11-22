@@ -29,30 +29,35 @@
         <br>
 
         <div class="actions">
-            <a href="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" class="edit-btn">
-                <i class="fa-solid fa-trash" id="lixo" style="color: rgb(0, 0, 0) !important;"></i>Excluir Brinquedo
-            </a>
 
-            <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="delete-btn">Deletar Brinquedo</button>
-            </form>
+            <a href="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" class="edit-btn">
+                <i class="fa-solid fa-trash" id="lixo" style="color: rgb(0, 0, 0) !important;"></i>Deletar Brinquedo (Leva à pagina)
+            </a>
 
             <br>
 
+            <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Deletar Brinquedo (Original)</button>
+            </form>
+
+            <br> <br>
+
             <a href="{% url 'aplicacao:editar_brinquedo' brinquedo.id %}" class="edit-btn">
-                <i class="fa-solid fa-pencil" id="lapis" style="color: rgb(0, 0, 0) !important;"></i>Editar Brinquedo (Leva à pagina)
+                <i class="fa-solid fa-pencil" id="lapis" style="color: rgb(0, 0, 0) !important;"></i>Editar Brinquedo
             </a>
+
         </div>
 
         <br>
 
-        <button popovertarget="my-popover">Open Popover</button>
+        <button popovertarget="popoverDeletar">Open Popover</button>
 
-        <div popover id="my-popover">
-            <form action="{% url 'aplicacao:visualizar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
+        <div popover id="popoverDeletar">
+            <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
                 {% csrf_token %}
-                <button type="submit" class="delete-btn">Deletar Brinquedo (Popup)</button>
+                <p>Tem certeza que deseja deletar?</p>
+                <button type="submit" class="delete-btn">Deletar</button>
             </form>
         </div>
         
