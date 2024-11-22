@@ -1,3 +1,9 @@
 body{
     background-color: rgb(219, 222, 228);
+    font-family: Afacad;
+}
+
+@font-face {
+    font-family: 'Afacad' ;
+    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
 }

@@ -1,6 +1,7 @@
 body{
     background-color: rgb(219, 222, 228);
     overflow: hidden;
+    font-family: Afacad;
 }
 
 #popoverDeletar{
@@ -9,5 +10,10 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background-color: blue;
+    background-color: rgb(145, 145, 185);
+}
+
+@font-face {
+    font-family: 'Afacad' ;
+    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
 }
