@@ -219,4 +219,4 @@ class EditarBrinquedoView(View):
         brinquedo.save()
 
         messages.success(request, 'Brinquedo editado com sucesso!')
-        return redirect('aplicacao:home_brinquedos', id = brinquedo.id)
+        return redirect('aplicacao:home_brinquedos')
