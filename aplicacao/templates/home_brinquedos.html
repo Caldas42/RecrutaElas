@@ -19,7 +19,13 @@
 
         <a href="{% url 'aplicacao:visualizar_brinquedo' brinquedo.id %}">
             <div class="brinquedo-card">
+
+                {% if brinquedo.imagem %}
+                    <img src="{{ brinquedo.imagem.url }}" alt="{{ brinquedo.nome }}" style="max-width: 200px;">
+                {% endif %}
+                
                 <h2>{{brinquedo.nome}}</h2>
+
             </div>
         </a>
 

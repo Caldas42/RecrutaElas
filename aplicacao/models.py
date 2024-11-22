@@ -31,3 +31,4 @@ class Brinquedo(models.Model):
     materiais = models.CharField(max_length=200)
     tematica = models.CharField(max_length=100)
     quantidade = models.IntegerField(default=0)
+    imagem = models.FileField(upload_to='uploads/', blank=True, null=True)

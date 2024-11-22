@@ -165,13 +165,15 @@ class RegistrarBrinquedoView(View):
     
     def post(self, request):
 
-        nome = request.POST.get('nameFormBrinquedoNome')
-        categoria = request.POST.get('nameFormBrinquedoCategoria')
-        materiais = request.POST.get('nameFormBrinquedoMateriais')
-        tematica = request.POST.get('nameFormBrinquedoTematica')
-        quantidade = request.POST.get('nameFormBrinquedoQuantidade')
+        brinquedo = Brinquedo()
 
-        brinquedo = Brinquedo(nome = nome, categoria = categoria, materiais = materiais, tematica = tematica, quantidade = quantidade)
+        brinquedo.nome = request.POST.get('nameFormBrinquedoNome')
+        brinquedo.categoria = request.POST.get('nameFormBrinquedoCategoria')
+        brinquedo.materiais = request.POST.get('nameFormBrinquedoMateriais')
+        brinquedo.tematica = request.POST.get('nameFormBrinquedoTematica')
+        brinquedo.quantidade = request.POST.get('nameFormBrinquedoQuantidade')
+        brinquedo.imagem = request.FILES.get('nameFormBrinquedoImagem')
+        
 
         brinquedo.save()
 
@@ -212,5 +214,8 @@ class EditarBrinquedoView(View):
         brinquedo.quantidade = request.POST.get('nameFormBrinquedoQuantidadeEdit')
 
         brinquedo.save()
+
+        brinquedo.imagem = request.FILES.get('nameFormBrinquedoImagem')
+        print(brinquedo.imagem)
 
         return redirect('aplicacao:visualizar_brinquedo', id = brinquedo.id)
