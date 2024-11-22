@@ -1,6 +1,56 @@
-body{
-    background-color: rgb(219, 222, 228);
+body {
     font-family: Afacad;
+    background-color: rgb(219, 222, 228);
+}
+
+#tituloBrinquedos {
+    color: brown;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.lista-de-brinquedos {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px;
+}
+
+.brinquedo-card {
+    color: rgb(32, 68, 99);
+    background-color: rgb(197, 197, 219);
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.brinquedo-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.novo-brinquedo-card {
+    color: rgb(197, 197, 219);
+    background-color: rgb(32, 68, 99);
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.novo-brinquedo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 @font-face {
