@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .models import Cadastros, Pasta, Brinquedo
+from django.contrib import messages
 
 
 class HomeView(View):
@@ -177,6 +178,7 @@ class RegistrarBrinquedoView(View):
 
         brinquedo.save()
 
+        messages.success(request, 'Brinquedo adicionado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
     
 class VisualizarBrinquedoView(View):
