@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/cadastrar.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %} 
-    
+    {% include 'navbar.html' %}
+
     <div class="container">
-        <h1 id="cadastro-estilo">Novo cadastro</h1>
+        <h1 id="cadastro-estilo">Novo Cadastro</h1>
 
         <form action="{% url 'aplicacao:cadastrar' %}" method="POST">
             {% csrf_token %}
@@ -61,29 +61,30 @@
                     <td><input type="text" id="textFormComplemento" name="formComplemento" maxlength="50"></td>
                 </tr>
             </table>
-        </div>
 
-        <div class="skillsFormContainer">
-            <h1>Selecione habilidades que você possui:</h1>
+            <div class="skillsFormContainer">
+                <h1>Selecione habilidades que você possui:</h1>
 
-            <div class="selectSkillsContainer">
-
-                <label for="selectSkillCostura">Costura</label>
-                <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
-
-                <label for="selectSkillPintura">Pintura</label>
-                <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
-
-                <label for="selectSkillGerenciamento">Gerenciamento</label>
-                <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
-
+                <div class="selectSkillsContainer">
+                    <label for="selectSkillCostura">
+                        <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
+                        Costura
+                    </label>
+                    <label for="selectSkillPintura">
+                        <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
+                        Pintura
+                    </label>
+                    <label for="selectSkillGerenciamento">
+                        <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
+                        Gerenciamento
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="botaoForm">
-            <input type="submit" value="Enviar" class="button">
-        </div>
-
-    </form>
+            <div class="botaoForm">
+                <input type="submit" value="Enviar" class="button">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
