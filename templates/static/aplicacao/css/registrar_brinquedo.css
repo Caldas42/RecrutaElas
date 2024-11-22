@@ -1,9 +1,134 @@
-body{
-    background-color: rgb(219, 222, 228);
-    font-family: Afacad;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: 'Afacad', sans-serif; /* Fonte definida */
+    background-color: rgb(197, 197, 219); /* Cor de fundo da página */
+}
+
+#cadastro-estilo {
+    color: #fff;
+    text-align: center;
+    font-size: 28px; /* Maior destaque para o título */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+nav {
+    background-color: #000000; /* Cor de fundo da barra de navegação */
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #7bdb89;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(10, 29, 46);
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(146, 50, 50);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #bac3eb;
+}
+
+tr:nth-child(odd) {
+    background-color: #8ba2c2; 
+}
+
+label {
+    color:white;
+    display: block;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 80%;
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px;
+    margin-bottom: 20px; 
+    background-color: rgb(255, 255, 255);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border: 2px solid #7bdb89;
+    outline: none;
+    box-shadow: 0 0 5px rgba(123, 219, 137, 0.5);
+}
+
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(146, 50, 50); 
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #7bdb89;
+    transform: scale(1.05);
+}
+
+.botaoForm {
+    text-align: center;
+    margin-top: 20px;
 }
 
 @font-face {
-    font-family: 'Afacad' ;
+    font-family: 'Afacad';
     src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
 }
