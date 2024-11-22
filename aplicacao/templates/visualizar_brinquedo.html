@@ -33,8 +33,15 @@
                 <i class="fa-solid fa-trash" id="lixo" style="color: rgb(0, 0, 0) !important;"></i>Excluir Brinquedo
             </a>
 
+            <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Deletar Brinquedo</button>
+            </form>
+
+            <br>
+
             <a href="{% url 'aplicacao:editar_brinquedo' brinquedo.id %}" class="edit-btn">
-                <i class="fa-solid fa-pencil" id="lapis" style="color: rgb(0, 0, 0) !important;"></i>Editar Brinquedo
+                <i class="fa-solid fa-pencil" id="lapis" style="color: rgb(0, 0, 0) !important;"></i>Editar Brinquedo (Leva à pagina)
             </a>
         </div>
 
@@ -45,7 +52,7 @@
         <div popover id="my-popover">
             <form action="{% url 'aplicacao:visualizar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
                 {% csrf_token %}
-                <button type="submit" class="delete-btn">Deletar Brinquedo</button>
+                <button type="submit" class="delete-btn">Deletar Brinquedo (Popup)</button>
             </form>
         </div>
         
