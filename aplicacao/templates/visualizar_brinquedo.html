@@ -32,6 +32,8 @@
             </tr>
         </table>
 
+        <!--+ ver as habilidaddes que possui!--> 
+
         <div class="actions">
             <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
                 {% csrf_token %}
