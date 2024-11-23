@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -18,9 +19,13 @@ class Cadastros(models.Model):
     skillGerenciamento = models.BooleanField(default=False)
     skillPintura = models.BooleanField(default=False)
 
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+
 class Pasta(models.Model):
     nome = models.CharField(max_length=100)
     cadastros = models.ManyToManyField(Cadastros, related_name="pastas")
+
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -32,4 +37,5 @@ class Brinquedo(models.Model):
     tematica = models.CharField(max_length=100)
     quantidade = models.IntegerField(default=0)
     imagem = models.FileField(upload_to='uploads/', blank=True, null=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     #quem fez os brinquedos

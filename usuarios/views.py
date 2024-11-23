@@ -3,10 +3,32 @@ from aplicacao.models import Cadastros
 from django.shortcuts import render, redirect
 from django.views import View
 
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+
+class LogoutView(View):
+
+    def get(self, request):
+        if request.method == "GET":
+            return render (request, 'logout.html')
 class LoginView(View):
 
     def get(self, request):
         if request.method == "GET":
+            return render(request, 'login.html')
+        
+    def post(self, request):
+        if request.method == 'POST':
+
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('aplicacao:home')
+
             return render(request, 'login.html')
         
 class SucessoView(View):
@@ -21,6 +43,22 @@ class UsuariosView(View):
         if request.method == "GET":
             return render(request, 'usuarios.html')
 
+class CadastrarUsuarioView(View):
+
+    def get(self, request):
+        if request.method == "GET":
+            return render(request, 'cadastrar_usuario.html')
+        
+    def post(self, request):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            password_confirm = request.POST.get('password_confirm')
+
+            if password == password_confirm:
+                User.objects.create_user(username=username, password=password)
+                return redirect('usuarios:login')
+            
 class CadastrarPublicoView(View):
 
     def get (self, request):

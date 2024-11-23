@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .models import Cadastros, Pasta, Brinquedo
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class HomeView(View):
+class HomeView(LoginRequiredMixin, View):
     def get (self, request):
-        cadastro = Cadastros.objects.all()
+        cadastro = Cadastros.objects.filter(usuario=request.user) 
 
         ctx = {
             'todos_cadastros': cadastro,
@@ -14,7 +15,7 @@ class HomeView(View):
 
         return render(request, 'home.html', ctx)
     
-class CadastrarView(View):
+class CadastrarView(LoginRequiredMixin, View):
     def get (self, request):
         if request.method == "GET":
             return render (request, 'cadastrar.html')
@@ -38,32 +39,36 @@ class CadastrarView(View):
             skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
             skillPintura = request.POST.get('nameSkillPintura') == 'on'
 
-            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura)
+            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura, usuario=request.user)
 
             cadastro.save()
 
             return redirect('aplicacao:home')
 
-class VisualizarCadastroView(View):
+class VisualizarCadastroView(LoginRequiredMixin, View):
     def get (self, request, id):
-        ctx = {'cadastro':Cadastros.objects.filter(id=id).first()}
+
+        cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)  # Certifica-se que pertence ao usuário
+        ctx = {'cadastro': cadastro}
 
         return render (request, 'visualizar_cadastro.html', ctx)
     
-class DeletarCadastroView(View):
+class DeletarCadastroView(LoginRequiredMixin, View):
     def post(self, request, id):
-        cadastro = get_object_or_404(Cadastros, id=id)
+        cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)
         cadastro.delete()
         return redirect('aplicacao:home')
     
-class EditarCadastroView(View):
+class EditarCadastroView(LoginRequiredMixin, View):
 
     def get(self, request, id):
 
-        cadastro_obj = get_object_or_404(Cadastros, id=id)
+        cadastro_obj = get_object_or_404(Cadastros, id=id, usuario=request.user)
         return render(request, 'editar.html', {'cadastro': cadastro_obj})
 
     def post(self, request, id):
+
+        cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)
 
         cadastro_obj = get_object_or_404(Cadastros, id=id)
         cadastro_obj.nome = request.POST.get('formNome')
@@ -82,9 +87,9 @@ class EditarCadastroView(View):
 
         cadastro_obj.save()
 
-        return redirect('aplicacao:visualizar_cadastros', id=cadastro_obj.id)
+        return redirect('aplicacao:visualizar_cadastros', id=cadastro.id)
 
-class GerenciarSkillsView(View):
+class GerenciarSkillsView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'gerenciar_skills.html')
     
@@ -92,16 +97,16 @@ class GerenciarSkillsView(View):
         skillSelecionada = request.POST.get('nameSelectBox')
 
         if skillSelecionada:
-            cadastros_filtrados = Cadastros.objects.filter(**{skillSelecionada: True})
+            cadastros_filtrados = Cadastros.objects.filter(usuario = request.user, **{skillSelecionada: True})
         else:
-            cadastros_filtrados = Cadastros.objects.all()
+            cadastros_filtrados = Cadastros.objects.filter(usuario = request.user)
 
         return render(request, 'gerenciar_skills.html', {'cadastrosFiltrados': cadastros_filtrados})
     
-class GerenciarPastasView(View):
+class GerenciarPastasView(LoginRequiredMixin, View):
     def get(self, request):
-        pastas = Pasta.objects.all()
-        cadastros = Cadastros.objects.all()
+        pastas = Pasta.objects.filter(usuario = request.user)
+        cadastros = Cadastros.objects.filter(usuario = request.user)
         return render(request, 'gerenciar_pastas.html', {
             'pastas': pastas,
             'cadastros': cadastros,
@@ -119,9 +124,9 @@ class GerenciarPastasView(View):
 
         return redirect('aplicacao:gerenciar_pastas')
 
-class CriarPastaView(View):
+class CriarPastaView(LoginRequiredMixin, View):
     def get(self, request):
-        cadastros = Cadastros.objects.all()  # Todos os cadastros disponíveis
+        cadastros = Cadastros.objects.filter(usuario = request.user)  # Todos os cadastros disponíveis
         return render(request, 'criar_pasta.html', {'cadastros': cadastros})
 
     def post(self, request):
@@ -129,38 +134,38 @@ class CriarPastaView(View):
         cadastros_selecionados = request.POST.getlist('cadastros')
 
         if nome_pasta:
-            pasta = Pasta.objects.create(nome=nome_pasta)
+            pasta = Pasta.objects.create(nome=nome_pasta, usuario=request.user)
             if cadastros_selecionados:
-                pasta.cadastros.set(cadastros_selecionados)
+                pasta.cadastros.set(Cadastros.objects.filter(id__in = cadastros_selecionados, usuario = request.user))
             pasta.save()
 
         return redirect('aplicacao:gerenciar_pastas')
 
-class DetalhesPastaView(View):
+class DetalhesPastaView(LoginRequiredMixin, View):
     def get(self, request, id):
-        pasta = get_object_or_404(Pasta, id=id)
+        pasta = get_object_or_404(Pasta, id=id, usuario=request.user)
         # Passando as mulheres associadas à pasta
         ctx = {
             'pasta': pasta,
         }
         return render(request, 'detalhes_pasta.html', ctx)
     
-class DeletarPastaView(View):
+class DeletarPastaView(LoginRequiredMixin, View):
     def post(self, request, id):
-        pasta = get_object_or_404(Pasta, id=id)
+        pasta = get_object_or_404(Pasta, id=id, usuario=request.user)
         pasta.delete()  # Deleta o objeto Pasta
         return redirect('aplicacao:gerenciar_pastas')
 
-class HomeBrinquedosView(View):
+class HomeBrinquedosView(LoginRequiredMixin, View):
     def get(self, request):
         
-        brinquedo = Brinquedo.objects.all()
+        brinquedo = Brinquedo.objects.filter(usuario = request.user)
 
         ctx = { 'todos_brinquedos': brinquedo, }
 
         return render(request, 'home_brinquedos.html', ctx)
 
-class RegistrarBrinquedoView(View):
+class RegistrarBrinquedoView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'registrar_brinquedo.html')
     
@@ -174,6 +179,7 @@ class RegistrarBrinquedoView(View):
         brinquedo.tematica = request.POST.get('nameFormBrinquedoTematica')
         brinquedo.quantidade = request.POST.get('nameFormBrinquedoQuantidade')
         brinquedo.imagem = request.FILES.get('nameFormBrinquedoImagem')
+        brinquedo.usuario = request.user
         
 
         brinquedo.save()
@@ -181,40 +187,41 @@ class RegistrarBrinquedoView(View):
         messages.success(request, 'Brinquedo adicionado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
     
-class VisualizarBrinquedoView(View):
+class VisualizarBrinquedoView(LoginRequiredMixin, View):
     def get(self, request, id):
-        ctx = {'brinquedo':Brinquedo.objects.filter(id=id).first()}
+        ctx = {'brinquedo':Brinquedo.objects.filter(id=id, usuario=request.user)}
 
         return render (request, 'visualizar_brinquedo.html', ctx)
     
-class DeletarBrinquedoView(View):
+class DeletarBrinquedoView(LoginRequiredMixin, View):
     def get(self, request, id):
-        ctx = {'brinquedo':Brinquedo.objects.filter(id=id).first()}
+        brinquedo = get_object_or_404(Brinquedo, id=id, usuario=request.user)
 
-        return render(request, 'deletar_brinquedo.html', ctx)
+        return render(request, 'deletar_brinquedo.html', brinquedo)
 
     def post(self, request, id):
-        brinquedo = get_object_or_404(Brinquedo, id=id)
+        brinquedo = get_object_or_404(Brinquedo, id=id, usuario = request.user)
         brinquedo.delete()
         messages.success(request, 'Brinquedo deletado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
     
-class EditarBrinquedoView(View):
+class EditarBrinquedoView(LoginRequiredMixin, View):
 
     def get(self, request, id):
 
-        brinquedo = get_object_or_404(Brinquedo, id=id)
+        brinquedo = get_object_or_404(Brinquedo, id=id, usuario=request.user)
         return render(request, 'editar_brinquedo.html', {'brinquedo': brinquedo})
 
     def post(self, request, id):
 
-        brinquedo = get_object_or_404(Brinquedo, id=id)
+        brinquedo = get_object_or_404(Brinquedo, id=id, usuario=request.user)
         
         brinquedo.nome = request.POST.get('nameFormBrinquedoNomeEdit')
         brinquedo.categoria = request.POST.get('nameFormBrinquedoCategoriaEdit')
         brinquedo.materiais = request.POST.get('nameFormBrinquedoMateriaisEdit')
         brinquedo.tematica = request.POST.get('nameFormBrinquedoTematicaEdit')
         brinquedo.quantidade = request.POST.get('nameFormBrinquedoQuantidadeEdit')
+        brinquedo.usuario = request.user
 
         brinquedo.save()
 
