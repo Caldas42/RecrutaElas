@@ -10,7 +10,7 @@ Utilizando a linguagem de programação **Python**, junto com o framework **Djan
 
 ## Diagrama de Atividade do Sistema
 
-## Print do issue/bug Tracker
+## Print do Issue/bug Tracker
 
 ## [Link do RegistraElas](https://registraelas.azurewebsites.net)
 
