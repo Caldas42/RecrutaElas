@@ -36,7 +36,6 @@ Utilizando a linguagem de programação **Python**, junto com o framework **Djan
 
 * Célio Pereira Dias Júnior
 * João Danilo Correia Jota
-* Marcelo Arruda Manchester de Queiroga
 * Pedro da Costa Carvalho Caldas
 * Tiago Emílio Rodrigues de Abreu
 * Vinicius Spósito Antonino Nogueira
