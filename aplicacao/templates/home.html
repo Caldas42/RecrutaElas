@@ -26,10 +26,13 @@
             <div class="cadastro-card">
 
                 {% if cadastros.imagem %}
-                    <img src="{{ cadastros.imagem.url }}" alt="{{ cadastro.nome }}" style="max-width: 200px;">
+                    <img src="{{ cadastros.imagem.url }}" alt="{{ cadastro.nome }}" style="max-width: 200px;" class="card-image">
                 {% endif %}
 
-                <h2>{{cadastros.nome}}</h2>
+                <div class="card-content">
+                    <h2>{{cadastros.nome}}</h2>
+                    <!--editar excluir-->
+                </div>
 
             </div>
         </a>

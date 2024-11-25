@@ -17,9 +17,10 @@ body {
 }
 
 .cadastro-card {
-    color: rgb(32, 68, 99);
+    display: flex;
+    color: rgb(58, 88, 114);
     background-color: rgb(197, 197, 219);
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     padding: 20px;
     width: 200px;
@@ -30,6 +31,13 @@ body {
 .cadastro-card:hover {
     transform: translateY(-5px); 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.card-image{
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 100%;
 }
 
 a {
