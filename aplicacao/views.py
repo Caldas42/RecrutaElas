@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views import View
-from .models import Cadastros, Pasta, Brinquedo
-from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, redirect, get_object_or_404 # type: ignore
+from django.views import View # type: ignore
+from .models import Cadastros, Pasta, Brinquedo, Comentario
+from django.contrib import messages # type: ignore
+from django.contrib.auth.mixins import LoginRequiredMixin # type: ignore
 
 
 class HomeView(LoginRequiredMixin, View):
@@ -49,9 +49,30 @@ class VisualizarCadastroView(LoginRequiredMixin, View):
     def get (self, request, id):
 
         cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)  # Certifica-se que pertence ao usuário
-        ctx = {'cadastro': cadastro}
+        comentarios = Comentario.objects.filter(colaborador=cadastro)
+        ctx = {'cadastro': cadastro,  'comentarios': comentarios,}
 
         return render (request, 'visualizar_cadastro.html', ctx)
+    
+def adicionar_comentario(request):
+    if request.method == 'POST':
+        # Pega o nome do colaborador selecionado e o texto do comentário
+        colaborador_nome = request.POST.get('colaborador')
+        texto = request.POST.get('texto')
+
+        # Obtém o colaborador pelo nome
+        colaborador = Cadastros.objects.get(nome=colaborador_nome)  # Certifique-se de usar cadastros ou Colaborador
+
+        # Cria o comentário associado ao colaborador
+        comentario = Comentario.objects.create(colaborador=colaborador, texto=texto)
+        comentario.save()
+
+        # Redireciona para a página de visualização de cadastros ou outra página desejada
+        return redirect('aplicacao:home')  # Modifique conforme necessário
+    else:
+        # Exibe os colaboradores disponíveis no formulário para o usuário escolher
+        colaboradores = Cadastros.objects.all()  # Corrigido para cadastros
+        return render(request, 'adicionar_comentario.html', {'colaboradores': colaboradores})
     
 class DeletarCadastroView(LoginRequiredMixin, View):
     def post(self, request, id):

@@ -1,5 +1,5 @@
-from django.db import models
-from django.contrib.auth.models import User
+from django.db import models # type: ignore
+from django.contrib.auth.models import User # type: ignore
 
 # Create your models here.
 
@@ -39,3 +39,11 @@ class Brinquedo(models.Model):
     imagem = models.FileField(upload_to='uploads/', blank=True, null=True)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     #quem fez os brinquedos
+
+class Comentario(models.Model):
+    texto = models.TextField()
+    data_criacao = models.DateTimeField(auto_now_add=True)
+    colaborador = models.ForeignKey(Cadastros, on_delete=models.CASCADE, null=True, blank=True)  # Referencia ao modelo Cadastros, não ao campo 'nome'
+    
+    def __str__(self):
+        return self.texto[:50]
