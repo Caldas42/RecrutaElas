@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomeView(LoginRequiredMixin, View):
     def get (self, request):
-        cadastro = Cadastros.objects.filter(usuario=request.user) 
+        cadastro = Cadastros.objects.filter(usuario=request.user)
 
         ctx = {
             'todos_cadastros': cadastro,
