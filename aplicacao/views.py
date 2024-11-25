@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomeView(LoginRequiredMixin, View):
     def get (self, request):
-        cadastro = Cadastros.objects.filter(usuario=request.user)
+        cadastro = Cadastros.objects.filter(usuario=request.user).order_by('-id')
 
         ctx = {
             'todos_cadastros': cadastro,
@@ -159,7 +159,7 @@ class DeletarPastaView(LoginRequiredMixin, View):
 class HomeBrinquedosView(LoginRequiredMixin, View):
     def get(self, request):
         
-        brinquedo = Brinquedo.objects.filter(usuario = request.user)
+        brinquedo = Brinquedo.objects.filter(usuario = request.user).order_by('-id')
 
         ctx = { 'todos_brinquedos': brinquedo, }
 
