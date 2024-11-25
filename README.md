@@ -18,6 +18,12 @@ Utilizando a linguagem de programação **Python**, junto com o framework **Djan
 
 ## Programação em Par
 
+No desenvolvimento do nosso projeto, optamos por não utilizar a metodologia de programação em par devido à necessidade de equilibrar nossa carga de trabalho com outras demandas acadêmicas e pessoais. Nosso grupo enfrenta uma alta demanda de outros projetos e provas, o que torna o gerenciamento de tempo um fator crítico.
+
+Diante desse contexto, acreditamos que dividir as tarefas entre os integrantes de forma individual proporcionaria maior rendimento e eficiência. Essa abordagem permitiu que cada membro pudesse trabalhar em horários mais flexíveis e de acordo com sua disponibilidade, sem a necessidade de coordenar constantemente agendas com um parceiro. Além disso, essa divisão nos permitiu avançar em várias frentes do projeto simultaneamente, garantindo um progresso consistente mesmo diante de nossas limitações de tempo.
+
+Reconhecemos os benefícios da programação em par, como o aumento da qualidade do código e a troca de conhecimento. No entanto, devido às circunstâncias específicas enfrentadas pelo grupo, priorizamos a organização do trabalho de forma a otimizar o tempo e atender às nossas responsabilidades acadêmicas sem comprometer a entrega do projeto.
+
 ## Screencast da Build e do Deployment Automatizados
 
 ## Screencast da Execução dos Testes de Sistema (E2E) Automatizados
