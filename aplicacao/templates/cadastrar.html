@@ -13,7 +13,7 @@
     <div class="container">
         <h1 id="cadastro-estilo">Novo Cadastro</h1>
 
-        <form action="{% url 'aplicacao:cadastrar' %}" method="POST">
+        <form action="{% url 'aplicacao:cadastrar' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 <tr>
@@ -59,6 +59,10 @@
                 <tr>
                     <td><label for="textFormComplemento">Complemento:</label></td>
                     <td><input type="text" id="textFormComplemento" name="formComplemento" maxlength="50"></td>
+                </tr>
+                <tr>
+                    <td><label for="fileFormImagem">Imagem:</label></td>
+                    <td><input type="file" id="fileFormImagem" name="formCadastroImagem"></td>
                 </tr>
             </table>
 

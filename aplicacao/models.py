@@ -19,6 +19,8 @@ class Cadastros(models.Model):
     skillGerenciamento = models.BooleanField(default=False)
     skillPintura = models.BooleanField(default=False)
 
+    imagem = models.FileField(upload_to='uploads/', blank=True, null=True)
+
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
 class Pasta(models.Model):

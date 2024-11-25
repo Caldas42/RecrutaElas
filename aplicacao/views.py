@@ -39,9 +39,13 @@ class CadastrarView(LoginRequiredMixin, View):
             skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
             skillPintura = request.POST.get('nameSkillPintura') == 'on'
 
-            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura, usuario=request.user)
+            imagem = request.FILES.get('formCadastroImagem')
+
+            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura, usuario=request.user, imagem = imagem)
 
             cadastro.save()
+
+            messages.success(request, 'Cadastro adicionado com sucesso!')
 
             return redirect('aplicacao:home')
 
