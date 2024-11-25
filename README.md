@@ -4,45 +4,29 @@ O "RegistraElas" é uma aplicação web voltado para o **gerenciamento de cadast
 
 Utilizando a linguagem de programação **Python**, junto com o framework **Django**, com deploy na **Azure**, a aplicação foi desenvolvida com o objetivo de oferecer um gerenciamento do sistema de cadastro de mulheres interessadas em trabalhar na Fábrica de Ideias, de forma que o processo de contrato seja facilitado e atinja mais possíveis colaboradoras.
 
-# Status Report 1
-
 ## [Sketches e Storyboards](https://www.figma.com/design/fTioqKPETrVQNRDNrNag3D/RegistraElas?node-id=0-1&t=KtaNI5oAUxeJ8IyD-1)
 
-## Screencast do Protótipo de Baixa Fidelidade
-
-https://github.com/user-attachments/assets/992868c6-1de6-4111-9749-83ff5b0e3f30
+## Screencast do Protótipo de Média Fidelidade
 
 ## Diagrama de Atividade do Sistema
 
-![Diagrama](https://github.com/nogsposito/RegistraElas/blob/main/assets/Screenshot%202024-10-17%2014.42.55.png)
+## Print do Issue/bug Tracker
 
-## Issue Bug Tracker
-
-Nenhum problema ou bug durante o processo.
-
-## [Link do Sistema](https://registraelas.azurewebsites.net)
+## [Link do RegistraElas](https://registraelas.azurewebsites.net)
 
 ## Screencast do Uso do Sistema
 
-https://youtu.be/By_C4sYZ948?si=8iZrQtOVyAPWsAfv
+## Programação em Par
 
-## Relato da Programação em Par
+No desenvolvimento do nosso projeto, optamos por não utilizar a metodologia de programação em par devido à necessidade de equilibrar nossa carga de trabalho com outras demandas acadêmicas e pessoais. Nosso grupo enfrenta uma alta demanda de outros projetos e provas, o que torna o gerenciamento de tempo um fator crítico.
 
-### Célio Dias & Pedro Caldas
+Diante desse contexto, acreditamos que dividir as tarefas entre os integrantes de forma individual proporcionaria maior rendimento e eficiência. Essa abordagem permitiu que cada membro pudesse trabalhar em horários mais flexíveis e de acordo com sua disponibilidade, sem a necessidade de coordenar constantemente agendas com um parceiro. Além disso, essa divisão nos permitiu avançar em várias frentes do projeto simultaneamente, garantindo um progresso consistente mesmo diante de nossas limitações de tempo.
 
-Ficamos responsáveis nessa entrega pela criação das models do projeto, criamos e migramos todo o banco de dados com as informações necessárias para o cadastro das colaboradoras e construímos a view que através do método post coletava essas informações de um formulário e salvava no banco de dados. O processo em si foi muito produtivo e mais ágil já que Célio como copiloto ditava os nomes das variáveis enquanto Pedro ia as inserindo, evitando que Pedro precisasse ficar indo e voltando no código, além de evitar que alguma tenha sido esquecida de ser implementada.
+Reconhecemos os benefícios da programação em par, como o aumento da qualidade do código e a troca de conhecimento. No entanto, devido às circunstâncias específicas enfrentadas pelo grupo, priorizamos a organização do trabalho de forma a otimizar o tempo e atender às nossas responsabilidades acadêmicas sem comprometer a entrega do projeto.
 
-### João Danilo Jota & Vinícius Spósito
+## Screencast da Build e do Deployment Automatizados
 
-Estivemos responsáveis por consertar o CSS da aplicação, que estava até então muito mínimo e incompleto, visto que estávamos mais focados em implementar as funcionalidades para depois ajustar a estética do projeto devidamente pelos arquivos estáticos.
-
-João Danilo era o piloto no código (isso é, quem estava de fato digitando o código) e Vinícius Spósito ficou como copiloto (assistia o piloto construir o código e revisaria, discutiria e faria sugestões para sua melhoria). No curso do trabalho, tivemos que pesquisar juntos para fazer o design da forma que idealizamos e acabamos aprendendo muito mais sobre CSS ao fazer isso, e também simplesmente trabalhando no arquivo juntos. Nós dois tivemos uma dimensão melhor de como cada um pensa e dos processos mentais que passamos quando estamos construindo uma aplicação web. 
-
-Enfim, o resultado foi muito satisfatório, visto que conseguimos aprender coisas novas que nos farão melhor no que nós fazemos. Provavelmente não será prático fazer isso todas as vezes, visto que demorou muito mais do que demoraria se estivéssemos fazendo sozinhos, mas mesmo assim encontramos valor na prática e entendemos o escopo da importância da revisão de código por terceiros e a refatoração de códigos por outras pessoas, em prol de sua qualidade.
-
-### Marcelo Manchester & Tiago Emilio
-
-A nossa responsabilidade era fazer o Deploy no AZURE, em que ainda iríamos começar pois nós dois não sabíamos muito sobre como fazer, tivemos que primeiramente pesquisar sobre e entender como fazia após isso nós dois nos reunimos pelo discord para tentarmos fazer sendo Marcelo o piloto enquanto eu (Tiago) era o copiloto pesquisando sobre dúvidas que vinham a surgir porem ainda tivemos algumas dificuldades em meio ao processo mas conseguindo nos ajudar mutuamente para conseguir alcançar nosso objetivo, acredito que ao ter feito essa tarefa em dupla acabou por ajudar bastante por conta que um ajudava o outro em diversas questões assim um complementando as dificuldades do outro, no geral achamos muito produtivo e prático.
+## Screencast da Execução dos Testes de Sistema (E2E) Automatizados
 
 # Equipe
 
@@ -58,7 +42,6 @@ A nossa responsabilidade era fazer o Deploy no AZURE, em que ainda iríamos come
 
 * Célio Pereira Dias Júnior
 * João Danilo Correia Jota
-* Marcelo Arruda Manchester de Queiroga
 * Pedro da Costa Carvalho Caldas
 * Tiago Emílio Rodrigues de Abreu
 * Vinicius Spósito Antonino Nogueira

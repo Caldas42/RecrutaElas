@@ -1,0 +1,15 @@
+{
+  "name": "registraelas",
+  "version": "1.0.0",
+  "description": "O \"RegistraElas\" é uma aplicação web voltado para o **gerenciamento de cadastros da empresa Fábrica de Ideias.**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.16.0"
+  }
+}
