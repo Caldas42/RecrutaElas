@@ -196,7 +196,9 @@ class RegistrarBrinquedoView(LoginRequiredMixin, View):
     
 class VisualizarBrinquedoView(LoginRequiredMixin, View):
     def get(self, request, id):
-        ctx = {'brinquedo':Brinquedo.objects.filter(id=id, usuario=request.user)}
+        
+        brinquedo = get_object_or_404(Brinquedo, id=id, usuario=request.user)
+        ctx = {'brinquedo': brinquedo}
 
         return render (request, 'visualizar_brinquedo.html', ctx)
     
@@ -204,7 +206,7 @@ class DeletarBrinquedoView(LoginRequiredMixin, View):
     def get(self, request, id):
         brinquedo = get_object_or_404(Brinquedo, id=id, usuario=request.user)
 
-        return render(request, 'deletar_brinquedo.html', brinquedo)
+        return render(request, 'deletar_brinquedo.html', {'brinquedo': brinquedo})
 
     def post(self, request, id):
         brinquedo = get_object_or_404(Brinquedo, id=id, usuario = request.user)
