@@ -62,8 +62,12 @@ class VisualizarCadastroView(LoginRequiredMixin, View):
     
 class DeletarCadastroView(LoginRequiredMixin, View):
     def post(self, request, id):
+
         cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)
+
         cadastro.delete()
+
+        messages.success(request, 'Cadastro deletado com sucesso!')
         return redirect('aplicacao:home_cadastros')
     
 class EditarCadastroView(LoginRequiredMixin, View):
@@ -93,6 +97,8 @@ class EditarCadastroView(LoginRequiredMixin, View):
         cadastro_obj.skillPintura = request.POST.get('nameSkillPintura') == 'on'
 
         cadastro_obj.save()
+
+        messages.success(request, 'Cadastro editado com sucesso!')
 
         return redirect('aplicacao:visualizar_cadastros', id=cadastro.id)
 
