@@ -101,7 +101,7 @@ body {
 
 /* Card Criar Pasta */
 .criar-pasta {
-    background-color: #ffcc66;
+    background-color: #fbe39f;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,4 +133,33 @@ body {
 
 .sair:hover {
     background-color: #00796b;
+}
+
+/* Lista de Pastas */
+.pastas-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Exatamente 3 colunas */
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Itens das pastas */
+.pasta-item {
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.pasta-item:hover {
+    transform: scale(1.1);
+    color: #555;
+}
+
+/* Ícones */
+.pasta-icone,
+.pasta-icone2 {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 5px;
 }
