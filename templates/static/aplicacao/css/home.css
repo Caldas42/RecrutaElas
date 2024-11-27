@@ -1,67 +1,55 @@
 body {
-    font-family: Afacad;
-    background-color: rgb(219, 222, 228);
-}
-
-#tituloCadastros {
-    color: rgb(39, 30, 30);
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.lista-de-cadastros {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F3D796;
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.cadastro-card {
-    display: flex;
-    color: rgb(58, 88, 114);
-    background-color: rgb(197, 197, 219);
-    border-radius: 8px;
+.container {
     text-align: center;
-    padding: 20px;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s, box-shadow 0.3s; 
 }
 
-.cadastro-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8B23A;
+    color: #000;
+    width: 300px;
+    height: 100px;
+    margin: 20px auto;
+    border: 3px dashed #D82B2B;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card-image{
-    max-width: 80px;
-    max-height: 80px;
-    object-fit: cover;
-    border-radius: 100%;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.card h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-}
-
-.novo-cadastro-card {
-    color: rgb(197, 197, 219);
-    background-color: rgb(32, 68, 99);
-    border-radius: 5px;
-    text-align: center;
-    padding: 20px;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.novo-cadastro-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-@font-face {
-    font-family: 'Afacad' ;
-    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
 }

@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'aplicacao/css/visualizar_mulheres.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <br> 
+    <br>
+
+    <h1 id="tituloCadastros">Cadastros</h1>
+
+    <div class = "lista-de-cadastros">
+        <a href="{% url 'aplicacao:cadastrar' %}">
+            <div class="novo-cadastro-card">
+                <h2>Novo Cadastro</h2>
+            </div>
+        </a>
+
+        {% for cadastros in todos_cadastros %}
+        <a href="{% url 'aplicacao:visualizar_cadastros' cadastros.id %}">
+            <div class="cadastro-card">
+
+                {% if cadastros.imagem %}
+                    <img src="{{ cadastros.imagem.url }}" alt="{{ cadastro.nome }}" style="max-width: 200px;" class="card-image">
+                {% endif %}
+
+                <div class="card-content">
+                    <h2>{{cadastros.nome}}</h2>
+                    <!--editar excluir-->
+                </div>
+
+            </div>
+        </a>
+        {% endfor %}
+        
+    </div>
+
+    <a href="{% url 'usuarios:logout' %}">
+        <h1>sair da conta</h1>
+    </a>
+
+</body>
+</html>

@@ -231,3 +231,10 @@ class EditarBrinquedoView(LoginRequiredMixin, View):
 
         messages.success(request, 'Brinquedo editado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
+    
+class VisualizarMulheresView(LoginRequiredMixin, View):
+    def get(self, request):
+        cadastros = Cadastros.objects.filter(usuario=request.user)  # Obtém todos os cadastros do usuário
+        ctx = {'cadastros': cadastros}  # Passa os cadastros para o contexto
+
+        return render(request, 'visualizar_mulheres.html', ctx)  # Renderiza a página visualizar_mulheres.html

@@ -22,5 +22,6 @@ urlpatterns = [
     path('editar_brinquedo/<int:id>/', views.EditarBrinquedoView.as_view(), name = 'editar_brinquedo'),
     path('deletar_brinquedo/<int:id>/', views.DeletarBrinquedoView.as_view(), name = 'deletar_brinquedo'),
     path('visualizar_brinquedo/<int:id>/', views.VisualizarBrinquedoView.as_view(), name = 'visualizar_brinquedo'),
+    path('visualizar_mulheres/', views.VisualizarMulheresView.as_view(), name='visualizar_mulheres'),
 
 ]
