@@ -12,19 +12,21 @@
     {% include 'navbar.html' %}
     <br><br>
 
+    <a href="{% url 'aplicacao:home' %}"><i class="fa-solid fa-arrow-left"></i></a>
+
+    <h1 id="tituloCadastros">Cadastros</h1>
+
     {% if messages %}
     <div class="messages">
         {% for message in messages %}
             <div class="alerta">
+                <i class="fa-solid fa-check"></i>
                 <p class="mensagem">{{ message }}</p>
             </div>
         {% endfor %}
     </div>
+    <br><br>
     {% endif %}
-
-    <a href="{% url 'aplicacao:home' %}"><i class="fa-solid fa-arrow-left"></i></a>
-
-    <h1 id="tituloCadastros">Cadastros</h1>
 
     <div class = "lista-de-cadastros">
         <a href="{% url 'aplicacao:cadastrar' %}">

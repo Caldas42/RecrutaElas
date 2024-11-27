@@ -100,7 +100,7 @@ class EditarCadastroView(LoginRequiredMixin, View):
 
         messages.success(request, 'Cadastro editado com sucesso!')
 
-        return redirect('aplicacao:visualizar_cadastros', id=cadastro.id)
+        return redirect('aplicacao:home_cadastros')
 
 class GerenciarSkillsView(LoginRequiredMixin, View):
     def get(self, request):
