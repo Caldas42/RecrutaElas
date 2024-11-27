@@ -8,29 +8,34 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/gerenciar_pastas.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
-    <div class="page-gerenciar-pastas">
-        <h1>Gerenciar Pastas</h1>
-
-        <a href="{% url 'aplicacao:criar_pasta' %}" class="card">
-            <h2>Criar Pasta</h2>
-        </a>
-
-        <h2>Pastas Criadas</h2>
-        <div class="lista-de-pastas">
+    <a href="{% url 'aplicacao:home_cadastros' %}" class="btn-voltar">&#8592;</a>
+    <div class="container">
+        <div class="header">
+            <h1 class="titulo">Pastas</h1>
+            <input type="text" class="barra-busca" placeholder="Buscar...">
+        </div>
+        <div class="pastas-container">
             {% for pasta in pastas %}
                 <div class="pasta-card">
-                    <a href="{% url 'aplicacao:detalhes_pasta' pasta.id %}" class="card-link">
-                        <h3>{{ pasta.nome }}</h3>
+                    <a href="{% url 'aplicacao:detalhes_pasta' pasta.id %}">
+                        <!-- Ícone da pasta com nome -->
+                        <div class="icon-container">
+                            <span class="pasta-icone">📁</span>
+                            <p>{{ pasta.nome }}</p>
+                        </div>
                     </a>
-
-                    <form action="{% url 'aplicacao:deletar_pasta' pasta.id %}" method="post" class="form-delete">
-                        {% csrf_token %}
-                        <button type="submit" class="btn-delete">Deletar</button>
-                    </form>
                 </div>
             {% endfor %}
+            <!-- Card Criar Pasta -->
+            <div class="pasta-card criar-pasta">
+                <a href="{% url 'aplicacao:criar_pasta' %}">
+                    <span class="pasta-icone">➕</span>
+                </a>
+            </div>
         </div>
+    </div>
+    <div class="btn-sair">
+        <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
     </div>
 </body>
 </html>
