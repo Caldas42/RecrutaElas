@@ -11,10 +11,12 @@ class HomeView(LoginRequiredMixin, View):
 
 class HomeCadastrosView(LoginRequiredMixin, View):
     def get(self, request):
-        cadastros = Cadastros.objects.filter(usuario=request.user)  # Obtém todos os cadastros do usuário
-        ctx = {'cadastros': cadastros}  # Passa os cadastros para o contexto
+        
+        cadastros = Cadastros.objects.filter(usuario=request.user).order_by('-id')
 
-        return render(request, 'home_cadastros.html', ctx)  # Renderiza a página visualizar_mulheres.html
+        ctx = {'cadastros': cadastros}
+
+        return render(request, 'home_cadastros.html', ctx)
     
 class CadastrarView(LoginRequiredMixin, View):
     def get (self, request):
