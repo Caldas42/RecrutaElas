@@ -37,6 +37,15 @@
                     <!--editar excluir-->
                 </div>
 
+                <div class="actions">
+                    <a href="{% url 'aplicacao:editar' cadastro.id %}"><i class="fa-solid fa-pencil"></i></a>
+
+                    <form action="{% url 'aplicacao:excluir' cadastro.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </div>
+
             </div>
         </a>
         {% endfor %}
