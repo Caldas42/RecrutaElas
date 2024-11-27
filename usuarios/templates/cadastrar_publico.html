@@ -10,10 +10,8 @@
 </head>
 <body>
 
-    <h1 id="tituloBrinquedos">cadastrar publico</h1>
-
-    <div class="container">
-        <h1 id="cadastro-estilo">Novo Cadastro</h1>
+    <div class="containerForm">
+        <h1 id="titulo-cadastro">Novo Cadastro</h1>
 
         <form action="{% url 'usuarios:cadastrar_publico' %}" method="POST">
             {% csrf_token %}
@@ -31,8 +29,10 @@
                     <td><input type="number" id="numberFormIdade" name="formIdade" required></td>
                 </tr>
                 <tr>
-                    <td><label for="textFormCpf">CPF:</label></td>
-                    <td><input type="text" id="textFormCpf" name="formCpf" maxlength="14"></td>
+                    <div class="campo-form">
+                        <td><label for="textFormCpf">CPF:</label></td>
+                        <td><input type="text" id="textFormCpf" name="formCpf" maxlength="14"></td>
+                    </div>
                 </tr> <!--precisa ser numerico-->
                 <tr>
                     <td><label for="textFormCelular">Celular:</label></td>
@@ -64,24 +64,24 @@
                 </tr>
             </table>
 
-            <div class="skillsFormContainer">
-                <h1>Selecione habilidades que você possui:</h1>
+            <div class="skillsContainer">
+                <h1 id="titulo-skills">Selecione habilidades que você possui:</h1>
 
                 <div class="selectSkillsContainer">
-                    <label for="selectSkillCostura">
-                        <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
-                        Costura
-                    </label>
-                    <label for="selectSkillPintura">
-                        <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
-                        Pintura
-                    </label>
-                    <label for="selectSkillGerenciamento">
-                        <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
-                        Gerenciamento
-                    </label>
+                    
+                    <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
+                    <label for="selectSkillCostura">Costura</label>
+
+                    <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
+                    <label for="selectSkillPintura">Pintura</label>
+
+                    <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
+                    <label for="selectSkillGerenciamento">Gerenciamento</label>
+                
                 </div>
             </div>
+
+            <br>
 
             <div class="botaoForm">
                 <input type="submit" value="Enviar" class="button">
