@@ -4,30 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Cadastros</title>
     <link rel="stylesheet" href="{% static 'aplicacao/css/home.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
-    <br> 
-    <br>
+    <div class="container">
+        <div class="menu">
 
-    <h1 id="tituloCadastros">Cadastros</h1>
+            <a href="{% url 'aplicacao:home_brinquedos' %}">
+                <div class="card">
+                    <span class="card-icon">📁</span>
+                    <h2>Brinquedos</h2>
+                </div>
+            </a>
 
-    <div class = "lista-de-cadastros">
-        <a href="{% url 'aplicacao:cadastrar' %}">
-            <div class="novo-cadastro-card">
-                <h2>Novo Cadastro</h2>
-            </div>
-        </a>
 
-        {% for cadastros in todos_cadastros %}
-        <a href="{% url 'aplicacao:visualizar_cadastros' cadastros.id %}">
-            <div class="cadastro-card">
-                <h2>{{cadastros.nome}}</h2>
-            </div>
-        </a>
-        {% endfor %}
+
+
+            <a href="{% url 'aplicacao:home_cadastros' %}">
+                <div class="card">
+                    <span class="card-icon">📁</span>
+                    <h2>Meus Cadastros</h2>
+                </div>
+            </a>
+        </div>
     </div>
 </body>
 </html>

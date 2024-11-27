@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Publico</title>
+    <link rel="stylesheet" href="{% static 'usuarios/css/usuarios.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <h1 id="usuarios">usuarios</h1>
+
+    <a href="{% url 'usuarios:login' %}">
+        <h1>adm</h1>
+    </a>
+
+    <a href="{% url 'usuarios:cadastrar_publico' %}">
+        <h1>cadastrar para colaborador</h1>
+    </a>
+
+</body>
+</html>

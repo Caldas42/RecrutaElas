@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Usuario</title>
+    <link rel="stylesheet" href="{% static 'usuarios/css/cadastrar_usuario.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <h1 id="tituloBrinquedos">Cadastrar Usuario</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+    
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+    
+        <label for="password_confirm">Confirme a Senha:</label>
+        <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirme sua senha" required>
+        
+        <br>
+        <button type="submit" class="button">Registrar</button>
+    </form>
+
+    <div class="message">
+    </div>
+</div>
+
+</body>
+</html>

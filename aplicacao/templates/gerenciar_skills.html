@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Skills</title>
+    <link rel="stylesheet" href="{% static 'aplicacao/css/gerennciar_skills.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <h1 id="tituloSkills">Gerenciar Skills</h1>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <label for>Selecione uma habilidade:</label>
+
+        <select name="nameSelectBox" id="selectBox">
+            <option value="skillCostura">Costura</option>
+            <option value="skillPintura">Pintura</option>
+            <option value="skillGerenciamento">Gerenciamento</option>
+        </select>
+
+        <button type="submit">Filtrar</button>
+
+    </form>
+
+    <br>
+
+    <div class="lista-de-cadastros">
+        {% for cadastro in cadastrosFiltrados %}
+
+            <a href="{% url 'aplicacao:visualizar_cadastros' cadastro.id %}">
+                <div class="cadastro-card">
+                    <h2>{{cadastro.nome}}</h2>
+                </div>
+            </a>
+            
+        {% empty %}
+            <h1>Nenhum cadastro com essa habilidade!</h1>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

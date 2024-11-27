@@ -1,0 +1,30 @@
+body{
+    background-color: #F7DF95;
+}
+
+th{
+    background-color: #b38a10;
+}
+
+td{
+    background-color: #F1BB13;
+}
+
+#titulo-cadastro{
+    align-items: center;
+    text-align: center;
+}
+
+#titulo-skills{
+    align-items: center;
+    text-align: center;
+}
+
+.containerForm{
+    align-items: center;
+}
+
+.button{
+    background-color: #b38a10;
+    color: white;
+}

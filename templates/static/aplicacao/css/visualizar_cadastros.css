@@ -35,7 +35,7 @@ header .user-info span:first-child {
 }
 
 nav {
-    background-color: #000000; /* Cor de fundo da barra de navegação */
+    background-color: #000000;
     padding: 10px;
 }
 
@@ -49,49 +49,48 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #FFF; /* Cor do texto dos links */
+    color: #FFF;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #7bdb89; /* Cor do texto ao passar o mouse */
+    color: #7bdb89;
 }
 
 .container {
-    max-width: 800px; /* Largura máxima do conteúdo */
-    margin: 20px auto; /* Margens automáticas para centralização */
-    padding: 20px; /* Preenchimento interno */
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
     background-color: rgb(10, 29, 46);
-    border-radius: 15px; /* Bordas arredondadas */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para o efeito de elevação */
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 table {
-    width: 100%; /* Largura total da tabela */
-    border-collapse: collapse; /* Remove o espaço entre as bordas das células */
-    margin-top: 20px; /* Espaçamento acima da tabela */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
 th, td {
-    border: 1px solid #ddd; /* Borda das células */
-    padding: 12px; /* Espaçamento interno das células */
-    text-align: left; /* Alinhamento do texto à esquerda */
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
 }
 
 th:nth-child(odd) {
     background-color: rgb(32, 68, 99);
-    color: white; /* Cor do texto do cabeçalho */
+    color: white;
 }
 
-
 tr:nth-child(even) {
-    background-color: #bac3eb; /* Cor de fundo para linhas pares */
+    background-color: #bac3eb;
 }
 
 tr:nth-child(odd) {
-    background-color: #8ba2c2; /* Cor de fundo para linhas pares */
+    background-color: #8ba2c2;
 }
 
 @font-face {
@@ -102,4 +101,48 @@ tr:nth-child(odd) {
 #nome-cadastro {
     color: white;
     text-align: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.edit-btn {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.edit-btn:hover {
+    background-color: #1c6ea6;
+    transform: scale(1.05);
+}
+
+#lapis {
+    margin-left: 5px;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
 }

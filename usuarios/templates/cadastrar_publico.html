@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar-se na Fábrica</title>
+    <link rel="stylesheet" href="{% static 'usuarios/css/cadastrar_publico.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="containerForm">
+        <h1 id="titulo-cadastro">Novo Cadastro</h1>
+
+        <form action="{% url 'usuarios:cadastrar_publico' %}" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Campo</th>
+                    <th>Informação</th>
+                </tr>
+                <tr>
+                    <td><label for="textFormNome">Nome:</label></td>
+                    <td><input type="text" id="textFormNome" name="formNome" maxlength="150" required></td>
+                </tr>
+                <tr>
+                    <td><label for="numberFormIdade">Idade:</label></td>
+                    <td><input type="number" id="numberFormIdade" name="formIdade" required></td>
+                </tr>
+                <tr>
+                    <div class="campo-form">
+                        <td><label for="textFormCpf">CPF:</label></td>
+                        <td><input type="text" id="textFormCpf" name="formCpf" maxlength="14"></td>
+                    </div>
+                </tr> <!--precisa ser numerico-->
+                <tr>
+                    <td><label for="textFormCelular">Celular:</label></td>
+                    <td><input type="text" id="textFormCelular" name="formCelular" maxlength="15"></td>
+                </tr> <!--precisa ser numerico-->
+                <tr>
+                    <td><label for="textFormCep">CEP:</label></td>
+                    <td><input type="text" id="textFormCep" name="formCep" maxlength="9"></td>
+                </tr> <!--precisa ser numerico-->
+                <tr>
+                    <td><label for="textFormCidade">Cidade:</label></td>
+                    <td><input type="text" id="textFormCidade" name="formCidade" maxlength="30" required></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormBairro">Bairro:</label></td>
+                    <td><input type="text" id="textFormBairro" name="formBairro" maxlength="100"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormRua">Rua:</label></td>
+                    <td><input type="text" id="textFormRua" name="formRua" maxlength="150"></td>
+                </tr>
+                <tr>
+                    <td><label for="numberFormNumero">Número:</label></td>
+                    <td><input type="number" id="numberFormNumero" name="formNumero"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormComplemento">Complemento:</label></td>
+                    <td><input type="text" id="textFormComplemento" name="formComplemento" maxlength="50"></td>
+                </tr>
+            </table>
+
+            <div class="skillsContainer">
+                <h1 id="titulo-skills">Selecione habilidades que você possui:</h1>
+
+                <div class="selectSkillsContainer">
+                    
+                    <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
+                    <label for="selectSkillCostura">Costura</label>
+
+                    <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
+                    <label for="selectSkillPintura">Pintura</label>
+
+                    <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
+                    <label for="selectSkillGerenciamento">Gerenciamento</label>
+                
+                </div>
+            </div>
+
+            <br>
+
+            <div class="botaoForm">
+                <input type="submit" value="Enviar" class="button">
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

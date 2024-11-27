@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pasta.nome }} - Detalhes</title>
+    <link rel="stylesheet" href="{% static 'aplicacao/css/detalhes_pasta1.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="page-detalhes-pasta-container">
+        <div class="page-detalhes-pasta">
+            <h1>Detalhes da Pasta: {{ pasta.nome }}</h1>
+
+            <h2>Mulheres na Pasta</h2>
+            <ul>
+                {% for cadastro in pasta.cadastros.all %}
+                    <li>
+                        <strong>Nome:</strong> {{ cadastro.nome }}<br>
+                        <strong>Idade:</strong> {{ cadastro.idade }}<br>
+                        <strong>CPF:</strong> {{ cadastro.cpf }}<br>
+                        <strong>Celular:</strong> {{ cadastro.celular }}<br>
+                        <strong>Cidade:</strong> {{ cadastro.cidade }}<br>
+                        <strong>Bairro:</strong> {{ cadastro.bairro }}<br>
+                        <strong>Rua:</strong> {{ cadastro.rua }}<br>
+                        <strong>Número:</strong> {{ cadastro.numero }}<br>
+                        <strong>Complemento:</strong> {{ cadastro.complemento }}<br>
+                        <strong>Habilidades:</strong>
+                        <ul>
+                            {% if cadastro.skillCostura %}<li>Costura</li>{% endif %}
+                            {% if cadastro.skillGerenciamento %}<li>Gerenciamento</li>{% endif %}
+                            {% if cadastro.skillPintura %}<li>Pintura</li>{% endif %}
+                        </ul>
+                        <br>
+                    </li>
+                {% empty %}
+                    <li>Não há mulheres nesta pasta.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

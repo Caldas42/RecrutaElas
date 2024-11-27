@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'aplicacao/css/editar.css' %}">
+    <title>Editar Cadastro</title>
+</head>
+<body>
+    {% include 'navbar.html' %} 
+    
+    <div class="container">
+        <h1 id="cadastro-estilo">Editar Cadastro</h1>
+
+        <form action="{% url 'aplicacao:editar' cadastro.id %}" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Campo</th>
+                    <th>Informação</th>
+                </tr>
+                <tr>
+                    <td><label for="textFormNome">Nome:</label></td>
+                    <td><input type="text" id="textFormNome" name="formNome" maxlength="150" value="{{ cadastro.nome }}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="numberFormIdade">Idade:</label></td>
+                    <td><input type="number" id="numberFormIdade" name="formIdade" value="{{ cadastro.idade }}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormCpf">CPF:</label></td>
+                    <td><input type="text" id="textFormCpf" name="formCpf" maxlength="14" value="{{ cadastro.cpf }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormCelular">Celular:</label></td>
+                    <td><input type="text" id="textFormCelular" name="formCelular" maxlength="15" value="{{ cadastro.celular }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormCep">CEP:</label></td>
+                    <td><input type="text" id="textFormCep" name="formCep" maxlength="9" value="{{ cadastro.cep }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormCidade">Cidade:</label></td>
+                    <td><input type="text" id="textFormCidade" name="formCidade" maxlength="30" value="{{ cadastro.cidade }}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormBairro">Bairro:</label></td>
+                    <td><input type="text" id="textFormBairro" name="formBairro" maxlength="100" value="{{ cadastro.bairro }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormRua">Rua:</label></td>
+                    <td><input type="text" id="textFormRua" name="formRua" maxlength="150" value="{{ cadastro.rua }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="numberFormNumero">Número:</label></td>
+                    <td><input type="number" id="numberFormNumero" name="formNumero" value="{{ cadastro.numero }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormComplemento">Complemento:</label></td>
+                    <td><input type="text" id="textFormComplemento" name="formComplemento" maxlength="50" value="{{ cadastro.complemento }}"></td>
+                </tr>
+            </table>
+
+            <div class="botaoForm">
+                <input type="submit" value="Salvar Alterações" class="button">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

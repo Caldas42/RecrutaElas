@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'aplicacao/css/visualizar_brinquedo1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Visualizar brinquedo</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h1 id="nome-brinquedo">{{ brinquedo.nome }}</h1>
+        <table>
+            <tr>
+                <th>Materiais</th>
+                <td>{{ brinquedo.materiais }}</td>
+            </tr>
+            <tr>
+                <th>Quantidade</th>
+                <td>{{ brinquedo.quantidade }}</td>
+            </tr>
+            <tr>
+                <th>Categoria</th>
+                <td>{{ brinquedo.categoria }}</td>
+            </tr>
+            <tr>
+                <th>Temática</th>
+                <td>{{ brinquedo.tematica }}</td>
+            </tr>
+        </table>
+
+        <!--+ ver as habilidaddes que possui!--> 
+
+        <div class="actions">
+            <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Excluir Cadastro</button>
+            </form>
+
+            <a href="{% url 'aplicacao:editar_brinquedo' brinquedo.id %}" class="edit-btn">
+                <i class="fa-solid fa-pencil" id="lapis"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

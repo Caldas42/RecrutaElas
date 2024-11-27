@@ -13,3 +13,5 @@ __pycache__/
 
 # arquivos de script
 *sh
+
+node_modules

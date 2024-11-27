@@ -1,0 +1,165 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbe39f;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-voltar:hover {
+    color: #555;
+}
+
+/* Header com Título e Barra de Busca */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.titulo {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.barra-busca {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.barra-busca:focus {
+    outline: none;
+    border-color: #888;
+}
+
+/* Lista de Pastas */
+.pastas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.pasta-card {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.2s;
+    width: 100px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pasta-card:hover {
+    transform: scale(1.05);
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.pasta-icone {
+    font-size: 40px; /* Tamanho do ícone */
+}
+
+.pasta-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Card Criar Pasta */
+.criar-pasta {
+    background-color: #fbe39f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.criar-pasta .pasta-icone {
+    font-size: 40px;
+}
+
+/* Botão Sair */
+.btn-sair {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004d40;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sair:hover {
+    background-color: #00796b;
+}
+
+/* Lista de Pastas */
+.pastas-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Exatamente 3 colunas */
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Itens das pastas */
+.pasta-item {
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.pasta-item:hover {
+    transform: scale(1.1);
+    color: #555;
+}
+
+/* Ícones */
+.pasta-icone,
+.pasta-icone2 {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 5px;
+}

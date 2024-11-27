@@ -1,12 +1,34 @@
-#headerNavbar{
+.headerNavbar{
     background-color: rgb(32, 68, 99);
-    text-align: center;
     color: rgb(203, 209, 241);
     padding: 2%;
+    font-family: Afacad;
+    align-items: center;
+    text-align: center;
+}
+
+.headerNavbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#listaURLS{
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Afacad' ;
+    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
 }

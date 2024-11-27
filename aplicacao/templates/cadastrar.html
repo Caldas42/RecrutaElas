@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/cadastrar.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %} 
-    
-    <div class="container">
-        <h1 id="cadastro-estilo">Novo cadastro</h1>
+    {% include 'navbar.html' %}
 
-        <form action="{% url 'aplicacao:cadastrar' %}" method="POST">
+    <div class="container">
+        <h1 id="cadastro-estilo">Novo Cadastro</h1>
+
+        <form action="{% url 'aplicacao:cadastrar' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 <tr>
@@ -29,16 +29,16 @@
                     <td><input type="number" id="numberFormIdade" name="formIdade" required></td>
                 </tr>
                 <tr>
-                    <td><label for="textFormCpf">CPF:</label></td>
-                    <td><input type="text" id="textFormCpf" name="formCpf" maxlength="14"></td>
+                    <td><label for="numberFormCpf">CPF:</label></td>
+                    <td><input type="number" id="numberFormCpf" name="formCpf" maxlength="14"></td>
                 </tr>
                 <tr>
-                    <td><label for="textFormCelular">Celular:</label></td>
-                    <td><input type="text" id="textFormCelular" name="formCelular" maxlength="15"></td>
+                    <td><label for="numberFormCelular">Celular:</label></td>
+                    <td><input type="number" id="numberFormCelular" name="formCelular" maxlength="15"></td>
                 </tr>
                 <tr>
-                    <td><label for="textFormCep">CEP:</label></td>
-                    <td><input type="text" id="textFormCep" name="formCep" maxlength="9"></td>
+                    <td><label for="numberFormCep">CEP:</label></td>
+                    <td><input type="number" id="numberFormCep" name="formCep" maxlength="9"></td>
                 </tr>
                 <tr>
                     <td><label for="textFormCidade">Cidade:</label></td>
@@ -60,7 +60,30 @@
                     <td><label for="textFormComplemento">Complemento:</label></td>
                     <td><input type="text" id="textFormComplemento" name="formComplemento" maxlength="50"></td>
                 </tr>
+                <tr>
+                    <td><label for="fileFormImagem">Imagem:</label></td>
+                    <td><input type="file" id="fileFormImagem" name="formCadastroImagem"></td>
+                </tr>
             </table>
+
+            <div class="skillsFormContainer">
+                <h1>Selecione habilidades que você possui:</h1>
+
+                <div class="selectSkillsContainer">
+                    <label for="selectSkillCostura">
+                        <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
+                        Costura
+                    </label>
+                    <label for="selectSkillPintura">
+                        <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
+                        Pintura
+                    </label>
+                    <label for="selectSkillGerenciamento">
+                        <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
+                        Gerenciamento
+                    </label>
+                </div>
+            </div>
 
             <div class="botaoForm">
                 <input type="submit" value="Enviar" class="button">

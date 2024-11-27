@@ -1,0 +1,131 @@
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Escopo para página de detalhes da pasta */
+.page-detalhes-pasta-container {
+    padding-top: 20px;  /* Garantir um espaço adequado na parte superior */
+}
+
+.page-detalhes-pasta {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-detalhes-pasta h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.page-detalhes-pasta h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.page-detalhes-pasta ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.page-detalhes-pasta ul li {
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-detalhes-pasta ul li strong {
+    color: #555;
+    font-weight: bold;
+}
+
+.page-detalhes-pasta ul li ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.page-detalhes-pasta ul li ul li {
+    background-color: #e9e9e9;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.page-detalhes-pasta ul li:not(:last-child) {
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Detalhes de cada mulher */
+.page-detalhes-pasta ul li .cadastro-info {
+    margin-top: 10px;
+}
+
+.page-detalhes-pasta ul li .cadastro-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Estilo de listagem de habilidades */
+.page-detalhes-pasta ul li .cadastro-info .skills {
+    margin-top: 10px;
+}
+
+.page-detalhes-pasta ul li .cadastro-info .skills ul {
+    padding-left: 20px;
+}
+
+.page-detalhes-pasta ul li .cadastro-info .skills li {
+    background-color: #d1f7d1;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .page-detalhes-pasta {
+        padding: 15px;
+    }
+
+    .page-detalhes-pasta h1 {
+        font-size: 2rem;
+    }
+
+    .page-detalhes-pasta h2 {
+        font-size: 1.5rem;
+    }
+
+    .page-detalhes-pasta ul li {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-detalhes-pasta h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-detalhes-pasta ul li {
+        padding: 8px;
+    }
+
+    .page-detalhes-pasta ul li strong {
+        font-size: 0.9rem;
+    }
+
+    .page-detalhes-pasta ul li p {
+        font-size: 0.9rem;
+    }
+}

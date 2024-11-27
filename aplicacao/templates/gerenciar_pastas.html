@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Pastas</title>
+    <link rel="stylesheet" href="{% static 'aplicacao/css/gerenciar_pastas.css' %}">
+</head>
+<body>
+    <a href="{% url 'aplicacao:home_cadastros' %}" class="btn-voltar">&#8592;</a>
+    <div class="container">
+        <div class="header">
+            <h1 class="titulo">Pastas</h1>
+            <input type="text" class="barra-busca" placeholder="Buscar...">
+        </div>
+        <div class="pastas-container">
+            {% for pasta in pastas %}
+                <a href="{% url 'aplicacao:detalhes_pasta' pasta.id %}" class="pasta-item">
+                    <span class="pasta-icone">📁</span>
+                    <p>{{ pasta.nome }}</p>
+                </a>
+            {% endfor %}
+            <a href="{% url 'aplicacao:criar_pasta' %}" class="pasta-item criar-pasta">
+                <span class="pasta-icone2">➕</span>
+            </a>
+        </div>
+        </div>
+    </div>
+    <div class="btn-sair">
+        <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
+    </div>
+</body>
+</html>

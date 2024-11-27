@@ -9,10 +9,32 @@
 </head>
 <body>
     <header>
-        <div id="headerNavbar">
-            <a href="/">
+        <div class="headerNavbar">
+
+            <a href="/aplicacao/">
                 <h1>LOGO</h1>
-            </a>    
+            </a>  
+
+            <div id="listaURLS">
+
+                <a href="/aplicacao/">
+                    <h1>Gerenciar Cadastros</h1>
+                </a>
+                
+                <a href="{% url 'aplicacao:gerenciar_skills' %}">
+                    <h1>Gerenciar Skills</h1>
+                </a>
+
+                <a href="{% url 'aplicacao:gerenciar_pastas' %}">
+                    <h1>Gerenciar Pastas</h1>
+                </a>
+
+                <a href="{% url 'aplicacao:home_brinquedos' %}">
+                    <h1>Home Brinquedos</h1>
+                </a>
+
+            </div> 
+
         </div>
     </header>
 </body>
