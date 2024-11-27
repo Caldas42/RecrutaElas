@@ -1,0 +1,120 @@
+/* Estilização geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F9E1A8; /* Fundo amarelo claro */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.containerForm {
+    background-color: #F1D383; /* Fundo amarelo um pouco mais escuro */
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos dentro do container */
+}
+
+/* Título do formulário */
+h1#titulo-cadastro {
+    color: #000;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table td {
+    padding: 10px;
+    text-align: center; /* Centraliza o texto dentro das células */
+}
+
+label {
+    font-weight: bold;
+    color: #000;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 90%; /* Ajusta a largura dos campos para ficar centralizada */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    text-align: center; /* Centraliza o texto dentro das caixas */
+}
+
+/* Container de habilidades */
+.skillsContainer {
+    background-color: #F1D383;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1#titulo-skills {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.selectSkillsContainer {
+    display: flex;
+    justify-content: center; /* Centraliza os checkboxes */
+    gap: 20px; /* Espaçamento entre os checkboxes */
+}
+
+.selectSkillsContainer label {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Botão */
+.botaoForm {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.botaoForm .button {
+    background-color: #D29133; /* Laranja claro */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.botaoForm .button:hover {
+    background-color: #B06C29; /* Laranja mais escuro */
+}
+
+/* Avatar e informações */
+#user-avatar {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #B63232;
+    margin-bottom: 10px;
+    border: 5px solid #007ACC; /* Borda azul */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o avatar */
+}

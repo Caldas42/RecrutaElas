@@ -1,0 +1,84 @@
+/* CSS baseado na imagem */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a6cfe5; /* Fundo amarelo */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1#tituloBrinquedos {
+    color: #000;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Caixa de login */
+.login-box {
+    background-color: #3b9fe1; /* Fundo azul */
+    border-radius: 10px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Formulário */
+.login-form label {
+    display: block;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.button {
+    width: 100%;
+    background-color: #C53030; /* Vermelho botão */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #A60000;
+}
+
+/* Link */
+p {
+    color: black;
+    text-align: center;
+}
+
+p a {
+    color: #007ACC;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

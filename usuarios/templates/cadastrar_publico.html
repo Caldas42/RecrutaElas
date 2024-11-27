@@ -4,17 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Publico</title>
+    <title>Cadastrar Público</title>
     <link rel="stylesheet" href="{% static 'usuarios/css/cadastrar_publico.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic styling to mimic the image; replace with your CSS */
+        body {
+            font-family: sans-serif;
+            background-color: #fff8dc; /* Light yellow background */
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff8dc; /* Light yellow background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f0e68c; /* Light gold header */
+        }
+        .button {
+            background-color: #ffa500; /* Orange button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .skillsFormContainer h1{
+            margin-top: 20px;
+        }
+        .selectSkillsContainer label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+    </style>
 </head>
 <body>
 
-    <h1 id="tituloBrinquedos">cadastrar publico</h1>
-
     <div class="container">
         <h1 id="cadastro-estilo">Novo Cadastro</h1>
-
         <form action="{% url 'usuarios:cadastrar_publico' %}" method="POST">
             {% csrf_token %}
             <table>
@@ -32,16 +73,16 @@
                 </tr>
                 <tr>
                     <td><label for="textFormCpf">CPF:</label></td>
-                    <td><input type="text" id="textFormCpf" name="formCpf" maxlength="14"></td>
-                </tr> <!--precisa ser numerico-->
+                    <td><input type="text" id="textFormCpf" name="formCpf" maxlength="14" inputmode="numeric"></td>
+                </tr>
                 <tr>
                     <td><label for="textFormCelular">Celular:</label></td>
-                    <td><input type="text" id="textFormCelular" name="formCelular" maxlength="15"></td>
-                </tr> <!--precisa ser numerico-->
+                    <td><input type="tel" id="textFormCelular" name="formCelular" maxlength="15" inputmode="tel"></td>
+                </tr>
                 <tr>
                     <td><label for="textFormCep">CEP:</label></td>
-                    <td><input type="text" id="textFormCep" name="formCep" maxlength="9"></td>
-                </tr> <!--precisa ser numerico-->
+                    <td><input type="text" id="textFormCep" name="formCep" maxlength="9" inputmode="numeric"></td>
+                </tr>
                 <tr>
                     <td><label for="textFormCidade">Cidade:</label></td>
                     <td><input type="text" id="textFormCidade" name="formCidade" maxlength="30" required></td>
@@ -66,29 +107,24 @@
 
             <div class="skillsFormContainer">
                 <h1>Selecione habilidades que você possui:</h1>
-
                 <div class="selectSkillsContainer">
-                    <label for="selectSkillCostura">
-                        <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
-                        Costura
+                    <label>
+                        <input type="checkbox" name="skills" value="Costura"> Costura
                     </label>
-                    <label for="selectSkillPintura">
-                        <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
-                        Pintura
+                    <label>
+                        <input type="checkbox" name="skills" value="Pintura"> Pintura
                     </label>
-                    <label for="selectSkillGerenciamento">
-                        <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
-                        Gerenciamento
+                    <label>
+                        <input type="checkbox" name="skills" value="Gerenciamento"> Gerenciamento
                     </label>
+                    <!-- Add more skills as needed -->
                 </div>
             </div>
 
             <div class="botaoForm">
                 <input type="submit" value="Enviar" class="button">
             </div>
-
         </form>
-
     </div>
 
 </body>

@@ -1,0 +1,75 @@
+/* Estilização geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F9E1A8; /* Fundo amarelo claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Título principal */
+h1#tituloBrinquedos {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #D32F2F; /* Vermelho vibrante */
+    text-align: center;
+    background-color: #FFD700; /* Amarelo ouro */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Link da página inicial */
+a {
+    text-decoration: none;
+    color: #007ACC; /* Azul vibrante */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+a:hover {
+    color: #005F99; /* Azul mais escuro ao passar o mouse */
+}
+
+a h1 {
+    text-align: center;
+    background-color: #F1D383;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+a:hover h1 {
+    background-color: #D29133;
+    color: white;
+}
+
+/* Centralização dos elementos */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* Efeito de animação para o título */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    animation: fadeIn 1s ease-in-out;
+}

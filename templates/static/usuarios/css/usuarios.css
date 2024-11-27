@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif; /* Or specify a system font like 'Arial', 'Helvetica', etc. */
+    background-color: #FFD700; /* Golden Yellow Background */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+h1#usuarios {
+    margin-bottom: 20px;
+    color: #000000; /* black */
+}
+
+
+a {
+    text-decoration: none; /* Remove underlines from links */
+    display: block; /* Make links block-level for easier styling */
+    width: 250px; /* Adjust width as needed */
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #DC143C; /* Crimson Red */
+    color: white;
+    border-radius: 8px; /* Rounded corners */
+    text-align: center;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Add a subtle shadow */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+a:hover {
+    background-color: #B22222; /* Darker red on hover */
+}
+
+/*Optional styling for responsiveness: */
+@media (max-width: 500px) {
+    a {
+        width: 80%; /* Make buttons fill more of the width on smaller screens */
+    }
+}
