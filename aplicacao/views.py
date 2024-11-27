@@ -7,13 +7,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomeView(LoginRequiredMixin, View):
     def get (self, request):
-        cadastro = Cadastros.objects.filter(usuario=request.user).order_by('-id')
+        return render(request, 'home.html')
 
-        ctx = {
-            'todos_cadastros': cadastro,
-        }
+class HomeCadastrosView(LoginRequiredMixin, View):
+    def get(self, request):
+        cadastros = Cadastros.objects.filter(usuario=request.user)  # Obtém todos os cadastros do usuário
+        ctx = {'cadastros': cadastros}  # Passa os cadastros para o contexto
 
-        return render(request, 'home.html', ctx)
+        return render(request, 'home_cadastros.html', ctx)  # Renderiza a página visualizar_mulheres.html
     
 class CadastrarView(LoginRequiredMixin, View):
     def get (self, request):
@@ -47,7 +48,7 @@ class CadastrarView(LoginRequiredMixin, View):
 
             messages.success(request, 'Cadastro adicionado com sucesso!')
 
-            return redirect('aplicacao:home')
+            return redirect('aplicacao:home_cadastros')
 
 class VisualizarCadastroView(LoginRequiredMixin, View):
     def get (self, request, id):
@@ -61,7 +62,7 @@ class DeletarCadastroView(LoginRequiredMixin, View):
     def post(self, request, id):
         cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)
         cadastro.delete()
-        return redirect('aplicacao:home')
+        return redirect('aplicacao:home_cadastros')
     
 class EditarCadastroView(LoginRequiredMixin, View):
 
@@ -232,9 +233,3 @@ class EditarBrinquedoView(LoginRequiredMixin, View):
         messages.success(request, 'Brinquedo editado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
     
-class VisualizarMulheresView(LoginRequiredMixin, View):
-    def get(self, request):
-        cadastros = Cadastros.objects.filter(usuario=request.user)  # Obtém todos os cadastros do usuário
-        ctx = {'cadastros': cadastros}  # Passa os cadastros para o contexto
-
-        return render(request, 'visualizar_mulheres.html', ctx)  # Renderiza a página visualizar_mulheres.html

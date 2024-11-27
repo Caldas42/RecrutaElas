@@ -21,16 +21,16 @@
             </div>
         </a>
 
-        {% for cadastros in todos_cadastros %}
-        <a href="{% url 'aplicacao:visualizar_cadastros' cadastros.id %}">
+        {% for cadastro in cadastros %}
+        <a href="{% url 'aplicacao:visualizar_cadastros' cadastro.id %}">
             <div class="cadastro-card">
 
-                {% if cadastros.imagem %}
-                    <img src="{{ cadastros.imagem.url }}" alt="{{ cadastro.nome }}" style="max-width: 200px;" class="card-image">
+                {% if cadastro.imagem %}
+                    <img src="{{ cadastro.imagem.url }}" alt="{{ cadastro.nome }}" style="max-width: 200px;" class="card-image">
                 {% endif %}
 
                 <div class="card-content">
-                    <h2>{{cadastros.nome}}</h2>
+                    <h2>{{cadastro.nome}}</h2>
                     <!--editar excluir-->
                 </div>
 
