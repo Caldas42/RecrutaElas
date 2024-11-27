@@ -8,6 +8,8 @@ Utilizando a linguagem de programação **Python**, junto com o framework **Djan
 
 ## Screencast do Protótipo de Média Fidelidade
 
+https://github.com/user-attachments/assets/3de4f497-023f-41fb-9dca-ba449522c5d9
+
 ## Diagrama de Atividade do Sistema
 
 ## Print do Issue/bug Tracker
