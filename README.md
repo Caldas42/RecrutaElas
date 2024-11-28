@@ -28,7 +28,7 @@ Reconhecemos os benefícios da programação em par, como o aumento da qualidade
 
 ## Screencast da Build e do Deployment Automatizados
 
-## Screencast da Execução dos Testes de Sistema (E2E) Automatizados
+## [Screencast da Execução dos Testes de Sistema (E2E) Automatizados](https://youtu.be/RcUI3CVY3b4)
 
 # Equipe
 
