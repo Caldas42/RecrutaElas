@@ -82,12 +82,14 @@ class CadastrarPublicoView(View):
             skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
             skillPintura = request.POST.get('nameSkillPintura') == 'on'
 
+            imagem = request.FILES.get('formImagem')
+
             try:
                 usuario_responsavel = User.objects.get(username='GerenteFabrica') #costumizar?
             except User.DoesNotExist:
                 return redirect('usuarios:cadastrar_publico')
             
-            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura, usuario=usuario_responsavel)
+            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura, usuario=usuario_responsavel, imagem=imagem)
 
             cadastro.save()
 

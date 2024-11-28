@@ -14,7 +14,7 @@
     <div class="container">
         <h1 id="cadastro-estilo">Novo Cadastro</h1>
 
-        <form action="{% url 'usuarios:cadastrar_publico' %}" method="POST">
+        <form action="{% url 'usuarios:cadastrar_publico' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 <tr>
@@ -61,6 +61,10 @@
                     <td><label for="textFormComplemento">Complemento:</label></td>
                     <td><input type="text" id="textFormComplemento" name="formComplemento" maxlength="50"></td>
                 </tr>
+                <tr>
+                    <td><label for="fileFormImagem">Coloque uma foto sua:</label></td>
+                    <td><input type="file" id="fileFormImagem" name="formImagem"></td>
+                </tr>
             </table>
 
             <div class="skillsFormContainer">
@@ -75,7 +79,7 @@
                     <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
                     <label for="selectSkillGerenciamento">Gerenciamento</label>
                 </div>
-            </div>
+            </div> 
 
             <div class="botaoForm">
                 <input type="submit" value="Enviar" class="button">
