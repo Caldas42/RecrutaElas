@@ -18,6 +18,7 @@ urlpatterns = [
     path('criar_pasta/', views.CriarPastaView.as_view(), name='criar_pasta'),
     path('pastas/detalhes/<int:id>/', views.DetalhesPastaView.as_view(), name='detalhes_pasta'),
     path('deletar_pasta/<int:id>/', views.DeletarPastaView.as_view(), name='deletar_pasta'),
+    path('adicionar_comentario/', views.adicionar_comentario, name='adicionar_comentario'),
 
     path('registrar_brinquedo/', views.RegistrarBrinquedoView.as_view(), name = 'registrar_brinquedo'),
     path('home_brinquedos/', views.HomeBrinquedosView.as_view(), name = 'home_brinquedos'),

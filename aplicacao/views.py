@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Cadastros, Pasta, Brinquedo
+from .models import Cadastros, Pasta, Brinquedo, Comentario
 
 
 class HomeView(LoginRequiredMixin, View):
@@ -303,3 +303,24 @@ class AdicionarColaboradorasView(LoginRequiredMixin, View):
 
         messages.success(request, 'Colaboradoras adicionadas à pasta com sucesso!')
         return redirect('aplicacao:detalhes_pasta', id=pasta.id)
+    
+
+def adicionar_comentario(request):
+    if request.method == 'POST':
+        # Pega o nome do colaborador selecionado e o texto do comentário
+        colaborador_nome = request.POST.get('colaborador')
+        texto = request.POST.get('texto')
+
+        # Obtém o colaborador pelo nome
+        colaborador = Cadastros.objects.get(nome=colaborador_nome)  # Certifique-se de usar cadastros ou Colaborador
+
+        # Cria o comentário associado ao colaborador
+        comentario = Comentario.objects.create(colaborador=colaborador, texto=texto)
+        comentario.save()
+
+        # Redireciona para a página de visualização de cadastros ou outra página desejada
+        return redirect('aplicacao:home')  # Modifique conforme necessário
+    else:
+        # Exibe os colaboradores disponíveis no formulário para o usuário escolher
+        colaboradores = Cadastros.objects.all()  # Corrigido para cadastros
+        return render(request, 'adicionar_comentario.html', {'colaboradores': colaboradores})

@@ -68,7 +68,21 @@
                 </td>
             </tr>
         </table>
-        
+        <h2>Comentários</h2>
+        <div class="comentarios">
+            {% if comentarios %}
+                <ul>
+                    {% for comentario in comentarios %}
+                        <li>
+                            <strong>{{ comentario.colaborador.nome }}:</strong> {{ comentario.texto }}
+                            <br><em>{{ comentario.data_criacao }}</em>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Este colaborador ainda não tem comentários.</p>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
