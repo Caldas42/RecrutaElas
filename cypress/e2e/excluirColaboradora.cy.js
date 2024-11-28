@@ -32,7 +32,6 @@ describe('Excluindo colaboradora', () => {
         cy.get('[for="selectSkillPintura"]').click()
         cy.get('.button').click()
         cy.get('.mensagem').invoke('text').should('have.string', "Cadastro adicionado com sucesso!")
-        cy.wait(2000)
         cy.get('.delete-btn').click()
         cy.get('.mensagem').invoke('text').should('have.string', "Cadastro deletado com sucesso!")
     })

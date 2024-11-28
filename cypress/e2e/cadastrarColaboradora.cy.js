@@ -2,22 +2,16 @@ describe('Cadastrando colaboradora', () => {
     it('Cadastrando colaboradora com sucesso', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
-        cy.wait(2000)
         cy.get('[href="/login/"]').click()
-        cy.wait(2000)
         cy.get('p > a').click()
         cy.get('#username').type('cypress')
         cy.get('#password').type('abc123')
         cy.get('#password_confirm').type('abc123')
-        cy.wait(2000)
         cy.get('.button').click()
         cy.get('#username').type('cypress')
         cy.get('#password').type('abc123')
-        cy.wait(2000)
         cy.get('.button').click()
-        cy.wait(2000)
         cy.get('[href="/aplicacao/home_cadastros/"] > .card').click();
-        cy.wait(2000)
         cy.get('.novo-cadastro-card').click()
         cy.get('#textFormNome').type('Andressa')
         cy.get('#numberFormIdade').type(30)
@@ -36,10 +30,8 @@ describe('Cadastrando colaboradora', () => {
         cy.get('#textFormInteresse').type('não tenho')
         cy.get('[for="selectSkillCostura"]').click()
         cy.get('[for="selectSkillPintura"]').click()
-        cy.wait(2000)
         cy.get('.button').click()
         cy.get('.mensagem').invoke('text').should('have.string', "Cadastro adicionado com sucesso!")
-        cy.wait(5000)
     })
 
     it('Esquecendo de colocar o nome da colaboradora', () => {
@@ -74,7 +66,6 @@ describe('Cadastrando colaboradora', () => {
         cy.get('[for="selectSkillPintura"]').click()
         cy.get('.button').click()
         cy.get('#textFormNome').invoke('text').should('have.string', "")
-        cy.wait(5000)
     })
 
     it('Esquecendo de colocar o número de celular da colaboradora', () => {
