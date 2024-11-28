@@ -1,131 +1,92 @@
-* {
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    color: inherit;
-}
-
-body {
-    font-family: 'Afacad', sans-serif; /* Fonte definida */
-    background-color: rgb(197, 197, 219); /* Cor de fundo da página */
-}
-
-#cadastro-estilo {
-    color: #fff;
-    text-align: center;
-    font-size: 28px; /* Maior destaque para o título */
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-nav {
-    background-color: #000000; /* Cor de fundo da barra de navegação */
-    padding: 10px;
-}
-
-nav ul {
-    display: flex;
-    list-style-type: none;
-}
-
-nav ul li {
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #FFF;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #7bdb89;
+    background-color: #fbe39f;
+    color: #333;
 }
 
 .container {
+    width: 90%;
     max-width: 800px;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 20px;
-    background-color: rgb(10, 29, 46);
-    border-radius: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffe39a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Título */
+#cadastro-estilo {
+    font-size: 24px;
+    text-align: left;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Tabela de Formulário */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    vertical-align: middle;
 }
 
-th {
-    background-color: rgb(146, 50, 50);
-    color: white;
+table th {
+    background-color: #d1c0a8;
+    color: #333;
+    border: 1px solid #b2a07f;
 }
 
-tr:nth-child(even) {
-    background-color: #bac3eb;
+table td {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
 }
 
-tr:nth-child(odd) {
-    background-color: #8ba2c2; 
-}
-
-label {
-    color: rgb(0, 0, 0);
-    display: block;
-    font-weight: bold;
-    font-size: 120%;
-}
-
-input[type="text"],
-input[type="number"] {
-    width: 80%;
-    padding: 10px; 
-    border: 1px solid #ddd; 
+/* Input e Botões */
+input[type="text"], 
+input[type="number"], 
+input[type="file"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 20px; 
-    background-color: rgb(255, 255, 255);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
-    border: 2px solid #7bdb89;
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+input[type="file"]:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(123, 219, 137, 0.5);
+    border-color: #00796b;
 }
 
-
-input[type="submit"] {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(146, 50, 50); 
+.button {
+    background-color: #004d40;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.2s;
+    display: block;
+    margin: 20px auto 0;
 }
 
-input[type="submit"]:hover {
-    background-color: #7bdb89;
-    transform: scale(1.05);
-}
-
-.botaoForm {
-    text-align: center;
-    margin-top: 20px;
+.button:hover {
+    background-color: #00796b;
 }
 
 .selectSkillsContainer {
@@ -158,7 +119,55 @@ input[type="submit"]:hover {
     color: white;
 }
 
-@font-face {
-    font-family: 'Afacad';
-    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
+/* Responsividade */
+@media (max-width: 600px) {
+    table, th, td {
+        font-size: 14px;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    input[type="text"], 
+    input[type="number"], 
+    input[type="file"] {
+        width: 100%;
+    }
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 50px;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-voltar:hover {
+    background-color: #ffa944;
+}
+
+.btn-sair {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004d40;
+    color: white;
+    width: 65px;
+    height: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sair:hover {
+    background-color: #00796b;
 }

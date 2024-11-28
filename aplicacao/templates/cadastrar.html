@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/cadastrar.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
-
+    <a href="{% url 'aplicacao:home_cadastros' %}" class="btn-voltar">&#8592;</a>
     <div class="container">
         <h1 id="cadastro-estilo">Novo Cadastro</h1>
 
@@ -67,7 +66,7 @@
             </table>
 
             <div class="skillsFormContainer">
-                <h1>Selecione habilidades que você possui:</h1>
+                <h4>Selecione habilidades que você possui:</h4>
 
                 <div class="selectSkillsContainer">
                     <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
@@ -87,5 +86,9 @@
             </div>
         </form>
     </div>
+
+<div class="btn-sair">
+    <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
+</div>
 </body>
 </html>
