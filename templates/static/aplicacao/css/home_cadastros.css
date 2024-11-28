@@ -1,160 +1,116 @@
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fbe39f;
-    color: #333;
+    font-family: Afacad;
+    background-color: #F3D796;
 }
 
-.container {
-    width: 90%;
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #ffe39a;
+.tituloCadastros {
+    color: rgb(39, 30, 30);
+    background-color: #80A4A4;
+    height: 100px;
+    margin: auto;
+}
+
+.tituloCadastros h1 {
+    color: azure;
+    margin-left: 38%;
+}
+
+#backIcon{
+    font-size: 200%;
+    color: #374747;
+}
+
+.alerta{
+    align-items: center;
+    color: #000000;
+    background-color: rgb(122, 207, 129);
+    width: auto;
+    height: 50px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: rgb(13, 22, 14);
+    display: flex;
+    flex-direction: row;
+    size: 50px;
+    gap: 15px;
 }
 
-.titulo {
-    font-size: 24px;
-    text-align: left;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.lista-colaboradoras {
+.lista-de-cadastros {
+    margin-left: 5%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: center; 
+    gap: 20px;
 }
 
-.colaboradora-item {
+.cadastro-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.colaboradora-item p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-}
-
-.acoes {
-    display: flex;
-    gap: 5px;
-}
-
-.acoes a, .acoes button {
-    background-color: #004d40;
-    color: white;
-    text-decoration: none;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.acoes a:hover, .acoes button:hover {
-    background-color: #00796b;
-}
-
-.acoes button {
-    font-size: 14px;
-    border: none;
-}
-
-.adicionar {
-    display: block;
-    margin-top: 20px;
+    color: rgb(0, 0, 0);
+    background-image: linear-gradient(#ececdc, #ccccbc);
+    border-radius: 8px;
     text-align: center;
-    background-color: #d1c0a8;
-    color: #333;
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 1px solid #b2a07f;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s;
+    padding: 10px;
+    width: 78%;
+    height: auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    gap: 15px;
 }
 
-.adicionar:hover {
-    background-color: #b2a07f;
+.cadastro-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    cursor: auto;
 }
 
-.btn-voltar {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 50px;
-    color: #333;
-    text-decoration: none;
+.card-image{
+    max-width: 80px;
+    max-height: 80px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-.btn-voltar:hover {
-    background-color: #ffa944;
-}
-
-.icone-pasta-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.icone-pasta {
+.card-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #333;
-    font-size: 20px;
-    transition: color 0.3s, transform 0.3s;
+    flex-grow: 1;
+    margin-left: 10px;
 }
 
-.icone-pasta i {
-    font-size: 50px;
-    color: #004d40;
-}
-
-.icone-pasta:hover i {
-    color: #00796b;
-    transform: scale(1.1);
-}
-
-.icone-pasta p {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #333;
-}
-
-.btn-sair {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-}
-
-.sair {
+.actions {
     display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: center;
-    background-color: #004d40;
-    color: white;
-    width: 65px;
-    height: 60px;
-    border-radius: 50%;
-    text-decoration: none;
-    font-size: 20px;
 }
 
-.sair:hover {
-    background-color: #00796b;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.novo-cadastro-card {
+    color: #000000;
+    background-image: linear-gradient(#80A4A4, #638080);
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    width: 78%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.novo-cadastro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@font-face {
+    font-family: 'Afacad' ;
+    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
 }
