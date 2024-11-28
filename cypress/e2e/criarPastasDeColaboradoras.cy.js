@@ -57,6 +57,8 @@ describe('Criando pastas de colaboradoras', () => {
         cy.get('.checkbox-label').click()
         cy.get('.btn-submit').click()
         cy.get('p').invoke('text').should('have.string', "Costureiras")
+        cy.get('.pasta-icone').click()
+        cy.get('.colaboradora-item > p').invoke('text').should('have.string', "Andressa")
     })
 
     it('Esquecendo de colocar o nome quando for criar a pasta', () => {
@@ -71,5 +73,10 @@ describe('Criando pastas de colaboradoras', () => {
         cy.get('#username').type('cypress')
         cy.get('#password').type('abc123')
         cy.get('.button').click()
+        cy.get('[href="/aplicacao/home_cadastros/"] > .card').click()
+        cy.get('[href="/aplicacao/gerenciar_pastas/"] > h1').click()
+        cy.get('.pasta-icone2').click()
+        cy.get('.btn-submit').click()
+        cy.get('#nomePasta').invoke('text').should('have.string', "")
     })
 })
