@@ -26,7 +26,7 @@ Diante desse contexto, acreditamos que dividir as tarefas entre os integrantes d
 
 Reconhecemos os benefícios da programação em par, como o aumento da qualidade do código e a troca de conhecimento. No entanto, devido às circunstâncias específicas enfrentadas pelo grupo, priorizamos a organização do trabalho de forma a otimizar o tempo e atender às nossas responsabilidades acadêmicas sem comprometer a entrega do projeto.
 
-## Screencast da Build e do Deployment Automatizados
+## [Screencast da Build e do Deployment Automatizados](https://youtu.be/23cM6Uzp2qQ)
 
 ## [Screencast da Execução dos Testes de Sistema (E2E) Automatizados](https://youtu.be/RcUI3CVY3b4)
 
