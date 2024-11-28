@@ -19,7 +19,9 @@ describe('Excluindo brinquedo', () => {
         cy.get('#textFormBrinquedoTematica').type('Fantasia')
         cy.get('#numberFormBrinquedoQuantidade').type('50')
         cy.get('.button').click()
+        cy.get('.mensagem').invoke('text').should('have.string', "Brinquedo adicionado com sucesso!")
+        cy.wait(2000)
         cy.get('.delete-btn').click()
-
+        cy.get('.mensagem').invoke('text').should('have.string', "Brinquedo deletado com sucesso!")
     })
 })
