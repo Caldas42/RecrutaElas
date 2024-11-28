@@ -24,4 +24,7 @@ urlpatterns = [
     path('visualizar_brinquedo/<int:id>/', views.VisualizarBrinquedoView.as_view(), name = 'visualizar_brinquedo'),
     path('home_cadastros/', views.HomeCadastrosView.as_view(), name='home_cadastros'),
 
+    path('pastas/detalhes/<int:id>/', views.DetalhesPastaView.as_view(), name='detalhes_pasta'),
+    path('pastas/adicionar_colaboradoras/<int:pasta_id>/', views.AdicionarColaboradorasView.as_view(), name='adicionar_colaboradoras'),
+
 ]

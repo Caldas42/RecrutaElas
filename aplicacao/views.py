@@ -157,9 +157,16 @@ class CriarPastaView(LoginRequiredMixin, View):
 class DetalhesPastaView(LoginRequiredMixin, View):
     def get(self, request, id):
         pasta = get_object_or_404(Pasta, id=id, usuario=request.user)
-        # Passando as mulheres associadas à pasta
+
+        # Pegando todos os cadastros associados à pasta
+        cadastros_na_pasta = pasta.cadastros.all()
+
+        # Pegando todos os cadastros que NÃO estão associados a esta pasta
+        colaboradoras_nao_associadas = Cadastros.objects.filter(usuario=request.user).exclude(id__in=cadastros_na_pasta.values('id'))
+
         ctx = {
             'pasta': pasta,
+            'colaboradoras_nao_associadas': colaboradoras_nao_associadas,
         }
         return render(request, 'detalhes_pasta.html', ctx)
     
@@ -245,3 +252,17 @@ class EditarBrinquedoView(LoginRequiredMixin, View):
         messages.success(request, 'Brinquedo editado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
     
+class AdicionarColaboradorasView(LoginRequiredMixin, View):
+    def post(self, request, pasta_id):
+        pasta = get_object_or_404(Pasta, id=pasta_id, usuario=request.user)
+        
+        # Obtendo os IDs das colaboradoras selecionadas
+        cadastros_selecionados = request.POST.getlist('cadastros')
+
+        # Adicionando as colaboradoras selecionadas à pasta
+        if cadastros_selecionados:
+            cadastros = Cadastros.objects.filter(id__in=cadastros_selecionados)
+            pasta.cadastros.add(*cadastros)  # Adiciona as colaboradoras à pasta
+
+        messages.success(request, 'Colaboradoras adicionadas à pasta com sucesso!')
+        return redirect('aplicacao:detalhes_pasta', id=pasta.id)
