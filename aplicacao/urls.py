@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 app_name = 'aplicacao'
@@ -27,4 +29,4 @@ urlpatterns = [
     path('pastas/detalhes/<int:id>/', views.DetalhesPastaView.as_view(), name='detalhes_pasta'),
     path('pastas/adicionar_colaboradoras/<int:pasta_id>/', views.AdicionarColaboradorasView.as_view(), name='adicionar_colaboradoras'),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

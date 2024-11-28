@@ -5,62 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Cadastro</title>
-    <link rel="stylesheet" href="{% static 'aplicacao/css/visualizar_cadastros.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'aplicacao/css/cadastrar.css' %}">
 </head>
 <body>
     <a href="{% url 'aplicacao:home_cadastros' %}" class="btn-voltar">&#8592;</a>
     <div class="container">
-        <h1 id="cadastro-estilo">{{ cadastro.nome }}</h1>
-
+        <h1 id="cadastro-estilo">Cadastro de {{ cadastro.nome }}</h1>
+        
         <table>
             <tr>
-                <th>Idade</th>
+                <th>Campo</th>
+                <th>Informação</th>
+            </tr>
+            <tr>
+                <td>Nome:</td>
+                <td>{{ cadastro.nome }}</td>
+            </tr>
+            <tr>
+                <td>Idade:</td>
                 <td>{{ cadastro.idade }}</td>
             </tr>
             <tr>
-                <th>CPF</th>
+                <td>CPF:</td>
                 <td>{{ cadastro.cpf }}</td>
             </tr>
             <tr>
-                <th>Celular</th>
+                <td>Celular:</td>
                 <td>{{ cadastro.celular }}</td>
             </tr>
             <tr>
-                <th>CEP</th>
+                <td>CEP:</td>
                 <td>{{ cadastro.cep }}</td>
             </tr>
             <tr>
-                <th>Cidade</th>
+                <td>Cidade:</td>
                 <td>{{ cadastro.cidade }}</td>
             </tr>
             <tr>
-                <th>Bairro</th>
+                <td>Bairro:</td>
                 <td>{{ cadastro.bairro }}</td>
             </tr>
             <tr>
-                <th>Rua</th>
+                <td>Rua:</td>
                 <td>{{ cadastro.rua }}</td>
             </tr>
             <tr>
-                <th>Número</th>
+                <td>Número:</td>
                 <td>{{ cadastro.numero }}</td>
             </tr>
             <tr>
-                <th>Complemento</th>
+                <td>Complemento:</td>
                 <td>{{ cadastro.complemento }}</td>
             </tr>
+            <tr>
+                <td>Imagem:</td>
+                <td>
+                    {% if cadastro.imagem %}
+                        <img src="{{ cadastro.imagem.url }}" alt="Imagem do Cadastro" style="max-width: 300px; max-height: 300px;">
+                    {% else %}
+                        <p>Sem imagem</p>
+                    {% endif %}
+                </td>
+            </tr>
         </table>
-
-        <div class="actions">
-            <form action="{% url 'aplicacao:excluir' cadastro.id %}" method="post" style="display: inline;">
-                {% csrf_token %}
-            </form>
-        </div>
-    </div>
-
-    <div class="btn-sair">
-        <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
+        
     </div>
 </body>
 </html>
