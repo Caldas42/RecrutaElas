@@ -28,7 +28,10 @@
                 <p>Não há colaboradoras cadastradas.</p>
             {% endfor %}
         </div>
-        <button class="adicionar">+ adicionar</button>
+        <div class="acoes-container">
+            <button class="adicionar">+ adicionar</button>
+            <a href="{% url 'aplicacao:deletar_pasta' pasta.id %}" class="excluir">Excluir</a>
+        </div>
     </div>
     <div class="btn-sair">
         <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>

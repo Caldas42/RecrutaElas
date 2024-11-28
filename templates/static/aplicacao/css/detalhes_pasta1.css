@@ -84,10 +84,12 @@ body {
 }
 
 /* Botão adicionar */
-.adicionar {
+.adicionar,
+.excluir {
     margin-top: 20px;
     background-color: #d1c0a8;
     color: #333;
+    text-decoration: none;
     padding: 10px 20px;
     border: 1px solid #b2a07f;
     border-radius: 5px;
@@ -97,6 +99,10 @@ body {
 }
 
 .adicionar:hover {
+    background-color: #b2a07f;
+}
+
+.excluir:hover {
     background-color: #b2a07f;
 }
 

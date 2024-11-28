@@ -164,10 +164,12 @@ class DetalhesPastaView(LoginRequiredMixin, View):
         return render(request, 'detalhes_pasta.html', ctx)
     
 class DeletarPastaView(LoginRequiredMixin, View):
-    def post(self, request, id):
+    def get(self, request, id):
         pasta = get_object_or_404(Pasta, id=id, usuario=request.user)
         pasta.delete()  # Deleta o objeto Pasta
+        messages.success(request, 'Pasta deletada com sucesso!')
         return redirect('aplicacao:gerenciar_pastas')
+
 
 class HomeBrinquedosView(LoginRequiredMixin, View):
     def get(self, request):
