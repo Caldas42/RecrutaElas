@@ -25,7 +25,6 @@
         <br>
         {% endif %}
 
-        <!-- Ícone de pasta para gerenciar pastas -->
         <div class="icone-pasta-container">
             <a href="{% url 'aplicacao:gerenciar_pastas' %}" class="icone-pasta">
                 <i class="fa-solid fa-folder"></i>
@@ -33,7 +32,6 @@
             </a>
         </div>
 
-        <!-- Lista de cadastros -->
         <div class="lista-colaboradoras">
             <a href="{% url 'aplicacao:cadastrar' %}" class="adicionar">Novo Cadastro</a>
             {% for cadastro in cadastros %}

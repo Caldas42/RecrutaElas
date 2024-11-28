@@ -1,4 +1,3 @@
-/* Estilos Gerais */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -24,7 +23,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Lista de Cadastros */
 .lista-colaboradoras {
     display: flex;
     flex-direction: column;
@@ -74,7 +72,6 @@ body {
     border: none;
 }
 
-/* Botão adicionar */
 .adicionar {
     display: block;
     margin-top: 20px;
@@ -94,7 +91,6 @@ body {
     background-color: #b2a07f;
 }
 
-/* Botão voltar */
 .btn-voltar {
     position: absolute;
     top: 20px;
@@ -108,7 +104,6 @@ body {
     background-color: #ffa944;
 }
 
-/* Estilo do Ícone de Pasta */
 .icone-pasta-container {
     display: flex;
     justify-content: center;
