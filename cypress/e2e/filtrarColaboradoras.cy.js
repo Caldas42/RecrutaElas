@@ -1,13 +1,43 @@
 describe('Filtrando colaboradoras', () => {
     it('cenario1', () => {
-        //steps do cenario1
+        cy.visit('/delete_cypress/')
+        cy.get('.button').click()
+        cy.get('[href="/login/"]').click()
+        cy.get('p > a').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('#password_confirm').type('abc123')
+        cy.get('.button').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('.button').click()
     })
 
     it('cenario2', () => {
-        //steps do cenario2
+        cy.visit('/delete_cypress/')
+        cy.get('.button').click()
+        cy.get('[href="/login/"]').click()
+        cy.get('p > a').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('#password_confirm').type('abc123')
+        cy.get('.button').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('.button').click()
     })
 
     it('cenario3', () => {
-        //steps do cenario3
+        cy.visit('/delete_cypress/')
+        cy.get('.button').click()
+        cy.get('[href="/login/"]').click()
+        cy.get('p > a').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('#password_confirm').type('abc123')
+        cy.get('.button').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('.button').click()
     })
 })

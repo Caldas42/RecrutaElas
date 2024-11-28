@@ -2,7 +2,6 @@ describe('Cadastrando colaboradora', () => {
     it('Cadastrando colaboradora com sucesso', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
-        cy.get('a > h1').click()
         cy.get('[href="/login/"]').click()
         cy.get('p > a').click()
         cy.get('#username').type('cypress')
@@ -37,7 +36,6 @@ describe('Cadastrando colaboradora', () => {
     it('Esquecendo de colocar o nome da colaboradora', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
-        cy.get('a > h1').click()
         cy.get('[href="/login/"]').click()
         cy.get('p > a').click()
         cy.get('#username').type('cypress')
@@ -71,7 +69,6 @@ describe('Cadastrando colaboradora', () => {
     it('Esquecendo de colocar o número de celular da colaboradora', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
-        cy.get('a > h1').click()
         cy.get('[href="/login/"]').click()
         cy.get('p > a').click()
         cy.get('#username').type('cypress')
