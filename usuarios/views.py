@@ -1,10 +1,8 @@
-from django.shortcuts import render
-from aplicacao.models import Cadastros
 from django.shortcuts import render, redirect
 from django.views import View
-
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from aplicacao.models import Cadastros
 
 class LogoutView(View):
 
