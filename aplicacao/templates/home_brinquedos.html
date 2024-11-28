@@ -39,28 +39,30 @@
             <a href="{% url 'aplicacao:registrar_brinquedo' %}" class="adicionar">Novo Brinquedo</a>
 
             {% for brinquedo in todos_brinquedos %}
-            <div class="brinquedo-item">
-                <div class="brinquedo-imagem">
-                    {% if brinquedo.imagem %}
-                        <img src="{{ brinquedo.imagem.url }}" alt="{{ brinquedo.nome }}" ==>
-                    {% endif %}
+            <a href="{% url 'aplicacao:visualizar_brinquedo' brinquedo.id %}">
+                <div class="brinquedo-item">
+                    <div class="brinquedo-imagem">
+                        {% if brinquedo.imagem %}
+                            <img src="{{ brinquedo.imagem.url }}" alt="{{ brinquedo.nome }}" ==>
+                        {% endif %}
+                    </div>
+
+                    <div class="brinquedo-info">
+                        <p>{{ brinquedo.nome }}</p>
+                        <p>{{ brinquedo.quantidade }}</p>
+                    </div>
+
+                    <div class="acoes">
+                        <a href="{% url 'aplicacao:editar_brinquedo' brinquedo.id %}"><i class="fa-solid fa-pencil"></i></a>
+
+                        <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
+
                 </div>
-
-                <div class="brinquedo-info">
-                    <p>{{ brinquedo.nome }}</p>
-                    <p>{{ brinquedo.quantidade }}</p>
-                </div>
-
-                <div class="acoes">
-                    <a href="{% url 'aplicacao:editar_brinquedo' brinquedo.id %}"><i class="fa-solid fa-pencil"></i></a>
-
-                    <form action="{% url 'aplicacao:deletar_brinquedo' brinquedo.id %}" method="post" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-                    </form>
-                </div>
-
-            </div>
+            </a>
             {% empty %}
                 <p>Não há brinquedos disponíveis.</p>
             {% endfor %}
