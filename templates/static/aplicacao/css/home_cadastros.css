@@ -107,3 +107,59 @@ body {
 .btn-voltar:hover {
     background-color: #ffa944;
 }
+
+/* Estilo do Ícone de Pasta */
+.icone-pasta-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.icone-pasta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.icone-pasta i {
+    font-size: 50px;
+    color: #004d40;
+}
+
+.icone-pasta:hover i {
+    color: #00796b;
+    transform: scale(1.1);
+}
+
+.icone-pasta p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.btn-sair {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004d40;
+    color: white;
+    width: 65px;
+    height: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sair:hover {
+    background-color: #00796b;
+}

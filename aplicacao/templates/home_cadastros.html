@@ -25,8 +25,17 @@
         <br>
         {% endif %}
 
+        <!-- Ícone de pasta para gerenciar pastas -->
+        <div class="icone-pasta-container">
+            <a href="{% url 'aplicacao:gerenciar_pastas' %}" class="icone-pasta">
+                <i class="fa-solid fa-folder"></i>
+                <p>Gerenciar Pastas</p>
+            </a>
+        </div>
+
         <!-- Lista de cadastros -->
         <div class="lista-colaboradoras">
+            <a href="{% url 'aplicacao:cadastrar' %}" class="adicionar">Novo Cadastro</a>
             {% for cadastro in cadastros %}
             <div class="colaboradora-item">
                 <p>{{ cadastro.nome }} - {{ cadastro.celular }}</p>
@@ -43,9 +52,11 @@
                 <p>Não há cadastros disponíveis.</p>
             {% endfor %}
         </div>
-
-        <!-- Botão para novo cadastro -->
-        <a href="{% url 'aplicacao:cadastrar' %}" class="adicionar">Novo Cadastro</a>
     </div>
+
+<div class="btn-sair">
+    <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
+</div>
+
 </body>
 </html>
