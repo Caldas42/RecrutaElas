@@ -31,20 +31,54 @@ class CadastrarView(LoginRequiredMixin, View):
             idade = request.POST.get('formIdade')
             cpf = request.POST.get('formCpf')
             celular = request.POST.get('formCelular')
+            email = request.POST.get('formEmail')
             cep = request.POST.get('formCep')
             cidade = request.POST.get('formCidade')
             bairro = request.POST.get('formBairro')
             rua = request.POST.get('formRua')
             numero = request.POST.get('formNumero')
             complemento = request.POST.get('formComplemento')
+            escolaridade = request.POST.get('formEscolaridade')
+            experiencia = request.POST.get('formExperiencia')
+            disponibilidade = request.POST.get('formDisponibilidade')
+            interesse = request.POST.get('formInteresse')
+
+            imagem = request.FILES.get('formImagem')
 
             skillCostura = request.POST.get('nameSkillCostura') == 'on'
             skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
             skillPintura = request.POST.get('nameSkillPintura') == 'on'
-
-            imagem = request.FILES.get('formCadastroImagem')
-
-            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura, usuario=request.user, imagem = imagem)
+            skillDesign = request.POST.get('nameSkillDesign') == 'on'
+            skillCriatividade = request.POST.get('nameSkillCriatividade') == 'on'
+            skillAtendimento = request.POST.get('nameSkillAtendimento') == 'on'
+            skillVendas = request.POST.get('nameSkillVendas') == 'on'
+            skillLimpeza = request.POST.get('nameSkillLimpeza') == 'on'
+            
+            cadastro = Cadastros(nome = nome, 
+                                 idade = idade, 
+                                 cpf = cpf, 
+                                 celular = celular, 
+                                 email = email, 
+                                 cep = cep, 
+                                 cidade = cidade, 
+                                 bairro = bairro, 
+                                 rua = rua, 
+                                 numero = numero,
+                                 complemento = complemento, 
+                                 escolaridade = escolaridade,
+                                 experiencia = experiencia,
+                                 disponibilidade = disponibilidade,
+                                 interesse = interesse,
+                                 skillCostura = skillCostura, 
+                                 skillGerenciamento = skillGerenciamento, 
+                                 skillPintura = skillPintura, 
+                                 skillDesign = skillDesign,
+                                 skillCriatividade = skillCriatividade,  
+                                 skillAtendimento = skillAtendimento,
+                                 skillVendas = skillVendas,
+                                 skillLimpeza = skillLimpeza,   
+                                 usuario=request.user, 
+                                 imagem=imagem)
 
             cadastro.save()
 
