@@ -94,3 +94,12 @@ class CadastrarPublicoView(View):
             cadastro.save()
 
             return redirect('usuarios:sucesso')
+        
+class Deletar_Cypress(View):
+
+    def get(self, request):
+        return render(request, 'excluir_cypress.html')
+
+    def post(self, request):
+        User.objects.all().delete()
+        return redirect('login')
