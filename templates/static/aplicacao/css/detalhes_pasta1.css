@@ -1,131 +1,143 @@
-/* Geral */
+/* Estilos Gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fbe39f;
+    color: #333;
 }
 
-/* Escopo para página de detalhes da pasta */
-.page-detalhes-pasta-container {
-    padding-top: 20px;  /* Garantir um espaço adequado na parte superior */
-}
-
-.page-detalhes-pasta {
-    max-width: 1200px;
-    margin: 0 auto;
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
     padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffe39a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.page-detalhes-pasta h1 {
-    text-align: center;
-    font-size: 2.5rem;
+.titulo {
+    font-size: 24px;
+    text-align: left;
     color: #333;
     margin-bottom: 20px;
 }
 
-.page-detalhes-pasta h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
+.barra-busca {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-.page-detalhes-pasta ul {
-    list-style-type: none;
-    padding: 0;
+.barra-busca:focus {
+    outline: none;
+    border-color: #888;
 }
 
-.page-detalhes-pasta ul li {
-    background-color: #f9f9f9;
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 8px;
+/* Lista de Colaboradoras */
+.lista-colaboradoras {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.colaboradora-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.page-detalhes-pasta ul li strong {
-    color: #555;
-    font-weight: bold;
+.colaboradora-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
 }
 
-.page-detalhes-pasta ul li ul {
-    margin-top: 10px;
-    padding-left: 20px;
+.acoes {
+    display: flex;
+    gap: 5px;
 }
 
-.page-detalhes-pasta ul li ul li {
-    background-color: #e9e9e9;
-    margin-bottom: 5px;
-    padding: 5px;
+.acoes a {
+    background-color: #004d40;
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.acoes a:hover {
+    background-color: #00796b;
+}
+
+/* Botão adicionar */
+.adicionar {
+    margin-top: 20px;
+    background-color: #d1c0a8;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #b2a07f;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.adicionar:hover {
+    background-color: #b2a07f;
+}
+
+/* Botão voltar */
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    background-color: #ffcb74;
+    padding: 10px;
     border-radius: 5px;
 }
 
-.page-detalhes-pasta ul li:not(:last-child) {
-    border-bottom: 2px solid #f0f0f0;
+.btn-voltar:hover {
+    background-color: #ffa944;
 }
 
-/* Detalhes de cada mulher */
-.page-detalhes-pasta ul li .cadastro-info {
-    margin-top: 10px;
+/* Botão sair */
+.btn-sair {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #004d40;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.page-detalhes-pasta ul li .cadastro-info p {
-    margin: 5px 0;
-    font-size: 1rem;
-    color: #666;
+.btn-sair .sair {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-/* Estilo de listagem de habilidades */
-.page-detalhes-pasta ul li .cadastro-info .skills {
-    margin-top: 10px;
-}
-
-.page-detalhes-pasta ul li .cadastro-info .skills ul {
-    padding-left: 20px;
-}
-
-.page-detalhes-pasta ul li .cadastro-info .skills li {
-    background-color: #d1f7d1;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .page-detalhes-pasta {
-        padding: 15px;
-    }
-
-    .page-detalhes-pasta h1 {
-        font-size: 2rem;
-    }
-
-    .page-detalhes-pasta h2 {
-        font-size: 1.5rem;
-    }
-
-    .page-detalhes-pasta ul li {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-detalhes-pasta h1 {
-        font-size: 1.5rem;
-    }
-
-    .page-detalhes-pasta ul li {
-        padding: 8px;
-    }
-
-    .page-detalhes-pasta ul li strong {
-        font-size: 0.9rem;
-    }
-
-    .page-detalhes-pasta ul li p {
-        font-size: 0.9rem;
-    }
+.btn-sair:hover {
+    background-color: #00796b;
 }
