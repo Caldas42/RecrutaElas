@@ -10,11 +10,17 @@
 </head>
 <body>
     {% include 'navbar.html' %}
-    <br><br>
+ 
+    <div class="tituloCadastros">
+        <br>
+        <h1 id="titulo">Cadastros</h1>
+    </div>
 
-    <a href="{% url 'aplicacao:home' %}"><i class="fa-solid fa-arrow-left"></i></a>
-
-    <h1 id="tituloCadastros">Cadastros</h1>
+    <br>
+    <a href="{% url 'aplicacao:home' %}">
+        <i class="fa-solid fa-arrow-left" id="backIcon"></i>
+    </a>
+    <br>
 
     {% if messages %}
     <div class="messages">
@@ -64,10 +70,6 @@
         {% endfor %}
         
     </div>
-
-    <a href="{% url 'usuarios:logout' %}">
-        <h1>sair da conta</h1>
-    </a>
 
 </body>
 </html>

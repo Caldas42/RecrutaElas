@@ -5,10 +5,21 @@ body {
     background-color: #F3D796;
 }
 
-#tituloCadastros {
+.tituloCadastros {
     color: rgb(39, 30, 30);
-    text-align: center;
-    margin-bottom: 40px;
+    background-color: #80A4A4;
+    height: 100px;
+    margin: auto;
+}
+
+.tituloCadastros h1 {
+    color: azure;
+    margin-left: 38%;
+}
+
+#backIcon{
+    font-size: 200%;
+    color: #374747;
 }
 
 .alerta{
@@ -27,6 +38,7 @@ body {
 }
 
 .lista-de-cadastros {
+    margin-left: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -42,7 +54,7 @@ body {
     border-radius: 8px;
     text-align: center;
     padding: 10px;
-    width: 600px;
+    width: 78%;
     height: auto;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s, box-shadow 0.3s; 
@@ -88,7 +100,7 @@ a {
     border-radius: 5px;
     text-align: center;
     padding: 20px;
-    width: 600px;
+    width: 78%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s, box-shadow 0.3s;
 }

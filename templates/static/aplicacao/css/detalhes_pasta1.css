@@ -84,10 +84,12 @@ body {
 }
 
 /* Botão adicionar */
-.adicionar {
+.adicionar,
+.excluir {
     margin-top: 20px;
     background-color: #d1c0a8;
     color: #333;
+    text-decoration: none;
     padding: 10px 20px;
     border: 1px solid #b2a07f;
     border-radius: 5px;
@@ -100,17 +102,18 @@ body {
     background-color: #b2a07f;
 }
 
+.excluir:hover {
+    background-color: #b2a07f;
+}
+
 /* Botão voltar */
 .btn-voltar {
     position: absolute;
     top: 20px;
     left: 20px;
-    font-size: 24px;
+    font-size: 50px;
     color: #333;
     text-decoration: none;
-    background-color: #ffcb74;
-    padding: 10px;
-    border-radius: 5px;
 }
 
 .btn-voltar:hover {
@@ -120,24 +123,35 @@ body {
 /* Botão sair */
 .btn-sair {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #004d40;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    bottom: 30px;
+    right: 30px;
 }
 
-.btn-sair .sair {
+.sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004d40;
     color: white;
+    width: 65px;
+    height: 60px;
+    border-radius: 50%;
     text-decoration: none;
     font-size: 20px;
 }
 
-.btn-sair:hover {
+.sair:hover {
     background-color: #00796b;
+}
+
+/* Adicionar estilo para a área de colaboradoras não associadas */
+.colaboradoras-nao-associadas-container {
+    max-height: 90px; /* Defina o tamanho máximo da área */
+    overflow-y: auto;  /* Adiciona rolagem vertical */
+    padding: 10px; /* Espaçamento interno */
+    margin-top: 10px;
+}
+
+.colaboradora-item {
+    margin-bottom: 10px; /* Espaçamento entre as colaboradoras */
 }

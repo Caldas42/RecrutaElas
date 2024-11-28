@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from .models import Cadastros, Pasta, Brinquedo
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Cadastros, Pasta, Brinquedo
 
 
 class HomeView(LoginRequiredMixin, View):
@@ -110,11 +110,14 @@ class GerenciarSkillsView(LoginRequiredMixin, View):
         skillSelecionada = request.POST.get('nameSelectBox')
 
         if skillSelecionada:
-            cadastros_filtrados = Cadastros.objects.filter(usuario = request.user, **{skillSelecionada: True})
+            cadastros_filtrados = Cadastros.objects.filter(usuario=request.user, **{skillSelecionada: True})
         else:
-            cadastros_filtrados = Cadastros.objects.filter(usuario = request.user)
+            cadastros_filtrados = Cadastros.objects.filter(usuario=request.user)
 
-        return render(request, 'gerenciar_skills.html', {'cadastrosFiltrados': cadastros_filtrados})
+        return render(request, 'gerenciar_skills.html', {
+            'cadastrosFiltrados': cadastros_filtrados,
+            'skillSelecionada': skillSelecionada,  # Passa a habilidade selecionada
+        })
     
 class GerenciarPastasView(LoginRequiredMixin, View):
     def get(self, request):
@@ -157,17 +160,26 @@ class CriarPastaView(LoginRequiredMixin, View):
 class DetalhesPastaView(LoginRequiredMixin, View):
     def get(self, request, id):
         pasta = get_object_or_404(Pasta, id=id, usuario=request.user)
-        # Passando as mulheres associadas à pasta
+
+        # Pegando todos os cadastros associados à pasta
+        cadastros_na_pasta = pasta.cadastros.all()
+
+        # Pegando todos os cadastros que NÃO estão associados a esta pasta
+        colaboradoras_nao_associadas = Cadastros.objects.filter(usuario=request.user).exclude(id__in=cadastros_na_pasta.values('id'))
+
         ctx = {
             'pasta': pasta,
+            'colaboradoras_nao_associadas': colaboradoras_nao_associadas,
         }
         return render(request, 'detalhes_pasta.html', ctx)
     
 class DeletarPastaView(LoginRequiredMixin, View):
-    def post(self, request, id):
+    def get(self, request, id):
         pasta = get_object_or_404(Pasta, id=id, usuario=request.user)
         pasta.delete()  # Deleta o objeto Pasta
+        messages.success(request, 'Pasta deletada com sucesso!')
         return redirect('aplicacao:gerenciar_pastas')
+
 
 class HomeBrinquedosView(LoginRequiredMixin, View):
     def get(self, request):
@@ -243,3 +255,17 @@ class EditarBrinquedoView(LoginRequiredMixin, View):
         messages.success(request, 'Brinquedo editado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
     
+class AdicionarColaboradorasView(LoginRequiredMixin, View):
+    def post(self, request, pasta_id):
+        pasta = get_object_or_404(Pasta, id=pasta_id, usuario=request.user)
+        
+        # Obtendo os IDs das colaboradoras selecionadas
+        cadastros_selecionados = request.POST.getlist('cadastros')
+
+        # Adicionando as colaboradoras selecionadas à pasta
+        if cadastros_selecionados:
+            cadastros = Cadastros.objects.filter(id__in=cadastros_selecionados)
+            pasta.cadastros.add(*cadastros)  # Adiciona as colaboradoras à pasta
+
+        messages.success(request, 'Colaboradoras adicionadas à pasta com sucesso!')
+        return redirect('aplicacao:detalhes_pasta', id=pasta.id)

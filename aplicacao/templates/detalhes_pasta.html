@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/detalhes_pasta1.css' %}">
 </head>
 <body>
-    <a href="{% url 'aplicacao:home_cadastros' %}" class="btn-voltar">&#8592;</a>
+    <a href="{% url 'aplicacao:gerenciar_pastas' %}" class="btn-voltar">&#8592;</a>
     <div class="container">
         <h1 class="titulo">Pasta {{ pasta.nome }}</h1>
+        
+        <!-- Lista de colaboradoras associadas à pasta -->
         <div class="lista-colaboradoras">
             {% for cadastro in pasta.cadastros.all %}
                 <div class="colaboradora-item">
@@ -28,8 +30,41 @@
                 <p>Não há colaboradoras cadastradas.</p>
             {% endfor %}
         </div>
-        <button class="adicionar">+ adicionar</button>
+<br>
+        <!-- Formulário de adicionar colaboradoras -->
+        <div class="acoes-container">
+            <a href="{% url 'aplicacao:deletar_pasta' pasta.id %}" class="excluir">Excluir</a>
+<br><br><br><br>
+            <!-- Formulário de Adição de Colaboradoras -->
+            <form method="POST" action="{% url 'aplicacao:adicionar_colaboradoras' pasta.id %}">
+                {% csrf_token %}
+                <h2>Adicionar a Pasta :</h2>
+                
+                <!-- Lista de colaboradoras não associadas à pasta com barra de rolagem -->
+                <div class="colaboradoras-nao-associadas-container">
+                    <div class="colaboradoras-nao-associadas">
+                        {% for colaboradora in colaboradoras_nao_associadas %}
+                            <div class="colaboradora-item">
+                                <label>
+                                    <input type="checkbox" name="cadastros" value="{{ colaboradora.id }}">
+                                    {{ colaboradora.nome }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                        
+                        {% if colaboradoras_nao_associadas|length == 0 %}
+                            <p>Não há colaboradoras disponíveis para adicionar.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Botão para submeter o formulário -->
+                <button type="submit" class="adicionar">Adicionar Selecionadas</button>
+            </form>
+        </div>
     </div>
+
+    <!-- Botão de sair -->
     <div class="btn-sair">
         <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
     </div>

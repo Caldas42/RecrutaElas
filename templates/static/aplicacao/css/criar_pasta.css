@@ -1,87 +1,171 @@
-.page-criar-pasta {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    padding: 20px;
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbe39f;
     color: #333;
 }
 
-.page-criar-pasta h1 {
-    text-align: center;
-    color: #4a4a8c;
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-.page-criar-pasta form {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
     padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
+    background-color: #ffe39a;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.page-criar-pasta label {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 8px;
-    color: #4a4a8c;
+.titulo {
+    font-size: 24px;
+    text-align: left;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.page-criar-pasta input[type="text"], 
-.page-criar-pasta button {
+/* Formulário de Criação de Pasta */
+.page-criar-pasta {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffe39a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-criar-pasta h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos de campos de formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
-.page-criar-pasta button {
-    background-color: #4a4a8c;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+.input:focus {
+    outline: none;
+    border-color: #888;
 }
 
-.page-criar-pasta button:hover {
-    background-color: #3b3b7c;
-}
-
+/* Lista de Mulheres */
 .checkbox-group {
-    max-height: 200px;
+    max-height: 90px;
     overflow-y: auto;
-    margin-bottom: 20px;
-    padding-right: 10px;
+    margin-top: 10px;
 }
 
 .checkbox-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
-    justify-content: flex-start;
 }
 
-.checkbox-item label {
+.checkbox-label {
+    font-size: 16px;
+    color: #333;
+}
+
+.checkbox-input {
     margin-right: 10px;
-    margin-bottom: 0;
 }
 
-.checkbox-item input[type="checkbox"] {
-    margin-top: 0;
+/* Botão de envio */
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #d1c0a8;
+    color: #333;
+    border: 1px solid #b2a07f;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
 }
 
-.checkbox-item select {
-    margin-left: 5px;
-    margin-bottom: 0;
-    max-width: 150px;
-    height: 30px; 
+.btn-submit:hover {
+    background-color: #b2a07f;
 }
 
-.page-criar-pasta button:focus {
-    outline: none;
+/* Botões de navegação e interação */
+.adicionar,
+.excluir {
+    margin-top: 20px;
+    background-color: #d1c0a8;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #b2a07f;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.adicionar:hover,
+.excluir:hover {
+    background-color: #b2a07f;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 50px;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-voltar:hover {
+    background-color: #ffa944;
+}
+
+
+/* Botão de Sair */
+.btn-sair {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004d40;
+    color: white;
+    width: 65px;
+    height: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sair:hover {
+    background-color: #00796b;
 }

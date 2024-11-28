@@ -8,8 +8,7 @@
     <title>Editar Cadastro</title>
 </head>
 <body>
-    {% include 'navbar.html' %} 
-    
+    <a href="{% url 'aplicacao:home_cadastros' %}" class="btn-voltar">&#8592;</a>
     <div class="container">
         <h1 id="cadastro-estilo">Editar Cadastro</h1>
 
@@ -66,6 +65,10 @@
                 <input type="submit" value="Salvar Alterações" class="button">
             </div>
         </form>
+    </div>
+
+    <div class="btn-sair">
+        <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
     </div>
 </body>
 </html>
