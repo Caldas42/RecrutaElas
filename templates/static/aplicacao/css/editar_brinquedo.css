@@ -18,58 +18,61 @@ body {
 }
 
 /* Título */
-#cadastro-estilo, h1 {
+#brinquedo-estilo {
     font-size: 24px;
     text-align: left;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Tabela de Formulário */
+/* Tabela */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    table-layout: fixed; /* Para alinhar corretamente */
 }
 
 table th, table td {
     text-align: left;
     padding: 10px;
-    vertical-align: middle;
 }
 
 table th {
     background-color: #d1c0a8;
     color: #333;
     border: 1px solid #b2a07f;
+    font-size: 16px;
+    word-wrap: break-word; /* Quebra texto em células menores */
 }
 
 table td {
     background-color: #fff;
     border: 1px solid #ccc;
     color: #333;
+    font-size: 16px;
 }
 
-/* Input e Botões */
-input[type="text"], 
-input[type="number"], 
-input[type="file"] {
-    width: calc(100% - 10px);
+/* Campos de Input */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
     padding: 8px;
-    margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
-    font-size: 14px;
-    color: #333;
+    font-size: 16px;
     box-sizing: border-box;
 }
 
-input[type="text"]:focus, 
-input[type="number"]:focus, 
-input[type="file"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #004d40;
     outline: none;
-    border-color: #00796b;
+}
+
+/* Botão de Submissão */
+.botaoForm {
+    text-align: center;
 }
 
 .button {
@@ -81,42 +84,10 @@ input[type="file"]:focus {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.2s;
-    display: block;
-    margin: 20px auto 0;
 }
 
 .button:hover {
     background-color: #00796b;
-}
-
-.selectSkillsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.selectSkillsContainer label {
-    background-color: #8ba2c2;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-}
-
-.selectSkillsContainer label:hover {
-    background-color: #7bdb89;
-}
-
-.selectSkillsContainer input[type="checkbox"] {
-    display: none;
-}
-
-.selectSkillsContainer input[type="checkbox"]:checked + label {
-    background-color: rgb(146, 50, 50);
-    color: white;
 }
 
 /* Responsividade */
@@ -125,17 +96,13 @@ input[type="file"]:focus {
         font-size: 14px;
     }
 
-    .button {
-        width: 100%;
-    }
-
-    input[type="text"], 
-    input[type="number"], 
-    input[type="file"] {
-        width: 100%;
+    input[type="text"],
+    input[type="number"] {
+        font-size: 14px;
     }
 }
 
+/* Botão de Voltar */
 .btn-voltar {
     position: absolute;
     top: 20px;
@@ -149,6 +116,7 @@ input[type="file"]:focus {
     background-color: #ffa944;
 }
 
+/* Botão de Sair */
 .btn-sair {
     position: fixed;
     bottom: 30px;
