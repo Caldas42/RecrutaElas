@@ -2,7 +2,6 @@ describe('Excluindo colaboradora', () => {
     it('Excluindo colaboradora com sucesso', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
-        cy.get('a > h1').click()
         cy.get('[href="/login/"]').click()
         cy.get('p > a').click()
         cy.get('#username').type('cypress')
@@ -36,10 +35,30 @@ describe('Excluindo colaboradora', () => {
     })
 
     it('cenario2', () => {
-        //steps do cenario2
+        cy.visit('/delete_cypress/')
+        cy.get('.button').click()
+        cy.get('[href="/login/"]').click()
+        cy.get('p > a').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('#password_confirm').type('abc123')
+        cy.get('.button').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('.button').click()
     })
 
     it('cenario3', () => {
-        //steps do cenario3
+        cy.visit('/delete_cypress/')
+        cy.get('.button').click()
+        cy.get('[href="/login/"]').click()
+        cy.get('p > a').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('#password_confirm').type('abc123')
+        cy.get('.button').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('.button').click()
     })
 })

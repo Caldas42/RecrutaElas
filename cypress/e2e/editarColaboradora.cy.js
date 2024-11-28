@@ -2,7 +2,6 @@ describe('Editando colaboradora', () => {
     it('Editando uma colaboradora com sucesso', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
-        cy.get('a > h1').click()
         cy.get('[href="/login/"]').click()
         cy.get('p > a').click()
         cy.get('#username').type('cypress')
@@ -41,7 +40,6 @@ describe('Editando colaboradora', () => {
     it('Esquecendo de escrever alguma coisa na idade da colaboradora', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
-        cy.get('a > h1').click()
         cy.get('[href="/login/"]').click()
         cy.get('p > a').click()
         cy.get('#username').type('cypress')
@@ -79,7 +77,6 @@ describe('Editando colaboradora', () => {
     it('Editando o endereço da colaboradora', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
-        cy.get('a > h1').click()
         cy.get('[href="/login/"]').click()
         cy.get('p > a').click()
         cy.get('#username').type('cypress')
