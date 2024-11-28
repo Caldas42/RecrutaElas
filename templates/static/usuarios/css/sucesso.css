@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(202, 233, 155);
+    font-family: Afacad;
+}
+
+#tituloSucesso{
+    color: rgb(31, 83, 24);
+    size: 20%;
+}
+
+.pagina{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.container{
+    align-items: center;
+    text-align: center;
+    padding-top: 20%;
+}
+
+
+@font-face {
+    font-family: 'Afacad' ;
+    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
+}

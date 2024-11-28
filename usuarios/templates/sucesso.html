@@ -8,13 +8,21 @@
     <link rel="stylesheet" href="{% static 'usuarios/css/sucesso.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body> 
 
-    <h1 id="tituloBrinquedos">sucesso!</h1>
+    <div class=container>
+        
+        <div class="titulo">
+            <h1 id="tituloSucesso">Seu cadastro foi enviado com sucesso!</h1>
+        </div>
+    
+        <div class="pagina">
+            <a href="{% url 'usuarios:usuarios' %}">
+                <h1 class="paginaTitulo">Voltar à página inicial!</h1>
+            </a>
+        </div>
 
-    <a href="{% url 'usuarios:usuarios' %}">
-        <h1>pagina inicial: usuarios</h1>
-    </a>
+    </div>
 
 </body>
 </html>
