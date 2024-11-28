@@ -43,7 +43,7 @@ class CadastrarView(LoginRequiredMixin, View):
             disponibilidade = request.POST.get('formDisponibilidade')
             interesse = request.POST.get('formInteresse')
 
-            imagem = request.FILES.get('formImagem')
+            imagem = request.FILES.get('formCadastroImagem')
 
             skillCostura = request.POST.get('nameSkillCostura') == 'on'
             skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
