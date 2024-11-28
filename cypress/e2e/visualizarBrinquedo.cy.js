@@ -19,12 +19,11 @@ describe('Visualizando brinquedo', () => {
         cy.get('#textFormBrinquedoTematica').type('Fantasia')
         cy.get('#numberFormBrinquedoQuantidade').type('50')
         cy.get('.button').click()
-        cy.get('.brinquedo-item').click()
-
+        cy.get('.brinquedo-info > :nth-child(1)').click()
 
     })
 
-    it('cenario2', () => {
+    it('Visualizando brinquedo sem imagem', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
         cy.get('[href="/login/"]').click()
@@ -36,9 +35,18 @@ describe('Visualizando brinquedo', () => {
         cy.get('#username').type('cypress')
         cy.get('#password').type('abc123')
         cy.get('.button').click()
+        cy.get('[href="/aplicacao/home_brinquedos/"] > .card').click()
+        cy.get('.adicionar').click()
+        cy.get('#textFormBrinquedoNome').type('Fantoche ')
+        cy.get('#textFormBrinquedoCategoria').type('Fantoche de mão')
+        cy.get('#textFormBrinquedoMateriais').type('pano,botões,garrafa pet')
+        cy.get('#textFormBrinquedoTematica').type('Fantasia')
+        cy.get('#numberFormBrinquedoQuantidade').type('50')
+        cy.get('.button').click()
+        cy.get('.brinquedo-info > :nth-child(1)').click()
     })
 
-    it('cenario3', () => {
+    it('Visualizando brinquedo sem Temática', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
         cy.get('[href="/login/"]').click()
@@ -50,5 +58,13 @@ describe('Visualizando brinquedo', () => {
         cy.get('#username').type('cypress')
         cy.get('#password').type('abc123')
         cy.get('.button').click()
+        cy.get('[href="/aplicacao/home_brinquedos/"] > .card').click()
+        cy.get('.adicionar').click()
+        cy.get('#textFormBrinquedoNome').type('Fantoche ')
+        cy.get('#textFormBrinquedoCategoria').type('Fantoche de mão')
+        cy.get('#textFormBrinquedoMateriais').type('pano,botões,garrafa pet')
+        cy.get('#numberFormBrinquedoQuantidade').type('50')
+        cy.get('.button').click()
+        cy.get('.brinquedo-info > :nth-child(1)').click()
     })
 })
