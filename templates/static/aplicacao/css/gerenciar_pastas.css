@@ -17,14 +17,11 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    font-size: 24px;
+    font-size: 50px;
     color: #333;
     text-decoration: none;
 }
 
-.btn-voltar:hover {
-    color: #555;
-}
 
 .header {
     display: flex;

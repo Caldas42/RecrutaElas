@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/criar_pasta.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
+    <a href="{% url 'aplicacao:gerenciar_pastas' %}" class="btn-voltar">&#8592;</a>
     <div class="page-criar-pasta">
         <h1>Criar Nova Pasta</h1>
 
@@ -36,6 +36,10 @@
 
             <button type="submit" class="btn-submit">Criar Pasta</button>
         </form>
+    </div>
+
+    <div class="btn-sair">
+        <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
     </div>
 </body>
 </html>
