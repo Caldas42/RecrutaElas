@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from .models import Cadastros, Pasta, Brinquedo
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Cadastros, Pasta, Brinquedo
 
 
 class HomeView(LoginRequiredMixin, View):
