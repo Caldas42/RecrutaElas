@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sucesso</title>
+    <title>Voltar ao Início</title>
     <link rel="stylesheet" href="{% static 'usuarios/css/logout.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <h1 id="tituloBrinquedos">logout</h1>
-
-    <a href="{% url 'usuarios:usuarios' %}">
-        <h1>pagina inicial: usuarios</h1>
-    </a>
+    <div class="main-container">
+        <!-- Caixa para o link -->
+        <div class="return-link-container">
+            <h1>Você foi desconectado!</h1>
+            <a href="{% url 'usuarios:usuarios' %}">Voltar para o Início</a>
+        </div>
+    </div>
 
 </body>
 </html>
