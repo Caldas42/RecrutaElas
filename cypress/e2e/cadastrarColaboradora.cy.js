@@ -31,6 +31,7 @@ describe('Cadastrando colaboradora', () => {
         cy.get('[for="selectSkillCostura"]').click()
         cy.get('[for="selectSkillPintura"]').click()
         cy.get('.button').click()
+        cy.get('.mensagem').invoke('text').should('have.string', "Cadastro adicionado com sucesso!")
     })
 
     it('Esquecendo de colocar o nome da colaboradora', () => {

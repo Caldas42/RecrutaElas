@@ -51,6 +51,12 @@ describe('Criando pastas de colaboradoras', () => {
         cy.get('[for="selectSkillCostura"]').click()
         cy.get('.button').click()
         cy.get('.mensagem').invoke('text').should('have.string', "Cadastro adicionado com sucesso!")
+        cy.get('[href="/aplicacao/gerenciar_pastas/"] > h1').click()
+        cy.get('.pasta-icone2').click()
+        cy.get('#nomePasta').type('Costureiras')
+        cy.get('.checkbox-label').click()
+        cy.get('.btn-submit').click()
+        cy.get('p').invoke('text').should('have.string', "Costureiras")
     })
 
     it('Esquecendo de colocar o nome quando for criar a pasta', () => {
