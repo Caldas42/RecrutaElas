@@ -90,9 +90,14 @@ class VisualizarCadastroView(LoginRequiredMixin, View):
     def get (self, request, id):
 
         cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)  # Certifica-se que pertence ao usuário
-        ctx = {'cadastro': cadastro}
+        comentarios = Comentario.objects.filter(colaborador=cadastro)
 
-        return render (request, 'visualizar_cadastro.html', ctx)
+        ctx = {
+            'cadastro': cadastro,
+            'comentarios': comentarios,
+        }
+
+        return render(request, 'visualizar_cadastro.html', ctx)
     
 class DeletarCadastroView(LoginRequiredMixin, View):
     def post(self, request, id):
@@ -319,7 +324,7 @@ def adicionar_comentario(request):
         comentario.save()
 
         # Redireciona para a página de visualização de cadastros ou outra página desejada
-        return redirect('aplicacao:home')  # Modifique conforme necessário
+        return redirect('aplicacao:home_cadastros')  # Modifique conforme necessário
     else:
         # Exibe os colaboradores disponíveis no formulário para o usuário escolher
         colaboradores = Cadastros.objects.all()  # Corrigido para cadastros
