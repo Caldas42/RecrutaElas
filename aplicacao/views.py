@@ -112,71 +112,46 @@ class DeletarCadastroView(LoginRequiredMixin, View):
 class EditarCadastroView(LoginRequiredMixin, View):
 
     def get(self, request, id):
-
         cadastro_obj = get_object_or_404(Cadastros, id=id, usuario=request.user)
         return render(request, 'editar.html', {'cadastro': cadastro_obj})
 
     def post(self, request, id):
-
-        cadastro = get_object_or_404(Cadastros, id=id)
-        nome = request.POST.get('formNome')
-        idade = request.POST.get('formIdade')
-        cpf = request.POST.get('formCpf')
-        celular = request.POST.get('formCelular')
-        email = request.POST.get('formEmail')
-        cep = request.POST.get('formCep')
-        cidade = request.POST.get('formCidade')
-        bairro = request.POST.get('formBairro')
-        rua = request.POST.get('formRua')
-        numero = request.POST.get('formNumero')
-        complemento = request.POST.get('formComplemento')
-        escolaridade = request.POST.get('formEscolaridade')
-        experiencia = request.POST.get('formExperiencia')
-        disponibilidade = request.POST.get('formDisponibilidade')
-        interesse = request.POST.get('formInteresse')
+        cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)
+        
+        cadastro.nome = request.POST.get('formNome')
+        cadastro.idade = request.POST.get('formIdade')
+        cadastro.cpf = request.POST.get('formCpf')
+        cadastro.celular = request.POST.get('formCelular')
+        cadastro.email = request.POST.get('formEmail')
+        cadastro.cep = request.POST.get('formCep')
+        cadastro.cidade = request.POST.get('formCidade')
+        cadastro.bairro = request.POST.get('formBairro')
+        cadastro.rua = request.POST.get('formRua')
+        cadastro.numero = request.POST.get('formNumero')
+        cadastro.complemento = request.POST.get('formComplemento')
+        cadastro.escolaridade = request.POST.get('formEscolaridade')
+        cadastro.experiencia = request.POST.get('formExperiencia')
+        cadastro.disponibilidade = request.POST.get('formDisponibilidade')
+        cadastro.interesse = request.POST.get('formInteresse')
 
         imagem = request.FILES.get('formCadastroImagem')
+        if imagem:
+            cadastro.imagem = imagem
 
-        skillCostura = request.POST.get('nameSkillCostura') == 'on'
-        skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
-        skillPintura = request.POST.get('nameSkillPintura') == 'on'
-        skillDesign = request.POST.get('nameSkillDesign') == 'on'
-        skillCriatividade = request.POST.get('nameSkillCriatividade') == 'on'
-        skillAtendimento = request.POST.get('nameSkillAtendimento') == 'on'
-        skillVendas = request.POST.get('nameSkillVendas') == 'on'
-        skillLimpeza = request.POST.get('nameSkillLimpeza') == 'on'
-        
-        cadastro = Cadastros(nome = nome, 
-                                idade = idade, 
-                                cpf = cpf, 
-                                celular = celular, 
-                                email = email, 
-                                cep = cep, 
-                                cidade = cidade, 
-                                bairro = bairro, 
-                                rua = rua, 
-                                numero = numero,
-                                complemento = complemento, 
-                                escolaridade = escolaridade,
-                                experiencia = experiencia,
-                                disponibilidade = disponibilidade,
-                                interesse = interesse,
-                                skillCostura = skillCostura, 
-                                skillGerenciamento = skillGerenciamento, 
-                                skillPintura = skillPintura, 
-                                skillDesign = skillDesign,
-                                skillCriatividade = skillCriatividade,  
-                                skillAtendimento = skillAtendimento,
-                                skillVendas = skillVendas,
-                                skillLimpeza = skillLimpeza,   
-                                usuario=request.user, 
-                                imagem=imagem)
+        cadastro.skillCostura = request.POST.get('nameSkillCostura') == 'on'
+        cadastro.skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
+        cadastro.skillPintura = request.POST.get('nameSkillPintura') == 'on'
+        cadastro.skillDesign = request.POST.get('nameSkillDesign') == 'on'
+        cadastro.skillCriatividade = request.POST.get('nameSkillCriatividade') == 'on'
+        cadastro.skillAtendimento = request.POST.get('nameSkillAtendimento') == 'on'
+        cadastro.skillVendas = request.POST.get('nameSkillVendas') == 'on'
+        cadastro.skillLimpeza = request.POST.get('nameSkillLimpeza') == 'on'
 
         cadastro.save()
 
         messages.success(request, 'Cadastro editado com sucesso!')
-
         return redirect('aplicacao:home_cadastros')
+
 
 class GerenciarSkillsView(LoginRequiredMixin, View):
     def get(self, request):
