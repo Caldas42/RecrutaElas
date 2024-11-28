@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/3de4f497-023f-41fb-9dca-ba449522c5d9
 
 ## [Link do RecrutaElas](https://registraelas.azurewebsites.net)
 
-## Screencast do Uso do Sistema
+## [Screencast do Uso do Sistema](https://youtu.be/UgyPCSOsiM8)
 
 ## Programação em Par
 
