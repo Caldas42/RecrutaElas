@@ -10,4 +10,5 @@ urlpatterns = [
     path('sucesso/', views.SucessoView.as_view(), name='sucesso'),
     path('cadastrar_usuario/', views.CadastrarUsuarioView.as_view(), name='cadastrar_usuario'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('delete_cypress/', views.Deletar_Cypress.as_view(), name='delete_cypress'),
 ]
