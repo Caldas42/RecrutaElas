@@ -12,7 +12,7 @@ https://github.com/user-attachments/assets/3de4f497-023f-41fb-9dca-ba449522c5d9
 
 ## Diagrama de Atividade do Sistema
 
-## Print do Issue/bug Tracker
+![image](https://github.com/user-attachments/assets/07e08553-fc06-4da7-9254-00b8545aa718)
 
 ## [Link do RecrutaElas](https://registraelas.azurewebsites.net)
 
@@ -28,7 +28,7 @@ Reconhecemos os benefícios da programação em par, como o aumento da qualidade
 
 ## Screencast da Build e do Deployment Automatizados
 
-## Screencast da Execução dos Testes de Sistema (E2E) Automatizados
+## [Screencast da Execução dos Testes de Sistema (E2E) Automatizados](https://youtu.be/RcUI3CVY3b4)
 
 # Equipe
 

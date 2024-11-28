@@ -1,13 +1,26 @@
 describe('Excluindo brinquedo', () => {
-    it('cenario1', () => {
-        //steps do cenario1
-    })
-
-    it('cenario2', () => {
-        //steps do cenario2
-    })
-
-    it('cenario3', () => {
-        //steps do cenario3
+    it('Excluindo brinquedo com sucesso', () => {
+        cy.visit('/delete_cypress/')
+        cy.get('.button').click()
+        cy.get('[href="/login/"]').click()
+        cy.get('p > a').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('#password_confirm').type('abc123')
+        cy.get('.button').click()
+        cy.get('#username').type('cypress')
+        cy.get('#password').type('abc123')
+        cy.get('.button').click()
+        cy.get('[href="/aplicacao/home_brinquedos/"] > .card').click()
+        cy.get('.adicionar').click()
+        cy.get('#textFormBrinquedoNome').type('Fantoche ')
+        cy.get('#textFormBrinquedoCategoria').type('Fantoche de mão')
+        cy.get('#textFormBrinquedoMateriais').type('pano,botões,garrafa pet')
+        cy.get('#textFormBrinquedoTematica').type('Fantasia')
+        cy.get('#numberFormBrinquedoQuantidade').type('50')
+        cy.get('.button').click()
+        cy.get('.mensagem').invoke('text').should('have.string', "Brinquedo adicionado com sucesso!")
+        cy.get('.delete-btn').click()
+        cy.get('.mensagem').invoke('text').should('have.string', "Brinquedo deletado com sucesso!")
     })
 })

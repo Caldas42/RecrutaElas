@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Comentário</title>
+    <link rel="stylesheet" href="{% static 'aplicacao/css/adicionar_comentario.css' %}">
+</head>
+<body>    
+    <h1>Adicionar Comentário</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="colaborador">Escolha um colaborador:</label>
+        <select name="colaborador" id="colaborador" required>
+            {% for colaborador in colaboradores %}
+                <option value="{{ colaborador.nome }}">{{ colaborador.nome }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label for="texto">Comentário:</label>
+        <textarea name="texto" id="texto" rows="4" required></textarea>
+        <br><br>
+
+        <button type="submit">Adicionar Comentário</button>
+    </form>
+
+    <br>
+    <a href="{% url 'aplicacao:home' %}">Voltar para a página inicial</a>
+</body>
+</html>

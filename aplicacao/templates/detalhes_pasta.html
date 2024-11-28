@@ -8,37 +8,65 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/detalhes_pasta1.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
-    <div class="page-detalhes-pasta-container">
-        <div class="page-detalhes-pasta">
-            <h1>Detalhes da Pasta: {{ pasta.nome }}</h1>
-
-            <h2>Mulheres na Pasta</h2>
-            <ul>
-                {% for cadastro in pasta.cadastros.all %}
-                    <li>
-                        <strong>Nome:</strong> {{ cadastro.nome }}<br>
-                        <strong>Idade:</strong> {{ cadastro.idade }}<br>
-                        <strong>CPF:</strong> {{ cadastro.cpf }}<br>
-                        <strong>Celular:</strong> {{ cadastro.celular }}<br>
-                        <strong>Cidade:</strong> {{ cadastro.cidade }}<br>
-                        <strong>Bairro:</strong> {{ cadastro.bairro }}<br>
-                        <strong>Rua:</strong> {{ cadastro.rua }}<br>
-                        <strong>Número:</strong> {{ cadastro.numero }}<br>
-                        <strong>Complemento:</strong> {{ cadastro.complemento }}<br>
-                        <strong>Habilidades:</strong>
-                        <ul>
-                            {% if cadastro.skillCostura %}<li>Costura</li>{% endif %}
-                            {% if cadastro.skillGerenciamento %}<li>Gerenciamento</li>{% endif %}
-                            {% if cadastro.skillPintura %}<li>Pintura</li>{% endif %}
-                        </ul>
-                        <br>
-                    </li>
-                {% empty %}
-                    <li>Não há mulheres nesta pasta.</li>
-                {% endfor %}
-            </ul>
+    <a href="{% url 'aplicacao:gerenciar_pastas' %}" class="btn-voltar">&#8592;</a>
+    <div class="container">
+        <h1 class="titulo">Pasta {{ pasta.nome }}</h1>
+        
+        <!-- Lista de colaboradoras associadas à pasta -->
+        <div class="lista-colaboradoras">
+            {% for cadastro in pasta.cadastros.all %}
+                <div class="colaboradora-item">
+                    <p>{{ cadastro.nome }}</p>
+                    <div class="acoes">
+                        <a href="{% url 'aplicacao:visualizar_cadastros' cadastro.id %}" class="entrar">
+                            Entrar
+                        </a>
+                        <a href="{% url 'aplicacao:editar' cadastro.id %}" class="editar">
+                            ✏️
+                        </a>
+                    </div>
+                </div>
+            {% empty %}
+                <p>Não há colaboradoras cadastradas.</p>
+            {% endfor %}
         </div>
+<br>
+        <!-- Formulário de adicionar colaboradoras -->
+        <div class="acoes-container">
+            <a href="{% url 'aplicacao:deletar_pasta' pasta.id %}" class="excluir">Excluir</a>
+<br><br><br><br>
+            <!-- Formulário de Adição de Colaboradoras -->
+            <form method="POST" action="{% url 'aplicacao:adicionar_colaboradoras' pasta.id %}">
+                {% csrf_token %}
+                <h2>Adicionar a Pasta :</h2>
+                
+                <!-- Lista de colaboradoras não associadas à pasta com barra de rolagem -->
+                <div class="colaboradoras-nao-associadas-container">
+                    <div class="colaboradoras-nao-associadas">
+                        {% for colaboradora in colaboradoras_nao_associadas %}
+                            <div class="colaboradora-item">
+                                <label>
+                                    <input type="checkbox" name="cadastros" value="{{ colaboradora.id }}">
+                                    {{ colaboradora.nome }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                        
+                        {% if colaboradoras_nao_associadas|length == 0 %}
+                            <p>Não há colaboradoras disponíveis para adicionar.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Botão para submeter o formulário -->
+                <button type="submit" class="adicionar">Adicionar Selecionadas</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Botão de sair -->
+    <div class="btn-sair">
+        <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
     </div>
 </body>
 </html>

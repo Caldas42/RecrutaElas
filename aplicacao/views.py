@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from .models import Cadastros, Pasta, Brinquedo
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Cadastros, Pasta, Brinquedo, Comentario
 
 
 class HomeView(LoginRequiredMixin, View):
@@ -31,20 +31,54 @@ class CadastrarView(LoginRequiredMixin, View):
             idade = request.POST.get('formIdade')
             cpf = request.POST.get('formCpf')
             celular = request.POST.get('formCelular')
+            email = request.POST.get('formEmail')
             cep = request.POST.get('formCep')
             cidade = request.POST.get('formCidade')
             bairro = request.POST.get('formBairro')
             rua = request.POST.get('formRua')
             numero = request.POST.get('formNumero')
             complemento = request.POST.get('formComplemento')
+            escolaridade = request.POST.get('formEscolaridade')
+            experiencia = request.POST.get('formExperiencia')
+            disponibilidade = request.POST.get('formDisponibilidade')
+            interesse = request.POST.get('formInteresse')
+
+            imagem = request.FILES.get('formCadastroImagem')
 
             skillCostura = request.POST.get('nameSkillCostura') == 'on'
             skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
             skillPintura = request.POST.get('nameSkillPintura') == 'on'
-
-            imagem = request.FILES.get('formCadastroImagem')
-
-            cadastro = Cadastros(nome = nome, idade = idade, cpf = cpf, celular = celular, cep = cep, cidade = cidade, bairro = bairro, rua = rua, numero = numero, complemento = complemento, skillCostura = skillCostura, skillGerenciamento = skillGerenciamento, skillPintura = skillPintura, usuario=request.user, imagem = imagem)
+            skillDesign = request.POST.get('nameSkillDesign') == 'on'
+            skillCriatividade = request.POST.get('nameSkillCriatividade') == 'on'
+            skillAtendimento = request.POST.get('nameSkillAtendimento') == 'on'
+            skillVendas = request.POST.get('nameSkillVendas') == 'on'
+            skillLimpeza = request.POST.get('nameSkillLimpeza') == 'on'
+            
+            cadastro = Cadastros(nome = nome, 
+                                 idade = idade, 
+                                 cpf = cpf, 
+                                 celular = celular, 
+                                 email = email, 
+                                 cep = cep, 
+                                 cidade = cidade, 
+                                 bairro = bairro, 
+                                 rua = rua, 
+                                 numero = numero,
+                                 complemento = complemento, 
+                                 escolaridade = escolaridade,
+                                 experiencia = experiencia,
+                                 disponibilidade = disponibilidade,
+                                 interesse = interesse,
+                                 skillCostura = skillCostura, 
+                                 skillGerenciamento = skillGerenciamento, 
+                                 skillPintura = skillPintura, 
+                                 skillDesign = skillDesign,
+                                 skillCriatividade = skillCriatividade,  
+                                 skillAtendimento = skillAtendimento,
+                                 skillVendas = skillVendas,
+                                 skillLimpeza = skillLimpeza,   
+                                 usuario=request.user, 
+                                 imagem=imagem)
 
             cadastro.save()
 
@@ -56,9 +90,14 @@ class VisualizarCadastroView(LoginRequiredMixin, View):
     def get (self, request, id):
 
         cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)  # Certifica-se que pertence ao usuário
-        ctx = {'cadastro': cadastro}
+        comentarios = Comentario.objects.filter(colaborador=cadastro)
 
-        return render (request, 'visualizar_cadastro.html', ctx)
+        ctx = {
+            'cadastro': cadastro,
+            'comentarios': comentarios,
+        }
+
+        return render(request, 'visualizar_cadastro.html', ctx)
     
 class DeletarCadastroView(LoginRequiredMixin, View):
     def post(self, request, id):
@@ -73,34 +112,46 @@ class DeletarCadastroView(LoginRequiredMixin, View):
 class EditarCadastroView(LoginRequiredMixin, View):
 
     def get(self, request, id):
-
         cadastro_obj = get_object_or_404(Cadastros, id=id, usuario=request.user)
         return render(request, 'editar.html', {'cadastro': cadastro_obj})
 
     def post(self, request, id):
-
         cadastro = get_object_or_404(Cadastros, id=id, usuario=request.user)
+        
+        cadastro.nome = request.POST.get('formNome')
+        cadastro.idade = request.POST.get('formIdade')
+        cadastro.cpf = request.POST.get('formCpf')
+        cadastro.celular = request.POST.get('formCelular')
+        cadastro.email = request.POST.get('formEmail')
+        cadastro.cep = request.POST.get('formCep')
+        cadastro.cidade = request.POST.get('formCidade')
+        cadastro.bairro = request.POST.get('formBairro')
+        cadastro.rua = request.POST.get('formRua')
+        cadastro.numero = request.POST.get('formNumero')
+        cadastro.complemento = request.POST.get('formComplemento')
+        cadastro.escolaridade = request.POST.get('formEscolaridade')
+        cadastro.experiencia = request.POST.get('formExperiencia')
+        cadastro.disponibilidade = request.POST.get('formDisponibilidade')
+        cadastro.interesse = request.POST.get('formInteresse')
 
-        cadastro_obj = get_object_or_404(Cadastros, id=id)
-        cadastro_obj.nome = request.POST.get('formNome')
-        cadastro_obj.idade = request.POST.get('formIdade')
-        cadastro_obj.cpf = request.POST.get('formCpf')
-        cadastro_obj.celular = request.POST.get('formCelular')
-        cadastro_obj.cep = request.POST.get('formCep')
-        cadastro_obj.cidade = request.POST.get('formCidade')
-        cadastro_obj.bairro = request.POST.get('formBairro')
-        cadastro_obj.rua = request.POST.get('formRua')
-        cadastro_obj.numero = request.POST.get('formNumero')
-        cadastro_obj.complemento = request.POST.get('formComplemento')
-        cadastro_obj.skillCostura = request.POST.get('nameSkillCostura') == 'on'
-        cadastro_obj.skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
-        cadastro_obj.skillPintura = request.POST.get('nameSkillPintura') == 'on'
+        imagem = request.FILES.get('formCadastroImagem')
+        if imagem:
+            cadastro.imagem = imagem
 
-        cadastro_obj.save()
+        cadastro.skillCostura = request.POST.get('nameSkillCostura') == 'on'
+        cadastro.skillGerenciamento = request.POST.get('nameSkillGerenciamento') == 'on'
+        cadastro.skillPintura = request.POST.get('nameSkillPintura') == 'on'
+        cadastro.skillDesign = request.POST.get('nameSkillDesign') == 'on'
+        cadastro.skillCriatividade = request.POST.get('nameSkillCriatividade') == 'on'
+        cadastro.skillAtendimento = request.POST.get('nameSkillAtendimento') == 'on'
+        cadastro.skillVendas = request.POST.get('nameSkillVendas') == 'on'
+        cadastro.skillLimpeza = request.POST.get('nameSkillLimpeza') == 'on'
+
+        cadastro.save()
 
         messages.success(request, 'Cadastro editado com sucesso!')
-
         return redirect('aplicacao:home_cadastros')
+
 
 class GerenciarSkillsView(LoginRequiredMixin, View):
     def get(self, request):
@@ -110,11 +161,14 @@ class GerenciarSkillsView(LoginRequiredMixin, View):
         skillSelecionada = request.POST.get('nameSelectBox')
 
         if skillSelecionada:
-            cadastros_filtrados = Cadastros.objects.filter(usuario = request.user, **{skillSelecionada: True})
+            cadastros_filtrados = Cadastros.objects.filter(usuario=request.user, **{skillSelecionada: True})
         else:
-            cadastros_filtrados = Cadastros.objects.filter(usuario = request.user)
+            cadastros_filtrados = Cadastros.objects.filter(usuario=request.user)
 
-        return render(request, 'gerenciar_skills.html', {'cadastrosFiltrados': cadastros_filtrados})
+        return render(request, 'gerenciar_skills.html', {
+            'cadastrosFiltrados': cadastros_filtrados,
+            'skillSelecionada': skillSelecionada,  # Passa a habilidade selecionada
+        })
     
 class GerenciarPastasView(LoginRequiredMixin, View):
     def get(self, request):
@@ -157,17 +211,26 @@ class CriarPastaView(LoginRequiredMixin, View):
 class DetalhesPastaView(LoginRequiredMixin, View):
     def get(self, request, id):
         pasta = get_object_or_404(Pasta, id=id, usuario=request.user)
-        # Passando as mulheres associadas à pasta
+
+        # Pegando todos os cadastros associados à pasta
+        cadastros_na_pasta = pasta.cadastros.all()
+
+        # Pegando todos os cadastros que NÃO estão associados a esta pasta
+        colaboradoras_nao_associadas = Cadastros.objects.filter(usuario=request.user).exclude(id__in=cadastros_na_pasta.values('id'))
+
         ctx = {
             'pasta': pasta,
+            'colaboradoras_nao_associadas': colaboradoras_nao_associadas,
         }
         return render(request, 'detalhes_pasta.html', ctx)
     
 class DeletarPastaView(LoginRequiredMixin, View):
-    def post(self, request, id):
+    def get(self, request, id):
         pasta = get_object_or_404(Pasta, id=id, usuario=request.user)
         pasta.delete()  # Deleta o objeto Pasta
+        messages.success(request, 'Pasta deletada com sucesso!')
         return redirect('aplicacao:gerenciar_pastas')
+
 
 class HomeBrinquedosView(LoginRequiredMixin, View):
     def get(self, request):
@@ -243,3 +306,38 @@ class EditarBrinquedoView(LoginRequiredMixin, View):
         messages.success(request, 'Brinquedo editado com sucesso!')
         return redirect('aplicacao:home_brinquedos')
     
+class AdicionarColaboradorasView(LoginRequiredMixin, View):
+    def post(self, request, pasta_id):
+        pasta = get_object_or_404(Pasta, id=pasta_id, usuario=request.user)
+        
+        # Obtendo os IDs das colaboradoras selecionadas
+        cadastros_selecionados = request.POST.getlist('cadastros')
+
+        # Adicionando as colaboradoras selecionadas à pasta
+        if cadastros_selecionados:
+            cadastros = Cadastros.objects.filter(id__in=cadastros_selecionados)
+            pasta.cadastros.add(*cadastros)  # Adiciona as colaboradoras à pasta
+
+        messages.success(request, 'Colaboradoras adicionadas à pasta com sucesso!')
+        return redirect('aplicacao:detalhes_pasta', id=pasta.id)
+    
+
+def adicionar_comentario(request):
+    if request.method == 'POST':
+        # Pega o nome do colaborador selecionado e o texto do comentário
+        colaborador_nome = request.POST.get('colaborador')
+        texto = request.POST.get('texto')
+
+        # Obtém o colaborador pelo nome
+        colaborador = Cadastros.objects.get(nome=colaborador_nome)  # Certifique-se de usar cadastros ou Colaborador
+
+        # Cria o comentário associado ao colaborador
+        comentario = Comentario.objects.create(colaborador=colaborador, texto=texto)
+        comentario.save()
+
+        # Redireciona para a página de visualização de cadastros ou outra página desejada
+        return redirect('aplicacao:home_cadastros')  # Modifique conforme necessário
+    else:
+        # Exibe os colaboradores disponíveis no formulário para o usuário escolher
+        colaboradores = Cadastros.objects.all()  # Corrigido para cadastros
+        return render(request, 'adicionar_comentario.html', {'colaboradores': colaboradores})

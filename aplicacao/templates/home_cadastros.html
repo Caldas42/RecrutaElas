@@ -10,11 +10,17 @@
 </head>
 <body>
     {% include 'navbar.html' %}
-    <br><br>
+ 
+    <div class="tituloCadastros">
+        <br>
+        <h1 id="titulo">Cadastros</h1>
+    </div>
 
-    <a href="{% url 'aplicacao:home' %}"><i class="fa-solid fa-arrow-left"></i></a>
-
-    <h1 id="tituloCadastros">Cadastros</h1>
+    <br>
+    <a href="{% url 'aplicacao:home' %}">
+        <i class="fa-solid fa-arrow-left" id="backIcon"></i>
+    </a>
+    <br>
 
     {% if messages %}
     <div class="messages">
@@ -46,12 +52,15 @@
                 {% endif %}
 
                 <div class="card-content">
-                    <h2>{{cadastro.nome}}</h2>
+                    <h2>{{cadastro.nome}}</h2> 
                     <h2>{{cadastro.celular}}</h2>
                 </div>
 
                 <div class="actions">
-                    <a href="{% url 'aplicacao:editar' cadastro.id %}"><i class="fa-solid fa-pencil"></i></a>
+                    <form action="{% url 'aplicacao:editar' cadastro.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="editar-btn"><i class="fa-solid fa-pencil"></i></button>
+                    </form>
 
                     <form action="{% url 'aplicacao:excluir' cadastro.id %}" method="post" style="display: inline;">
                         {% csrf_token %}
@@ -64,10 +73,6 @@
         {% endfor %}
         
     </div>
-
-    <a href="{% url 'usuarios:logout' %}">
-        <h1>sair da conta</h1>
-    </a>
 
 </body>
 </html>

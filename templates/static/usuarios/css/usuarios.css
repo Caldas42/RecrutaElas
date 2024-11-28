@@ -1,0 +1,116 @@
+/* usuarios.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f9ce5b, #f4df8e);
+}
+
+h1#usuarios {
+    display: none; /* O título "usuarios" não está visível na imagem */
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fde7a9;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Elemento da esquerda */
+.logo-container {
+    width: 40%;
+    height: 100%;
+    background: #2a97b8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo-container .circle {
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 50%;
+    border: 15px solid #d90e68;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.logo-container .circle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 15px solid transparent;
+    border-image: url('https://via.placeholder.com/15'); /* Substituir pela borda desejada */
+    border-image-slice: 15;
+    border-radius: 50%;
+}
+
+/* Botões da direita */
+.button-container {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.button-container a {
+    display: block;
+    width: 70%;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    background: #d92d68;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.button-container a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button-container a:first-child {
+    background: #f9a630;
+}
+
+.button-container a:last-child {
+    background: #d92d68;
+}
+
+#colaborar{
+    height: 30%;
+    padding: 5%;
+    padding-top: 30%;
+}

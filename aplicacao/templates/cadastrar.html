@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/cadastrar.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
-
+    <a href="{% url 'aplicacao:home_cadastros' %}" class="btn-voltar">&#8592;</a>
     <div class="container">
         <h1 id="cadastro-estilo">Novo Cadastro</h1>
 
@@ -33,8 +32,12 @@
                     <td><input type="number" id="numberFormCpf" name="formCpf" maxlength="14"></td>
                 </tr>
                 <tr>
-                    <td><label for="numberFormCelular">Celular:</label></td>
-                    <td><input type="number" id="numberFormCelular" name="formCelular" maxlength="15"></td>
+                    <td><label for="numberFormCelular">Número de Celular:</label></td>
+                    <td><input type="number" id="numberFormCelular" name="formCelular" maxlength="15" required></td>
+                </tr>
+                <tr>
+                    <td><label for="numberFormEmail">E-mail:</label></td>
+                    <td><input type="text" id="textFormEmail" name="formEmail" maxlength="50"></td>
                 </tr>
                 <tr>
                     <td><label for="numberFormCep">CEP:</label></td>
@@ -61,28 +64,56 @@
                     <td><input type="text" id="textFormComplemento" name="formComplemento" maxlength="50"></td>
                 </tr>
                 <tr>
+                    <td><label for="textFormEscolaridade">Grau de escolaridade:</label></td>
+                    <td><input type="text" id="textFormEscolaridade" name="formEscolaridade" maxlength="100"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormExperiencia">Sobre você e experiência prévia de trabalho:</label></td>
+                    <td><input type="text" id="textFormExperiencia" name="formExperiencia" maxlength="800"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormDisponibilidade">Disponibilidade de horário:</label></td>
+                    <td><input type="text" id="textFormDisponibilidade" name="formDisponibilidade" maxlength="200"></td>
+                </tr>
+                <tr>
+                    <td><label for="textFormInteresse">Interesse em tipo/área de trabalho:</label></td>
+                    <td><input type="text" id="textFormInteresse" name="formInteresse" maxlength="200"></td>
+                </tr>
+                <tr>
                     <td><label for="fileFormImagem">Imagem:</label></td>
                     <td><input type="file" id="fileFormImagem" name="formCadastroImagem"></td>
-                </tr>
+                </tr> 
             </table>
 
             <div class="skillsFormContainer">
-                <h1>Selecione habilidades que você possui:</h1>
+                <h4>Selecione habilidades que você possui:</h4>
 
                 <div class="selectSkillsContainer">
-                    <label for="selectSkillCostura">
-                        <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
-                        Costura
-                    </label>
-                    <label for="selectSkillPintura">
-                        <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
-                        Pintura
-                    </label>
-                    <label for="selectSkillGerenciamento">
-                        <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
-                        Gerenciamento
-                    </label>
+                    <input type="checkbox" id="selectSkillCostura" name="nameSkillCostura">
+                    <label for="selectSkillCostura">Costura</label>
+                
+                    <input type="checkbox" id="selectSkillPintura" name="nameSkillPintura">
+                    <label for="selectSkillPintura">Pintura</label>
+                
+                    <input type="checkbox" id="selectSkillGerenciamento" name="nameSkillGerenciamento">
+                    <label for="selectSkillGerenciamento">Gerenciamento</label>
+
+                    <input type="checkbox" id="selectSkillDesign" name="nameSkillDesign">
+                    <label for="selectSkillDesign">Design</label>
+
+                    <input type="checkbox" id="selectSkillCriatividade" name="nameSkillCriatividade">
+                    <label for="selectSkillCriatividade">Criatividade</label>
+
+                    <input type="checkbox" id="selectSkillAtendimento" name="nameSkillAtendimento">
+                    <label for="selectSkillAtendimento">Atendimento ao cliente</label>
+
+                    <input type="checkbox" id="selectSkillVendas" name="nameSkillVendas">
+                    <label for="selectSkillVendas">Vendas</label>
+
+                    <input type="checkbox" id="selectSkillVLimpeza" name="nameSkillLimpeza">
+                    <label for="selectSkillLimpeza">Limpeza e organização</label>
                 </div>
+                
             </div>
 
             <div class="botaoForm">
@@ -90,5 +121,9 @@
             </div>
         </form>
     </div>
+
+<div class="btn-sair">
+    <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
+</div>
 </body>
 </html>

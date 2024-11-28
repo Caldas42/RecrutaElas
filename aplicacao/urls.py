@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 app_name = 'aplicacao'
@@ -16,6 +18,7 @@ urlpatterns = [
     path('criar_pasta/', views.CriarPastaView.as_view(), name='criar_pasta'),
     path('pastas/detalhes/<int:id>/', views.DetalhesPastaView.as_view(), name='detalhes_pasta'),
     path('deletar_pasta/<int:id>/', views.DeletarPastaView.as_view(), name='deletar_pasta'),
+    path('adicionar_comentario/', views.adicionar_comentario, name='adicionar_comentario'),
 
     path('registrar_brinquedo/', views.RegistrarBrinquedoView.as_view(), name = 'registrar_brinquedo'),
     path('home_brinquedos/', views.HomeBrinquedosView.as_view(), name = 'home_brinquedos'),
@@ -24,4 +27,7 @@ urlpatterns = [
     path('visualizar_brinquedo/<int:id>/', views.VisualizarBrinquedoView.as_view(), name = 'visualizar_brinquedo'),
     path('home_cadastros/', views.HomeCadastrosView.as_view(), name='home_cadastros'),
 
-]
+    path('pastas/detalhes/<int:id>/', views.DetalhesPastaView.as_view(), name='detalhes_pasta'),
+    path('pastas/adicionar_colaboradoras/<int:pasta_id>/', views.AdicionarColaboradorasView.as_view(), name='adicionar_colaboradoras'),
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
