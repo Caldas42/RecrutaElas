@@ -29,7 +29,7 @@ describe('Excluindo colaboradora', () => {
         cy.get('#textFormDisponibilidade').type('tempo integral')
         cy.get('#textFormInteresse').type('não tenho')
         cy.get('[for="selectSkillCostura"]').click()
-        cy.get('[for="selectSkillCostura"]').click()
+        cy.get('[for="selectSkillPintura"]').click()
         cy.get('.button').click()
         cy.get('.delete-btn').click()
     })
