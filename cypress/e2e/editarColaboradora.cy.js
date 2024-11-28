@@ -1,5 +1,5 @@
 describe('Editando colaboradora', () => {
-    it('cenario1', () => {
+    it('Editando uma colaboradora com sucesso', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
         cy.get('a > h1').click()
@@ -33,9 +33,12 @@ describe('Editando colaboradora', () => {
         cy.get('[for="selectSkillCostura"]').click()
         cy.get('.button').click()
         cy.get('.editar-btn').click()
+        cy.get('#numberFormIdade').clear()
+        cy.get('#numberFormIdade').type('28')
+        cy.get('.button').click()
     })
 
-    it('cenario2', () => {
+    it('Esquecendo de escrever alguma coisa na idade da colaboradora', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
         cy.get('a > h1').click()
@@ -68,9 +71,12 @@ describe('Editando colaboradora', () => {
         cy.get('[for="selectSkillCostura"]').click()
         cy.get('[for="selectSkillCostura"]').click()
         cy.get('.button').click()
+        cy.get('.editar-btn').click()
+        cy.get('#numberFormIdade').clear()
+        cy.get('.button').click()
     })
 
-    it('cenario3', () => {
+    it('Editando o endereço da colaboradora', () => {
         cy.visit('/delete_cypress/')
         cy.get('.button').click()
         cy.get('a > h1').click()
@@ -102,6 +108,20 @@ describe('Editando colaboradora', () => {
         cy.get('#textFormInteresse').type('não tenho')
         cy.get('[for="selectSkillCostura"]').click()
         cy.get('[for="selectSkillCostura"]').click()
+        cy.get('.button').click()
+        cy.get('.editar-btn').click()
+        cy.get('#textFormCep').clear()
+        cy.get('#textFormCep').type('23958105')
+        cy.get('#textFormCidade').clear()
+        cy.get('#textFormCidade').type('Caruaru')
+        cy.get('#textFormBairro').clear()
+        cy.get('#textFormBairro').type('bom conselho')
+        cy.get('#textFormRua').clear()
+        cy.get('#textFormRua').type('rua amarilio pessoa')
+        cy.get('#numberFormNumero').clear()
+        cy.get('#numberFormNumero').type('1024')
+        cy.get('#textFormComplemento').clear()
+        cy.get('#textFormComplemento').clear('não tem')
         cy.get('.button').click()
     })
 })
