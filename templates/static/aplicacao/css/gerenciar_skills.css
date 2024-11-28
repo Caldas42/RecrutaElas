@@ -1,53 +1,148 @@
+/* Estilos Gerais */
 body {
-    font-family: Afacad;
-    background-color: rgb(219, 222, 228);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbe39f;
+    color: #333;
 }
 
-#tituloSkills {
-    color: brown;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.cadastro-card {
-    color: rgb(32, 68, 99);
-    background-color: rgb(197, 197, 219);
-    border-radius: 5px;
-    text-align: center;
+/* Container Principal */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
     padding: 20px;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s, box-shadow 0.3s; 
+    background-color: #ffe39a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centraliza conteúdo interno */
+}
+
+/* Título */
+#tituloSkills {
+    text-align: center;
+    font-size: 20px; /* Ajustado o tamanho do título */
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Formulário */
+form {
+    width: 20%; /* Reduz a largura do formulário */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os elementos */
+}
+
+/* Label e Select */
+form label {
+    font-size: 14px; /* Reduzi o tamanho da fonte */
+    color: #333;
+    margin-bottom: 5px;
+}
+
+form select {
+    width: 100%; /* Ajusta à largura do formulário */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form select:focus {
+    outline: none;
+    border-color: #888;
+}
+
+/* Botão de Filtrar */
+form button {
+    background-color: #004d40;
+    width: 20%;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+form button:hover {
+    background-color: #00796b;
+}
+
+/* Lista de Cadastros */
+.lista-de-cadastros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Cartão de Cadastro */
+.cadastro-card {
+    width: 100%; /* Define que cada cartão ocupa 50% da tela */
+    max-width: 250px; /* Limita a largura máxima */
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.cadastro-card h2 {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
 }
 
 .cadastro-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.05);
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.novo-cadastro-card {
-    color: rgb(197, 197, 219);
-    background-color: rgb(32, 68, 99);
-    border-radius: 5px;
+/* Mensagem de Nenhum Cadastro */
+.lista-de-cadastros h1 {
+    font-size: 18px;
+    color: #555;
     text-align: center;
-    padding: 20px;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.novo-cadastro-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 50px;
+    color: #333;
+    text-decoration: none;
 }
 
+.btn-voltar:hover {
+    background-color: #ffa944;
+}
 
-@font-face {
-    font-family: 'Afacad' ;
-    src: url(../../fonts/AfacadFlux-VariableFont_slnt\,wght.ttf);
+.btn-sair {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004d40;
+    color: white;
+    width: 65px;
+    height: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sair:hover {
+    background-color: #00796b;
 }

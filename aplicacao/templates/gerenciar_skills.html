@@ -5,44 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Skills</title>
-    <link rel="stylesheet" href="{% static 'aplicacao/css/gerennciar_skills.css' %}">
+    <link rel="stylesheet" href="{% static 'aplicacao/css/gerenciar_skills.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
-
+<a href="{% url 'aplicacao:home' %}" class="btn-voltar">&#8592;</a>
+<br><br><br>
     <h1 id="tituloSkills">Gerenciar Skills</h1>
-
+<br><br><br>
     <form method="post">
-
         {% csrf_token %}
-
-        <label for>Selecione uma habilidade:</label>
+        <label for="selectBox">Selecione uma habilidade:</label>
 
         <select name="nameSelectBox" id="selectBox">
-            <option value="skillCostura">Costura</option>
-            <option value="skillPintura">Pintura</option>
-            <option value="skillGerenciamento">Gerenciamento</option>
+            <option value="" disabled selected>Selecione uma habilidade</option>
+            <option value="skillCostura" {% if skillSelecionada == "skillCostura" %}selected{% endif %}>Costura</option>
+            <option value="skillPintura" {% if skillSelecionada == "skillPintura" %}selected{% endif %}>Pintura</option>
+            <option value="skillGerenciamento" {% if skillSelecionada == "skillGerenciamento" %}selected{% endif %}>Gerenciamento</option>
         </select>
 
         <button type="submit">Filtrar</button>
-
     </form>
 
     <br>
 
     <div class="lista-de-cadastros">
         {% for cadastro in cadastrosFiltrados %}
-
             <a href="{% url 'aplicacao:visualizar_cadastros' cadastro.id %}">
                 <div class="cadastro-card">
-                    <h2>{{cadastro.nome}}</h2>
+                    <h2>{{ cadastro.nome }}</h2>
                 </div>
             </a>
-            
         {% empty %}
             <h1>Nenhum cadastro com essa habilidade!</h1>
         {% endfor %}
     </div>
 
+    <div class="btn-sair">
+        <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
+    </div>
 </body>
 </html>

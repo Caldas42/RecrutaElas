@@ -110,11 +110,14 @@ class GerenciarSkillsView(LoginRequiredMixin, View):
         skillSelecionada = request.POST.get('nameSelectBox')
 
         if skillSelecionada:
-            cadastros_filtrados = Cadastros.objects.filter(usuario = request.user, **{skillSelecionada: True})
+            cadastros_filtrados = Cadastros.objects.filter(usuario=request.user, **{skillSelecionada: True})
         else:
-            cadastros_filtrados = Cadastros.objects.filter(usuario = request.user)
+            cadastros_filtrados = Cadastros.objects.filter(usuario=request.user)
 
-        return render(request, 'gerenciar_skills.html', {'cadastrosFiltrados': cadastros_filtrados})
+        return render(request, 'gerenciar_skills.html', {
+            'cadastrosFiltrados': cadastros_filtrados,
+            'skillSelecionada': skillSelecionada,  # Passa a habilidade selecionada
+        })
     
 class GerenciarPastasView(LoginRequiredMixin, View):
     def get(self, request):
