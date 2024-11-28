@@ -12,6 +12,8 @@ https://github.com/user-attachments/assets/3de4f497-023f-41fb-9dca-ba449522c5d9
 
 ## Diagrama de Atividade do Sistema
 
+![image](https://github.com/user-attachments/assets/07e08553-fc06-4da7-9254-00b8545aa718)
+
 ## Print do Issue/bug Tracker
 
 ## [Link do RecrutaElas](https://registraelas.azurewebsites.net)
