@@ -30,31 +30,32 @@
                 <p>Não há colaboradoras cadastradas.</p>
             {% endfor %}
         </div>
-
+<br>
         <!-- Formulário de adicionar colaboradoras -->
         <div class="acoes-container">
-            <button class="adicionar">+ adicionar</button>
             <a href="{% url 'aplicacao:deletar_pasta' pasta.id %}" class="excluir">Excluir</a>
-            
+<br><br><br><br>
             <!-- Formulário de Adição de Colaboradoras -->
             <form method="POST" action="{% url 'aplicacao:adicionar_colaboradoras' pasta.id %}">
                 {% csrf_token %}
-                <h2>Adicionar Colaboradoras</h2>
+                <h2>Adicionar a Pasta :</h2>
                 
-                <!-- Lista de colaboradoras não associadas à pasta -->
-                <div class="colaboradoras-nao-associadas">
-                    {% for colaboradora in colaboradoras_nao_associadas %}
-                        <div class="colaboradora-item">
-                            <label>
-                                <input type="checkbox" name="cadastros" value="{{ colaboradora.id }}">
-                                {{ colaboradora.nome }}
-                            </label>
-                        </div>
-                    {% endfor %}
-                    
-                    {% if colaboradoras_nao_associadas|length == 0 %}
-                        <p>Não há colaboradoras disponíveis para adicionar.</p>
-                    {% endif %}
+                <!-- Lista de colaboradoras não associadas à pasta com barra de rolagem -->
+                <div class="colaboradoras-nao-associadas-container">
+                    <div class="colaboradoras-nao-associadas">
+                        {% for colaboradora in colaboradoras_nao_associadas %}
+                            <div class="colaboradora-item">
+                                <label>
+                                    <input type="checkbox" name="cadastros" value="{{ colaboradora.id }}">
+                                    {{ colaboradora.nome }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                        
+                        {% if colaboradoras_nao_associadas|length == 0 %}
+                            <p>Não há colaboradoras disponíveis para adicionar.</p>
+                        {% endif %}
+                    </div>
                 </div>
 
                 <!-- Botão para submeter o formulário -->

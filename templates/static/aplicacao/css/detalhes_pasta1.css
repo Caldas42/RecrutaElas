@@ -147,3 +147,15 @@ body {
 .btn-sair:hover {
     background-color: #00796b;
 }
+
+/* Adicionar estilo para a área de colaboradoras não associadas */
+.colaboradoras-nao-associadas-container {
+    max-height: 90px; /* Defina o tamanho máximo da área */
+    overflow-y: auto;  /* Adiciona rolagem vertical */
+    padding: 10px; /* Espaçamento interno */
+    margin-top: 10px;
+}
+
+.colaboradora-item {
+    margin-bottom: 10px; /* Espaçamento entre as colaboradoras */
+}
