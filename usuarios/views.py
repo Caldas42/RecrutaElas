@@ -118,7 +118,7 @@ class CadastrarPublicoView(View):
                                  skillGerenciamento = skillGerenciamento, 
                                  skillPintura = skillPintura, 
                                  skillDesign = skillDesign,
-                                 skilCriatividade = skillCriatividade,  
+                                 skillCriatividade = skillCriatividade,  
                                  skillAtendimento = skillAtendimento,
                                  skillVendas = skillVendas,
                                  skillLimpeza = skillLimpeza,   
