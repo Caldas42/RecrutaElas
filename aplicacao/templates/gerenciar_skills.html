@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="{% static 'aplicacao/css/gerenciar_skills.css' %}">
 </head>
 <body>
-<a href="{% url 'aplicacao:home' %}" class="btn-voltar">&#8592;</a>
-<br><br><br>
-    <h1 id="tituloSkills">Gerenciar Skills</h1>
-<br><br><br>
+    {% include 'navbar.html' %}
+
+    <a href="{% url 'aplicacao:home' %}" class="btn-voltar">&#8592;</a>
+    <br><br><br>
+        <h1 id="tituloSkills">Gerenciar Skills</h1>
+    <br><br><br>
+
     <form method="post">
         {% csrf_token %}
         <label for="selectBox">Selecione uma habilidade:</label>
@@ -21,6 +24,11 @@
             <option value="skillCostura" {% if skillSelecionada == "skillCostura" %}selected{% endif %}>Costura</option>
             <option value="skillPintura" {% if skillSelecionada == "skillPintura" %}selected{% endif %}>Pintura</option>
             <option value="skillGerenciamento" {% if skillSelecionada == "skillGerenciamento" %}selected{% endif %}>Gerenciamento</option>
+            <option value="skillDesign" {% if skillSelecionada == "skillDesign" %}selected{% endif %}>Design</option>
+            <option value="skillCriatividade" {% if skillSelecionada == "skillCriatividade" %}selected{% endif %}>Criatividade</option>
+            <option value="skillAtendimento" {% if skillSelecionada == "skillAtendimento" %}selected{% endif %}>Atendimento</option>
+            <option value="skillVendas" {% if skillSelecionada == "skillVendas" %}selected{% endif %}>Vendas</option>
+            <option value="skillAtendimento" {% if skillSelecionada == "skillAtendimento" %}selected{% endif %}>Atendimento</option>
         </select>
 
         <button type="submit">Filtrar</button>
@@ -38,10 +46,6 @@
         {% empty %}
             <h1>Nenhum cadastro com essa habilidade!</h1>
         {% endfor %}
-    </div>
-
-    <div class="btn-sair">
-        <a href="{% url 'usuarios:logout' %}" class="sair">&#x27F3; sair</a>
     </div>
 </body>
 </html>

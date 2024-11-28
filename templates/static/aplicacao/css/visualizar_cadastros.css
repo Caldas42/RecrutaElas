@@ -17,6 +17,10 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+#backIcon{
+    font-size: 200%;
+    color: #374747;
+}
 /* Título */
 #cadastro-estilo {
     font-size: 24px;
