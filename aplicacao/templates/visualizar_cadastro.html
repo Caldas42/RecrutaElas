@@ -22,6 +22,15 @@
                 <th>Informação</th>
             </tr>
             <tr>
+                <td>Foto:</td>
+                <td>
+                    {% if cadastro.imagem %}
+                        <img src="{{ cadastro.imagem.url }}" alt="Imagem do Cadastro" style="max-width: 300px; max-height: 300px;">
+                    {% else %}
+                        <p>Sem imagem</p>
+                    {% endif %}
+                </td>
+            <tr>
                 <td>Nome:</td>
                 <td>{{ cadastro.nome }}</td>
             </tr>
@@ -36,6 +45,10 @@
             <tr>
                 <td>Celular:</td>
                 <td>{{ cadastro.celular }}</td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td>{{ cadastro.email }}</td>
             </tr>
             <tr>
                 <td>CEP:</td>
@@ -62,14 +75,21 @@
                 <td>{{ cadastro.complemento }}</td>
             </tr>
             <tr>
-                <td>Imagem:</td>
-                <td>
-                    {% if cadastro.imagem %}
-                        <img src="{{ cadastro.imagem.url }}" alt="Imagem do Cadastro" style="max-width: 300px; max-height: 300px;">
-                    {% else %}
-                        <p>Sem imagem</p>
-                    {% endif %}
-                </td>
+                <td>Escolaridade:</td>
+                <td>{{ cadastro.escolaridade }}</td>
+            </tr>
+            <tr>
+                <td>Experiência:</td>
+                <td>{{ cadastro.experiencia }}</td>
+            </tr>
+            <tr>
+                <td>Disponibilidade:</td>
+                <td>{{ cadastro.disponibilidade }}</td>
+            </tr>
+            <tr>
+                <td>Área de interesse:</td>
+                <td>{{ cadastro.interesse }}</td>
+            </tr>
             </tr>
         </table>
         <h2>Comentários</h2>
