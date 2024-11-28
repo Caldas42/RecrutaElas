@@ -14,17 +14,24 @@
 
         <form method="POST">
             {% csrf_token %}
-            <label for="nomePasta">Nome da Pasta:</label>
-            <input type="text" id="nomePasta" name="nomePasta" required>
+            
+            <!-- Nome da pasta -->
+            <div class="form-group">
+                <label for="nomePasta" class="label">Nome da Pasta:</label>
+                <input type="text" id="nomePasta" name="nomePasta" required class="input">
+            </div>
 
-            <label for="cadastros">Adicionar Mulheres:</label>
-            <div class="checkbox-group">
-                {% for cadastro in cadastros %}
-                    <div class="checkbox-item">
-                        <label for="mulher_{{ cadastro.id }}">{{ cadastro.nome }}</label>
-                        <input type="checkbox" id="mulher_{{ cadastro.id }}" name="cadastros" value="{{ cadastro.id }}">
-                    </div>
-                {% endfor %}
+            <!-- Adicionar mulheres -->
+            <div class="form-group">
+                <label for="cadastros" class="label">Adicionar Mulheres:</label>
+                <div class="checkbox-group">
+                    {% for cadastro in cadastros %}
+                        <div class="checkbox-item">
+                            <label for="mulher_{{ cadastro.id }}" class="checkbox-label">{{ cadastro.nome }}</label>
+                            <input type="checkbox" id="mulher_{{ cadastro.id }}" name="cadastros" value="{{ cadastro.id }}" class="checkbox-input">
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
             <button type="submit" class="btn-submit">Criar Pasta</button>
