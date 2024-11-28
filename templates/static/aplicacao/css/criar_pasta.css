@@ -141,6 +141,10 @@ body {
     text-decoration: none;
 }
 
+.btn-voltar:hover {
+    background-color: #ffa944;
+}
+
 
 /* Botão de Sair */
 .btn-sair {
